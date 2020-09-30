@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:padding="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/sivMoviePoster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleMovies"
+            style="@style/TitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/sivMoviePoster"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleYearMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvYearMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitleYearMovies"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleRatingMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
+            app:layout_constraintLeft_toRightOf="@+id/mtvYearMovies"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvRatingMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitleRatingMovies"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitlePGMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
+            app:layout_constraintLeft_toRightOf="@+id/mtvRatingMovies"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvPGMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitlePGMovies"
+            />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleGenreMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvPGMovies"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvGenreMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvPGMovies"
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitleGenreMovies"
+            />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleDirectorMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvGenreMovies"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvDirectorMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvGenreMovies"
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitleDirectorMovies"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleWriterMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvGenreMovies"
+            app:layout_constraintRight_toLeftOf="@+id/mtvWriterMovies"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvWriterMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvGenreMovies"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,4 +1,4 @@
 package com.app.socialapp.ui.sociallist
 
-class SocialListView {
+class SocialListView : SocialListContract.View {
 }
