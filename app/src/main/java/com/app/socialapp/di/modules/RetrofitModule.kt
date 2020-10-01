@@ -18,6 +18,7 @@ class RetrofitModule(private val context: Context, private val baseUrl: String) 
         return getClient(context, baseUrl).create(ServiceApi::class.java)
     }
 
+
     @Provides
     fun getClient(context: Context, baseUrl: String): Retrofit {
         val gsonBuilder = GsonBuilder()
@@ -25,7 +26,6 @@ class RetrofitModule(private val context: Context, private val baseUrl: String) 
         retrofit = Retrofit.Builder().baseUrl(baseUrl)
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
-                //.client(getUnsafeOkHttpClient(context))
                 .build()
         return retrofit
     }

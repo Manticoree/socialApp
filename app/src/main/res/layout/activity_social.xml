@@ -52,7 +52,7 @@
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabDiffTrainHome"
+            android:id="@+id/tabDiffSocial"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             app:tabIndicatorHeight="6dp"
@@ -62,7 +62,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vpProgramTrainHome"
+        android:id="@+id/vpSocial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

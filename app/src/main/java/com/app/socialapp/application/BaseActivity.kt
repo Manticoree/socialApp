@@ -1,0 +1,5 @@
+package com.app.socialapp.application
+
+import androidx.appcompat.app.AppCompatActivity
+
+open class BaseActivity : AppCompatActivity()
