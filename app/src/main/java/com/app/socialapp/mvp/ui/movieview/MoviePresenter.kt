@@ -6,4 +6,8 @@ class MoviePresenter(view: MovieContract.View) : MovieContract.Presenter {
     init {
         MainApplication.applicationComponent?.inject(this)
     }
+
+    override fun onShowRecyclerView() {
+        TODO("Not yet implemented")
+    }
 }

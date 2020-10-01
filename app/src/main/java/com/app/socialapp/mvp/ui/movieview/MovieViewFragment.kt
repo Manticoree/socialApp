@@ -4,13 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
+import com.app.socialapp.adapter.SocialNetworkAdapter
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.fragment.BaseFragment
+import eu.davidea.flexibleadapter.FlexibleAdapter
+import kotlinx.android.synthetic.main.fragment_social.*
 
 class MovieViewFragment : BaseFragment(), MovieContract.View {
 
     private var presenter: MovieContract.Presenter? = null
+    private lateinit var adapter: FlexibleAdapter<SocialNetworkAdapter>
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -38,4 +44,17 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
             presenter = MoviePresenter(this)
         return view
     }
+
+    override fun showRecyclerView(initList: List<SocialNetworkAdapter>) {
+        rvListSource.setHasFixedSize(true)
+        var manager: RecyclerView.LayoutManager = LinearLayoutManager(
+                activity,
+                LinearLayoutManager.VERTICAL,
+                false
+        )
+        rvListSource.layoutManager = manager
+        adapter = FlexibleAdapter(initList)
+        rvListSource.adapter = adapter
+    }
+
 }
