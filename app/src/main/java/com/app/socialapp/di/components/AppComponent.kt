@@ -7,6 +7,7 @@ import com.app.socialapp.di.ApplicationContext
 import com.app.socialapp.di.modules.ApplicationModule
 import com.app.socialapp.di.modules.ContextModule
 import com.app.socialapp.di.modules.RetrofitModule
+import com.app.socialapp.di.modules.RoomModule
 import com.app.socialapp.mvp.ui.movieview.MoviePresenter
 import com.app.socialapp.mvp.ui.movieview.MovieViewFragment
 import com.app.socialapp.mvp.ui.searchview.SearchPresenter
@@ -20,7 +21,8 @@ import javax.inject.Singleton
 @Component(modules = [
     RetrofitModule::class,
     ContextModule::class,
-    ApplicationModule::class
+    ApplicationModule::class,
+    RoomModule::class
 ])
 interface AppComponent {
     @ApplicationContext
