@@ -41,7 +41,7 @@ class SearchPresenter(
                     }
 
                     override fun onError(e: @NonNull Throwable) {
-                        Log.e("valueSearch", e.message)
+                        Log.e("valueSearchE", e.localizedMessage)
                     }
                 })
         Log.i("valueSearch ", "sub" + "serviceApi " + serviceApi.toString())

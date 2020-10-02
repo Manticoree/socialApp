@@ -21,5 +21,5 @@ data class ItemNews(
         @field:SerializedName("Language") val language: String,
         @field:SerializedName("Country") val country: String,
         @field:SerializedName("Awards") val awards: String,
-        @field:SerializedName("Ratings") val rating: ItemRating,
+        @field:SerializedName("Ratings") val rating: List<ItemRating>,
         @field:SerializedName("Poster") val poster: String) : Serializable

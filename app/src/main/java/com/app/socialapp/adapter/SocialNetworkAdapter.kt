@@ -38,7 +38,7 @@ class SocialNetworkAdapter(private val itemNews: ItemNews?) : AbstractFlexibleIt
 
         fun bind(item: ItemNews?) {
             itemView.mtvTitleMovies.text = item?.title
-            itemView.mtvRatingMovies.text = item?.rating?.value
+           // itemView.mtvRatingMovies.text = item?.rating?.value
             itemView.mtvPGMovies.text = item?.rated
             itemView.mtvGenreMovies.text = item?.genre
             itemView.mtvDirectorMovies.text = item?.director
