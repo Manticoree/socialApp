@@ -11,7 +11,7 @@ import com.app.socialapp.di.modules.RoomModule
 import com.app.socialapp.mvp.ui.movieview.MoviePresenter
 import com.app.socialapp.mvp.ui.movieview.MovieViewFragment
 import com.app.socialapp.mvp.ui.searchview.SearchPresenter
-import com.app.socialapp.mvp.ui.searchview.SearchView
+import com.app.socialapp.mvp.ui.searchview.SearchViewFragment
 import com.app.socialapp.mvp.ui.socialview.SocialPresenter
 import com.app.socialapp.mvp.ui.socialview.SocialViewActivity
 import dagger.Component
@@ -36,7 +36,7 @@ interface AppComponent {
 
     fun inject(moviePresenter: MoviePresenter)
 
-    fun inject(searchView: SearchView)
+    fun inject(searchViewFragment: SearchViewFragment)
 
     fun inject(searchPresenter: SearchPresenter)
 

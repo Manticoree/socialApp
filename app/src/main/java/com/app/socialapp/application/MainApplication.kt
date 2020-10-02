@@ -6,7 +6,6 @@ import com.app.socialapp.di.components.DaggerAppComponent
 import com.app.socialapp.di.modules.ApplicationModule
 import com.app.socialapp.di.modules.ContextModule
 import com.app.socialapp.di.modules.RetrofitModule
-import org.jetbrains.annotations.Contract
 
 class MainApplication : MultiDexApplication() {
     override fun onCreate() {
@@ -15,14 +14,14 @@ class MainApplication : MultiDexApplication() {
                 .builder()
                 .applicationModule(ApplicationModule(this))
                 .contextModule(ContextModule(this))
-                .retrofitModule(RetrofitModule(this, "http://www.omdbapi.com/"))
+                .retrofitModule(RetrofitModule(this, "http://www.omdbapi.com"))
                 .build()
-        applicationComponent!!.inject(this)
+        applicationComponent.inject(this)
     }
 
     companion object {
-        @get:Contract(pure = true)
-        var applicationComponent: AppComponent? = null
-            private set
+
+        lateinit var applicationComponent: AppComponent
+
     }
 }

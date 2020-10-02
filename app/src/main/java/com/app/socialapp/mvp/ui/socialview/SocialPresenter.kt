@@ -12,4 +12,12 @@ class SocialPresenter(private val viewActivity: SocialViewActivity) : SocialCont
         viewActivity.showMoviesFragment()
     }
 
+    override fun onShowSearchFragment() {
+        viewActivity.showSearchFragment()
+    }
+
+    override fun onGoToTeSearchView() {
+        viewActivity.goToTheSearchView()
+    }
+
 }

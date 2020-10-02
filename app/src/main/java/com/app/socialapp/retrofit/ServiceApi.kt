@@ -7,9 +7,9 @@ import retrofit2.http.Query
 
 interface ServiceApi {
 
-    @GET("")
-    fun getMovies(@Query("p") movieName: String,
-                  @Query("token") token: String)
+    @GET("/")
+    fun getMovies(@Query("t") movieName: String,
+                  @Query("apikey") token: String)
             : Single<ItemNews>
 
 }

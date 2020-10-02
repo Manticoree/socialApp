@@ -39,7 +39,7 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        var view: View = inflater.inflate(R.layout.fragment_social, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_social, container, false)
         if (presenter == null)
             presenter = MoviePresenter(this)
         return view
@@ -47,7 +47,7 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
 
     override fun showRecyclerView(initList: List<SocialNetworkAdapter>) {
         rvListSource.setHasFixedSize(true)
-        var manager: RecyclerView.LayoutManager = LinearLayoutManager(
+        val manager: RecyclerView.LayoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.VERTICAL,
                 false
@@ -56,5 +56,6 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
         adapter = FlexibleAdapter(initList)
         rvListSource.adapter = adapter
     }
+
 
 }
