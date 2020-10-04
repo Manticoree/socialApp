@@ -3,4 +3,5 @@
     <string name="input_movies">Введите название фильма</string>
     <string name="input_movies_hint">название фильма английском языке</string>
     <string name="search">Поиск</string>
+    <string name="description">Description:</string>
 </resources>

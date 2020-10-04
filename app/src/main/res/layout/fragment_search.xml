@@ -44,4 +44,41 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/sivMoviePoster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/mbtnSearchMovie" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mtvMoviesTitle"
+        style="@style/TitleTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/sivMoviePoster" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mtvTitleDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:text="@string/description"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/mtvMoviesTitle" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mtvDescription"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mtvTitleDescription" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

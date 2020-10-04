@@ -10,5 +10,6 @@ interface MovieContract {
 
     interface Presenter {
         fun onShowRecyclerView()
+        fun initDataFromDB()
     }
 }

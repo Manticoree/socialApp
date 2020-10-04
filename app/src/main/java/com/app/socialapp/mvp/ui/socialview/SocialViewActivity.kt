@@ -8,10 +8,15 @@ import com.app.socialapp.application.BaseActivity
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.mvp.fragmentadapter.AdapterSocial
 import com.app.socialapp.mvp.ui.searchview.SearchViewFragment
+import com.app.socialapp.room.MoviesDao
 import com.jakewharton.rxbinding4.view.clicks
 import kotlinx.android.synthetic.main.activity_social.*
+import javax.inject.Inject
 
 class SocialViewActivity() : BaseActivity(), SocialContract.View {
+
+    var moviesDao: MoviesDao? = null
+        @Inject set
 
     private var presenter: SocialContract.Presenter? = null
     private var adapter: AdapterSocial? = null

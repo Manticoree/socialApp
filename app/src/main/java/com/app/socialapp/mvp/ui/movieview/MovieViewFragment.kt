@@ -1,6 +1,7 @@
 package com.app.socialapp.mvp.ui.movieview
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,13 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        presenter?.onShowRecyclerView()
+    }
+
     override fun showRecyclerView(initList: List<SocialNetworkAdapter>) {
+        Log.i("initList: ", initList.toString())
         rvListSource.setHasFixedSize(true)
         val manager: RecyclerView.LayoutManager = LinearLayoutManager(
                 activity,

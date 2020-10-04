@@ -5,16 +5,16 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.app.socialapp.entities.ItemNews
-import io.reactivex.rxjava3.core.Single
+
 
 @Dao
 interface MoviesDao {
 
-    @Query("SELECT* FROM ItemNews")
-    fun getAll(): Single<List<ItemNews>>
+    @Query("SELECT* from item_news")
+    fun getAll(): List<ItemNews>
 
-    @Query("SELECT* FROM ItemNews WHERE idItem = :idItem")
-    fun getById(idItem: Long): Single<ItemNews>
+    @Query("SELECT* from item_news WHERE idItem = :idItem")
+    fun getById(idItem: Long): ItemNews
 
     @Insert
     fun insert(itemNews: ItemNews)

@@ -16,7 +16,7 @@ class RoomModule(@ApplicationContext
 
     companion object {
         @DatabaseInfo
-        const val dbName: String = "social_app.db"
+        const val dbName: String = "social_app1.db"
     }
 
     @Singleton
@@ -28,7 +28,8 @@ class RoomModule(@ApplicationContext
                 dbName
         )
                 .allowMainThreadQueries()
-                .fallbackToDestructiveMigration().build();
+                .fallbackToDestructiveMigration()
+                .build()
     }
 
     @Provides

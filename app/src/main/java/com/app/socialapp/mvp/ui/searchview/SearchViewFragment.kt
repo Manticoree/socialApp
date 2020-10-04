@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.app.socialapp.R
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.fragment.BaseFragment
+import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding4.view.clicks
 import kotlinx.android.synthetic.main.fragment_search.*
 
@@ -46,8 +47,17 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
         }
     }
 
-    override fun showMovieFragment() {
-        TODO("Not yet implemented")
+    override fun showMovie(moviePoster: String?, movieTitle: String?, movieDescription: String?) {
+        sivMoviePoster.visibility = View.VISIBLE
+        mtvMoviesTitle.visibility = View.VISIBLE
+        mtvDescription.visibility = View.VISIBLE
+        Glide
+                .with(this)
+                .load(moviePoster)
+                .centerCrop()
+                .into(sivMoviePoster)
+        mtvMoviesTitle.text = movieTitle
+        mtvDescription.text = movieDescription
     }
 
 }
