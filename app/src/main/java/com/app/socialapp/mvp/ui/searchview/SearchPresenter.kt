@@ -42,6 +42,7 @@ class SearchPresenter(
                     override fun onSuccess(itemNews: ItemNews) {
                         Log.i("valueSearch", itemNews.toString())
                         moviesDao?.insert(itemNews)
+                        view.showMovie(itemNews.poster, itemNews.title, itemNews.plot)
                     }
 
                     override fun onError(e: @NonNull Throwable) {

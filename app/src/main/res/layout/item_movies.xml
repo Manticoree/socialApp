@@ -34,6 +34,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/year"
             app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
             app:layout_constraintLeft_toLeftOf="parent"
             />
@@ -52,6 +53,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/rating"
             app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
             app:layout_constraintLeft_toRightOf="@+id/mtvYearMovies"
             />
@@ -68,6 +70,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/rated"
             app:layout_constraintTop_toBottomOf="@+id/mtvTitleMovies"
             app:layout_constraintLeft_toRightOf="@+id/mtvRatingMovies"
             />
@@ -86,6 +89,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/genre"
             app:layout_constraintTop_toBottomOf="@+id/mtvPGMovies"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -105,6 +109,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/director"
             app:layout_constraintTop_toBottomOf="@+id/mtvGenreMovies"
             app:layout_constraintLeft_toLeftOf="parent"
             />
@@ -121,6 +126,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/writer"
             app:layout_constraintTop_toBottomOf="@+id/mtvGenreMovies"
             app:layout_constraintRight_toLeftOf="@+id/mtvWriterMovies" />
 
@@ -137,6 +143,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/language"
             app:layout_constraintTop_toBottomOf="@+id/mtvWriterMovies"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -153,6 +160,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/country"
             app:layout_constraintTop_toBottomOf="@+id/mtvWriterMovies"
             app:layout_constraintLeft_toRightOf="@+id/mtvLanguageMovies" />
 
@@ -169,6 +177,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/awards"
             app:layout_constraintTop_toBottomOf="@+id/mtvWriterMovies"
             app:layout_constraintLeft_toRightOf="@+id/mtvCountryMovies" />
 
@@ -185,6 +194,7 @@
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/description"
             app:layout_constraintTop_toBottomOf="@+id/mtvAwardsMovies"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

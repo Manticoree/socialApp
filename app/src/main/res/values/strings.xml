@@ -4,4 +4,16 @@
     <string name="input_movies_hint">название фильма английском языке</string>
     <string name="search">Поиск</string>
     <string name="description">Description:</string>
+    <string name="year">Year:</string>
+    <string name="rated">Rated:</string>
+    <string name="released">Released:</string>
+    <string name="runtime">Runtime:</string>
+    <string name="genre">Genre:</string>
+    <string name="director">Director:</string>
+    <string name="writer">Writer:</string>
+    <string name="actors">Actors:</string>
+    <string name="rating">Rating:</string>
+    <string name="language">Language</string>
+    <string name="country">Country</string>
+    <string name="awards">Awards</string>
 </resources>
