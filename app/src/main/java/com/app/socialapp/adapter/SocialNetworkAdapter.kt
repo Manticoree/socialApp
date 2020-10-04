@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
 import com.app.socialapp.entities.ItemNews
 import com.bumptech.glide.Glide
+import com.google.android.material.shape.CornerFamily
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem
 import eu.davidea.flexibleadapter.items.IFlexible
@@ -47,12 +48,19 @@ class SocialNetworkAdapter(private val itemNews: ItemNews?) : AbstractFlexibleIt
             itemView.mtvCountryMovies.text = item?.country
             itemView.mtvAwardsMovies.text = item?.awards
             itemView.mtvDescriptionMovies.text = item?.plot
+            changeShapeImageView()
             Glide
                     .with(view)
                     .load(item?.poster)
-                    .centerCrop()
                     .into(itemView.sivMoviePoster)
 
+        }
+
+        fun changeShapeImageView() {
+            itemView.sivMoviePoster.shapeAppearanceModel = itemView.sivMoviePoster.shapeAppearanceModel
+                    .toBuilder()
+                    .setTopRightCorner(CornerFamily.CUT, 200f)
+                    .build()
         }
     }
 

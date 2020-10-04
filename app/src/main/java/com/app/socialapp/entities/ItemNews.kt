@@ -9,7 +9,7 @@ import java.io.Serializable
 @Entity(tableName = "item_news")
 data class ItemNews(
         @field:PrimaryKey(autoGenerate = true) @ColumnInfo(name = "idItem") val idItem: Long,
-        @field:SerializedName("Title") @ColumnInfo(name = "title") val title: String,
+        @field:SerializedName("Title") @ColumnInfo(name = "title") val title: String?,
         @field:SerializedName("Year") @ColumnInfo(name = "year") val year: Int,
         @field:SerializedName("Rated") @ColumnInfo(name = "rated") val rated: String,
         @field:SerializedName("Released") @ColumnInfo(name = "released") val released: String,

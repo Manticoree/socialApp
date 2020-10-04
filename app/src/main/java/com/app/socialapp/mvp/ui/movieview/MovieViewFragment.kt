@@ -66,3 +66,5 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
 
 
 }
+
+

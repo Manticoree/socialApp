@@ -13,7 +13,7 @@
     <string name="writer">Writer:</string>
     <string name="actors">Actors:</string>
     <string name="rating">Rating:</string>
-    <string name="language">Language</string>
-    <string name="country">Country</string>
-    <string name="awards">Awards</string>
+    <string name="language">Language:</string>
+    <string name="country">Country:</string>
+    <string name="awards">Awards:</string>
 </resources>

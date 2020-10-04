@@ -57,4 +57,5 @@ class MoviePresenter(var view: MovieContract.View) : MovieContract.Presenter {
 
 */
     }
+
 }
