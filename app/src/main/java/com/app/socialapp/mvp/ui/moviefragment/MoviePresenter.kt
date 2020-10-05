@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.movieview
+package com.app.socialapp.mvp.ui.moviefragment
 
 
 import android.util.Log

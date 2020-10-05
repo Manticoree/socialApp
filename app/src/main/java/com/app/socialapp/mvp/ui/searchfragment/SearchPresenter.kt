@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.searchview
+package com.app.socialapp.mvp.ui.searchfragment
 
 import android.util.Log
 import com.app.socialapp.application.MainApplication
@@ -57,11 +57,11 @@ class SearchPresenter(
     }
 
     override fun onClickBack() {
-
+        view.clickBack()
     }
 
     override fun onBackToTheMoviesFragment() {
-
+        view.backToTheMoviesFragment()
     }
 }
 

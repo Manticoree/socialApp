@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppThemeNoActionBar">
-        <activity android:name="com.app.socialapp.mvp.ui.socialview.SocialViewActivity">
+        <activity android:name="com.app.socialapp.mvp.ui.socialactivity.SocialViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

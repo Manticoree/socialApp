@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.searchview
+package com.app.socialapp.mvp.ui.searchfragment
 
 interface SearchContract {
     interface View {

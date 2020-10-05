@@ -1,17 +1,23 @@
-package com.app.socialapp.mvp.ui.socialview
+package com.app.socialapp.mvp.ui.moviespagesfragment
 
-interface SocialContract {
+interface MoviesPagesContract {
 
     interface View {
+
         fun showMoviesFragment()
+
         fun goToTheSearchView()
+
         fun showSearchFragment()
     }
 
     interface Presenter {
+
         fun onShowMoviesFragment()
+
+        fun onGoToTheSearchView()
+
         fun onShowSearchFragment()
-        fun onGoToTeSearchView()
     }
 
 }

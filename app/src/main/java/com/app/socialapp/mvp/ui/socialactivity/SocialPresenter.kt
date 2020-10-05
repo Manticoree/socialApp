@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.socialview
+package com.app.socialapp.mvp.ui.socialactivity
 
 import com.app.socialapp.application.MainApplication
 
@@ -12,12 +12,5 @@ class SocialPresenter(private val viewActivity: SocialViewActivity) : SocialCont
         viewActivity.showMoviesFragment()
     }
 
-    override fun onShowSearchFragment() {
-        viewActivity.showSearchFragment()
-    }
-
-    override fun onGoToTeSearchView() {
-        viewActivity.goToTheSearchView()
-    }
 
 }

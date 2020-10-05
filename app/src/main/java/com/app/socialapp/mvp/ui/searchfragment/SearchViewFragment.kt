@@ -1,13 +1,15 @@
-package com.app.socialapp.mvp.ui.searchview
+package com.app.socialapp.mvp.ui.searchfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import com.app.socialapp.R
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.fragment.BaseFragment
+import com.app.socialapp.mvp.ui.moviespagesfragment.MoviesPagesViewFragment
 import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding4.view.clicks
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -29,9 +31,10 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
         return view
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         presenter?.onClickSearch()
+        presenter?.onClickBack()
     }
 
     override fun showMovie(moviePoster: String?, movieTitle: String?, movieDescription: String?) {
@@ -59,14 +62,13 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
 
     override fun clickBack() {
         mbtnBack.clicks().subscribe {
-            /*
-            val manager: FragmentManager = requireActivity().supportFragmentManager
-            var fragment:SearchViewFragment = manager
-             */
+            presenter?.onBackToTheMoviesFragment()
         }
     }
 
     override fun backToTheMoviesFragment() {
-
+        val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fcvFragment, MoviesPagesViewFragment())
+        transaction.commit()
     }
 }
