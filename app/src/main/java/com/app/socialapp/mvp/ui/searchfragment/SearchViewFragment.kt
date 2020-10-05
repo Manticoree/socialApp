@@ -1,6 +1,8 @@
 package com.app.socialapp.mvp.ui.searchfragment
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,16 +20,22 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
 
 
     var presenter: SearchContract.Presenter? = null
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.i("LifecycleFragment: ", "attach")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MainApplication.applicationComponent?.inject(this)
+        Log.i("LifecycleFragment: ", "create")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_search, container, false)
         if (presenter == null)
             presenter = SearchPresenter(this)
+        Log.i("LifecycleFragment: ", "onCreateView")
         return view
     }
 
@@ -35,6 +43,47 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
         super.onViewCreated(view, savedInstanceState)
         presenter?.onClickSearch()
         presenter?.onClickBack()
+        Log.i("LifecycleFragment: ", "onViewCreated")
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        Log.i("LifecycleFragment: ", "onActivityCreated")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("LifecycleFragment: ", "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("LifecycleFragment: ", "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("LifecycleFragment: ", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("LifecycleFragment: ", "onStop")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.i("LifecycleFragment: ", "onDestroyView")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("LifecycleFragment: ", "onDestroy")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.i("LifecycleFragment: ", "onDetach")
     }
 
     override fun showMovie(moviePoster: String?, movieTitle: String?, movieDescription: String?) {
@@ -69,6 +118,7 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
     override fun backToTheMoviesFragment() {
         val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fcvFragment, MoviesPagesViewFragment())
+
         transaction.commit()
     }
 }

@@ -30,6 +30,7 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MainApplication.applicationComponent?.inject(this)
