@@ -16,7 +16,6 @@ class SearchPresenter(
         val view: SearchContract.View
 ) : SearchContract.Presenter {
 
-
     var serviceApi: ServiceApi? = null
         @Inject set
 
@@ -25,11 +24,14 @@ class SearchPresenter(
 
     companion object {
         const val IMBD_TOKEN: String = "9531f308"
+    }
 
+    override fun onClickSearch() {
+        view.clickSearch()
     }
 
     override fun searchMovie(name: String) {
-        MainApplication.applicationComponent?.inject(this)
+        MainApplication.applicationComponent.inject(this)
         Log.i("valueSearch ", "sub" + "serviceApi " + serviceApi.toString())
         serviceApi?.getMovies(name, IMBD_TOKEN)
                 ?.subscribeOn(Schedulers.io())
@@ -54,7 +56,13 @@ class SearchPresenter(
         Log.i("valueSearch ", "sub" + "serviceApi " + serviceApi.toString())
     }
 
+    override fun onClickBack() {
 
+    }
+
+    override fun onBackToTheMoviesFragment() {
+
+    }
 }
 
 

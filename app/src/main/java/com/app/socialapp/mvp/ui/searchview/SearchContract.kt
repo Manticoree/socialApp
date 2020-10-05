@@ -2,13 +2,18 @@ package com.app.socialapp.mvp.ui.searchview
 
 interface SearchContract {
     interface View {
-        fun onClickSearch()
+        fun clickSearch()
         fun showMovie(moviePoster: String?, movieTitle: String?, movieDescription: String?)
+        fun clickBack()
+        fun backToTheMoviesFragment()
 
     }
 
     interface Presenter {
+        fun onClickSearch()
         fun searchMovie(name: String)
+        fun onClickBack()
+        fun onBackToTheMoviesFragment()
 
 
     }

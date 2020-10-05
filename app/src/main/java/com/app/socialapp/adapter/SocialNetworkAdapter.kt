@@ -39,6 +39,8 @@ class SocialNetworkAdapter(private val itemNews: ItemNews?) : AbstractFlexibleIt
 
         fun bind(item: ItemNews?) {
             itemView.mtvTitleMovies.text = item?.title
+            itemView.mtvYearMovies.text = item?.year.toString()
+            itemView.mtvRuntimeMovies.text = item?.runtime
             /*itemView.mtvRatingMovies.text = item?.rating?.get(0)?.value*/
             itemView.mtvPGMovies.text = item?.rated
             itemView.mtvGenreMovies.text = item?.genre
@@ -56,7 +58,7 @@ class SocialNetworkAdapter(private val itemNews: ItemNews?) : AbstractFlexibleIt
 
         }
 
-        fun changeShapeImageView() {
+        private fun changeShapeImageView() {
             itemView.sivMoviePoster.shapeAppearanceModel = itemView.sivMoviePoster.shapeAppearanceModel
                     .toBuilder()
                     .setTopRightCorner(CornerFamily.CUT, 200f)

@@ -1,7 +1,6 @@
 package com.app.socialapp.mvp.ui.searchview
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,19 +31,7 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
 
     override fun onResume() {
         super.onResume()
-        onClickSearch()
-    }
-
-    override fun onClickSearch() {
-        mbtnSearchMovie.clicks().subscribe {
-            Log.i("click on search: ", "")
-            if (tietMovie.text.toString() != "") {
-                presenter?.searchMovie(tietMovie.text.toString())
-            } else {
-                Toast.makeText(activity, "введите название фильма: ", Toast.LENGTH_SHORT).show()
-            }
-            // presenter?.onShowMovieFragment()
-        }
+        presenter?.onClickSearch()
     }
 
     override fun showMovie(moviePoster: String?, movieTitle: String?, movieDescription: String?) {
@@ -60,4 +47,26 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
         mtvDescription.text = movieDescription
     }
 
+    override fun clickSearch() {
+        mbtnSearchMovie.clicks().subscribe {
+            if (tietMovie.text.toString() != "") {
+                presenter?.searchMovie(tietMovie.text.toString())
+            } else {
+                Toast.makeText(activity, "Введите название фильма: ", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    override fun clickBack() {
+        mbtnBack.clicks().subscribe {
+            /*
+            val manager: FragmentManager = requireActivity().supportFragmentManager
+            var fragment:SearchViewFragment = manager
+             */
+        }
+    }
+
+    override fun backToTheMoviesFragment() {
+
+    }
 }

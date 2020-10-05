@@ -39,7 +39,7 @@
         <View
             android:id="@+id/dividerTop"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="0.5dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
@@ -63,8 +63,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/dividerTop"
-            app:layout_constraintLeft_toRightOf="@+id/mtvTitleYearMovies"
-            />
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitleYearMovies" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleRuntimeMovies"
+            style="@style/LittleTitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/runtime"
+            app:layout_constraintTop_toBottomOf="@+id/mtvYearMovies"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvRuntimeMovies"
+            style="@style/CommonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mtvYearMovies"
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitleRuntimeMovies" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtvTitleRatingMovies"
@@ -72,14 +88,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rating"
-            app:layout_constraintTop_toBottomOf="@+id/mtvYearMovies"
+            app:layout_constraintTop_toBottomOf="@+id/mtvRuntimeMovies"
             app:layout_constraintLeft_toLeftOf="parent" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtvRatingMovies"
             style="@style/CommonTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/mtvYearMovies"
+            app:layout_constraintTop_toBottomOf="@+id/mtvRuntimeMovies"
             app:layout_constraintLeft_toRightOf="@+id/mtvTitleRatingMovies"
             />
 
@@ -229,11 +246,53 @@
         <View
             android:id="@+id/dividerBottom"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="0.5dp"
             android:layout_margin="10dp"
             android:background="@color/colorPrimary"
             android:paddingBottom="10dp"
             app:layout_constraintTop_toBottomOf="@+id/mtvDescriptionMovies" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbtnAddInCategories"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_add_favorite_24"
+            app:iconGravity="start"
+            app:iconPadding="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/dividerBottom"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbtnDelete"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textAllCaps="false"
+            android:text="@string/delete"
+            app:icon="@drawable/ic_delete_24"
+            app:iconGravity="start"
+            app:iconPadding="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/dividerBottom"
+            app:layout_constraintLeft_toRightOf="@+id/mbtnAddInCategories" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbtnShare"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textAllCaps="false"
+            android:text="@string/share"
+            app:icon="@drawable/ic_share_24"
+            app:iconGravity="start"
+            app:iconPadding="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/mbtnDelete"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

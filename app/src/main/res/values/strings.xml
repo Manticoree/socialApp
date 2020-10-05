@@ -3,6 +3,10 @@
     <string name="input_movies">Введите название фильма</string>
     <string name="input_movies_hint">название фильма английском языке</string>
     <string name="search">Поиск</string>
+    <string name="add">Добавить в подборку</string>
+    <string name="delete">Удалить</string>
+    <string name="share">Поделиться</string>
+    <string name="back">Назад</string>
     <string name="description">Description:</string>
     <string name="year">Year:</string>
     <string name="rated">Rated:</string>

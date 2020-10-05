@@ -24,7 +24,7 @@ class SocialViewActivity() : BaseActivity(), SocialContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_social)
-        MainApplication.applicationComponent?.inject(this)
+        MainApplication.applicationComponent.inject(this)
         if (presenter == null)
             presenter = SocialPresenter(this)
         presenter?.onShowMoviesFragment()
@@ -58,4 +58,5 @@ class SocialViewActivity() : BaseActivity(), SocialContract.View {
         fTransaction.add(R.id.fcvFragment, SearchViewFragment())
         fTransaction.commit()
     }
+
 }
