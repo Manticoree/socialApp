@@ -12,6 +12,7 @@ import com.app.socialapp.fragment.BaseFragment
 import com.app.socialapp.mvp.fragmentadapter.AdapterSocial
 import com.app.socialapp.mvp.ui.searchfragment.SearchViewFragment
 import com.jakewharton.rxbinding4.view.clicks
+import io.reactivex.rxjava3.disposables.Disposable
 
 import kotlinx.android.synthetic.main.fragment_movies.*
 
@@ -19,85 +20,98 @@ class MoviesPagesViewFragment : BaseFragment(), MoviesPagesContract.View {
 
     var presenter: MoviesPagesContract.Presenter? = null
     var adapter: AdapterSocial? = null
+    var disList: MutableList<Disposable> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MainApplication.applicationComponent.inject(this)
-        Log.i("LifecycleFragment: ", "onCreate")
+        Log.i("LifecycleFragmentInit: ", "onCreate")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_movies, container, false)
-        if (presenter == null)
-            presenter = MoviesPagesPresenter(this)
-        Log.i("LifecycleFragment: ", "onCreateView")
+        retainInstance = true
+        Log.i("LifecycleFragmentInit: ", "onCreateView")
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter?.onGoToTheSearchView()
-        Log.i("LifecycleFragment: ", "onViewCreated")
+        Log.i("LifecycleFragmentInit: ", "onViewCreated")
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.i("LifecycleFragment: ", "onActivityCreated")
+        Log.i("LifecycleFragmentInit: ", "onActivityCreated")
     }
 
     override fun onStart() {
         super.onStart()
-        Log.i("LifecycleFragment: ", "onStart")
+        if (presenter == null)
+            presenter = MoviesPagesPresenter(this)
+        presenter?.onShowMoviesFragment()
+        presenter?.onGoToTheSearchView()
+        Log.i("LifecycleFragmentInit: ", "onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        presenter?.onShowMoviesFragment()
-        Log.i("LifecycleFragment: ", "onResume")
+        Log.i("LifecycleFragmentInit: ", "onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("LifecycleFragment: ", "onPause")
+        Log.i("LifecycleFragmentInit: ", "onPause")
     }
 
     override fun onStop() {
+        adapter = null
+        presenter = null
+        for (i in disList)
+            i.dispose()
         super.onStop()
-        Log.i("LifecycleFragment: ", "onStop")
+        Log.i("LifecycleFragmentInit: ", "onStop")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.i("LifecycleFragment: ", "onDestroyView")
+        Log.i("LifecycleFragmentInit: ", "onDestroyView")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i("LifecycleFragment: ", "onDestroy")
+        Log.i("LifecycleFragmentInit: ", "onDestroy")
     }
 
     override fun onDetach() {
         super.onDetach()
-        Log.i("LifecycleFragment: ", "onDetach")
+        Log.i("LifecycleFragmentInit: ", "onDetach")
     }
 
 
     override fun showMoviesFragment() {
-        if (adapter == null)
-            adapter = AdapterSocial(requireActivity().supportFragmentManager, 1)
+        Log.i("LifecycleFragmentInit: ", "showMovies")
+        if (adapter == null) {
+            Log.i("LifecycleFragmentInit: ", "showMoviesInside")
+            adapter = AdapterSocial(childFragmentManager, 1)
+        }
         vpSocial.adapter = adapter
         tabDiffSocial.setupWithViewPager(vpSocial)
     }
 
     override fun goToTheSearchView() {
-        fabAddMovies.clicks().subscribe {
+        disList.add(fabAddMovies.clicks().subscribe {
             presenter?.onShowSearchFragment()
-        }
+        })
     }
 
     override fun showSearchFragment() {
         var fTransaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-        fTransaction.replace(R.id.fcvFragment, SearchViewFragment())
-        fTransaction.commit()
+        fTransaction.replace(
+                R.id.fcvFragment,
+                SearchViewFragment()
+        )
+                .addToBackStack(null)
+                .commit()
     }
 }

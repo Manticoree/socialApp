@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_social.*
 class MovieViewFragment : BaseFragment(), MovieContract.View {
 
     private var presenter: MovieContract.Presenter? = null
-    private lateinit var adapter: FlexibleAdapter<SocialNetworkAdapter>
+    private var adapter: FlexibleAdapter<SocialNetworkAdapter>? = null
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -33,7 +33,7 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MainApplication.applicationComponent?.inject(this)
+        MainApplication.applicationComponent.inject(this)
     }
 
     override fun onCreateView(
@@ -42,14 +42,40 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
             savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_social, container, false)
+        retainInstance = true
+        Log.i("LifecycleFragmentMovie", "onCreateView")
+        return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("LifecycleFragmentMovie", "onStart")
         if (presenter == null)
             presenter = MoviePresenter(this)
-        return view
+        presenter?.onShowRecyclerView()
     }
 
     override fun onResume() {
         super.onResume()
-        presenter?.onShowRecyclerView()
+        Log.i("LifecycleFragmentMovie", "onResume")
+
+    }
+
+    override fun onPause() {
+        Log.i("LifecycleFragmentMovie", "onPause")
+        super.onPause()
+    }
+
+    override fun onStop() {
+        Log.i("LifecycleFragmentMovie", "onStop")
+        presenter?.cleanMemory()
+        presenter = null
+        adapter = null
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
     override fun showRecyclerView(initList: List<SocialNetworkAdapter>) {
@@ -64,7 +90,6 @@ class MovieViewFragment : BaseFragment(), MovieContract.View {
         adapter = FlexibleAdapter(initList)
         rvListSource.adapter = adapter
     }
-
 
 }
 

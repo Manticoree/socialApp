@@ -1,5 +1,6 @@
 package com.app.socialapp.mvp.fragmentadapter
 
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -13,6 +14,7 @@ class AdapterSocial(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(f
 
 
     override fun getItem(position: Int): Fragment {
+        Log.i("LifecycleFragmentShowM", "loadInstance")
         return MovieViewFragment.newInstance(position)
     }
 

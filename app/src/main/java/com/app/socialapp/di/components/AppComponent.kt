@@ -12,6 +12,8 @@ import com.app.socialapp.mvp.ui.moviefragment.MoviePresenter
 import com.app.socialapp.mvp.ui.moviefragment.MovieViewFragment
 import com.app.socialapp.mvp.ui.moviespagesfragment.MoviesPagesPresenter
 import com.app.socialapp.mvp.ui.moviespagesfragment.MoviesPagesViewFragment
+import com.app.socialapp.mvp.ui.mycategoriesfragment.MyCategoriesPresenter
+import com.app.socialapp.mvp.ui.mycategoriesfragment.MyCategoriesViewFragment
 import com.app.socialapp.mvp.ui.searchfragment.SearchPresenter
 import com.app.socialapp.mvp.ui.searchfragment.SearchViewFragment
 import com.app.socialapp.mvp.ui.socialactivity.SocialPresenter
@@ -50,5 +52,9 @@ interface AppComponent {
     fun inject(moviesPagesPresenter: MoviesPagesPresenter)
 
     fun inject(moviesPagesViewFragment: MoviesPagesViewFragment)
+
+    fun inject(myCategoriesPresenter: MyCategoriesPresenter)
+
+    fun inject(myCategoriesViewFragment: MyCategoriesViewFragment)
 
 }

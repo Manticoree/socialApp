@@ -38,7 +38,7 @@ class SearchPresenter(
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe(object : SingleObserver<ItemNews> {
                     override fun onSubscribe(d: @NonNull Disposable) {
-
+                        view.getDisposableList().add(d)
                     }
 
                     override fun onSuccess(itemNews: ItemNews) {
@@ -63,6 +63,8 @@ class SearchPresenter(
     override fun onBackToTheMoviesFragment() {
         view.backToTheMoviesFragment()
     }
+
+
 }
 
 

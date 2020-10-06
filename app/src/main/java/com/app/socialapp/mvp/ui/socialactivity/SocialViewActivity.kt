@@ -27,9 +27,12 @@ class SocialViewActivity() : BaseActivity(), SocialContract.View {
 
     override fun showMoviesFragment() {
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fcvFragment, MoviesPagesViewFragment())
+        transaction.replace(R.id.fcvFragment, MoviesPagesViewFragment())
         transaction.commit()
     }
 
-
+    override fun onDestroy() {
+        presenter = null
+        super.onDestroy()
+    }
 }

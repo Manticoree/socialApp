@@ -12,7 +12,7 @@ class MoviePresenter(var view: MovieContract.View) : MovieContract.Presenter {
     var moviesDao: MoviesDao? = null
         @Inject set
 
-    var initList: ArrayList<SocialNetworkAdapter> = ArrayList()
+    var initList: MutableList<SocialNetworkAdapter> = mutableListOf()
 
     init {
         MainApplication.applicationComponent.inject(this)
@@ -29,7 +29,8 @@ class MoviePresenter(var view: MovieContract.View) : MovieContract.Presenter {
 
                 initList.add(SocialNetworkAdapter(i))
             }
-            view.showRecyclerView(initList)
+            Log.i("movies in list: ", initList.toString())
+            initList?.let { view.showRecyclerView(it) }
         }
 /*
         moviesDao?.getAll()
@@ -56,6 +57,10 @@ class MoviePresenter(var view: MovieContract.View) : MovieContract.Presenter {
                 })
 
 */
+    }
+
+    override fun cleanMemory() {
+        initList.clear()
     }
 
 }
