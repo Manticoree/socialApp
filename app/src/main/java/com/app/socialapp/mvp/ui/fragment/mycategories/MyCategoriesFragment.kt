@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.mycategoriesfragment
+package com.app.socialapp.mvp.ui.fragment.mycategories
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import com.app.socialapp.R
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.fragment.BaseFragment
 
-class MyCategoriesViewFragment : BaseFragment(), MyCategoriesContract.View {
+class MyCategoriesFragment : BaseFragment(), MyCategoriesContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

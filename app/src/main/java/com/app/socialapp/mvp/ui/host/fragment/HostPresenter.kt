@@ -1,8 +1,8 @@
-package com.app.socialapp.mvp.ui.moviespagesfragment
+package com.app.socialapp.mvp.ui.host.fragment
 
 import com.app.socialapp.application.MainApplication
 
-class MoviesPagesPresenter(val view: MoviesPagesContract.View) : MoviesPagesContract.Presenter {
+class HostPresenter(val view: HostContract.View) : HostContract.Presenter {
 
     init {
         MainApplication.applicationComponent?.inject(this)

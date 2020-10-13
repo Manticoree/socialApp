@@ -1,6 +1,6 @@
-package com.app.socialapp.mvp.ui.moviespagesfragment
+package com.app.socialapp.mvp.ui.host.fragment
 
-interface MoviesPagesContract {
+interface HostContract {
 
     interface View {
 

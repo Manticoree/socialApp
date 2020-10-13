@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.moviefragment
+package com.app.socialapp.mvp.ui.fragment.movie
 
 import com.app.socialapp.adapter.SocialNetworkAdapter
 

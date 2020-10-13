@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.searchfragment
+package com.app.socialapp.mvp.ui.fragment.search
 
 import io.reactivex.rxjava3.disposables.Disposable
 

@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.searchfragment
+package com.app.socialapp.mvp.ui.fragment.search
 
 import android.util.Log
 import com.app.socialapp.application.MainApplication

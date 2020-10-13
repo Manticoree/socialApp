@@ -1,26 +1,26 @@
-package com.app.socialapp.mvp.ui.moviespagesfragment
+package com.app.socialapp.mvp.ui.host.fragment
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.app.socialapp.R
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.fragment.BaseFragment
-import com.app.socialapp.mvp.fragmentadapter.AdapterSocial
-import com.app.socialapp.mvp.ui.searchfragment.SearchViewFragment
+import com.app.socialapp.mvp.fragmentadapter.AdapterHost
 import com.jakewharton.rxbinding4.view.clicks
 import io.reactivex.rxjava3.disposables.Disposable
+import kotlinx.android.synthetic.main.fragment_host.*
 
-import kotlinx.android.synthetic.main.fragment_movies.*
+class HostFragment : BaseFragment(), HostContract.View {
 
-class MoviesPagesViewFragment : BaseFragment(), MoviesPagesContract.View {
-
-    var presenter: MoviesPagesContract.Presenter? = null
-    var adapter: AdapterSocial? = null
+    var presenter: HostContract.Presenter? = null
+    var adapter: AdapterHost? = null
     var disList: MutableList<Disposable> = mutableListOf()
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class MoviesPagesViewFragment : BaseFragment(), MoviesPagesContract.View {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_movies, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_host, container, false)
         retainInstance = true
         Log.i("LifecycleFragmentInit: ", "onCreateView")
         return view
@@ -37,6 +37,7 @@ class MoviesPagesViewFragment : BaseFragment(), MoviesPagesContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         Log.i("LifecycleFragmentInit: ", "onViewCreated")
     }
 
@@ -48,7 +49,7 @@ class MoviesPagesViewFragment : BaseFragment(), MoviesPagesContract.View {
     override fun onStart() {
         super.onStart()
         if (presenter == null)
-            presenter = MoviesPagesPresenter(this)
+            presenter = HostPresenter(this)
         presenter?.onShowMoviesFragment()
         presenter?.onGoToTheSearchView()
         Log.i("LifecycleFragmentInit: ", "onStart")
@@ -93,7 +94,7 @@ class MoviesPagesViewFragment : BaseFragment(), MoviesPagesContract.View {
         Log.i("LifecycleFragmentInit: ", "showMovies")
         if (adapter == null) {
             Log.i("LifecycleFragmentInit: ", "showMoviesInside")
-            adapter = AdapterSocial(childFragmentManager, 1)
+            adapter = AdapterHost(childFragmentManager, 1)
         }
         vpSocial.adapter = adapter
         tabDiffSocial.setupWithViewPager(vpSocial)
@@ -106,12 +107,6 @@ class MoviesPagesViewFragment : BaseFragment(), MoviesPagesContract.View {
     }
 
     override fun showSearchFragment() {
-        var fTransaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-        fTransaction.replace(
-                R.id.fcvFragment,
-                SearchViewFragment()
-        )
-                .addToBackStack(null)
-                .commit()
+        navController.navigate(R.id.action_host_to_search)
     }
 }

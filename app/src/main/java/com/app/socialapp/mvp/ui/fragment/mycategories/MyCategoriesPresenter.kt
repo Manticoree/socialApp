@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.mycategoriesfragment
+package com.app.socialapp.mvp.ui.fragment.mycategories
 
 import com.app.socialapp.application.MainApplication
 

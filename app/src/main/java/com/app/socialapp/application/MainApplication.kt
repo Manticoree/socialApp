@@ -22,7 +22,7 @@ class MainApplication : MultiDexApplication() {
                 .applicationModule(ApplicationModule(this))
                 .contextModule(ContextModule(this))
                 .roomModule(RoomModule(this))
-                .retrofitModule(RetrofitModule(this, "http://www.omdbapi.com"))
+                .retrofitModule(RetrofitModule("http://www.omdbapi.com"))
                 .build()
         applicationComponent.inject(this)
     }

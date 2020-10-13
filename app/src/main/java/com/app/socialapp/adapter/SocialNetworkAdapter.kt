@@ -24,7 +24,11 @@ class SocialNetworkAdapter(private val itemNews: ItemNews?) : AbstractFlexibleIt
     }
 
     override fun equals(other: Any?): Boolean {
-        TODO("Not yet implemented")
+        return if (other is ItemNews) {
+            other == itemNews
+        } else {
+            false
+        }
     }
 
     override fun createViewHolder(
@@ -33,6 +37,10 @@ class SocialNetworkAdapter(private val itemNews: ItemNews?) : AbstractFlexibleIt
     ): MyViewHolder = MyViewHolder(view, adapter)
 
     override fun getLayoutRes(): Int = R.layout.item_movies
+
+    override fun hashCode(): Int {
+        return itemNews?.hashCode() ?: 0
+    }
 
     inner class MyViewHolder(private val view: View, adapter: FlexibleAdapter<out IFlexible<*>>?) :
             FlexibleViewHolder(view, adapter) {

@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.searchfragment
+package com.app.socialapp.mvp.ui.fragment.search
 
 import android.content.Context
 import android.os.Bundle
@@ -11,13 +11,13 @@ import androidx.fragment.app.FragmentTransaction
 import com.app.socialapp.R
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.fragment.BaseFragment
-import com.app.socialapp.mvp.ui.moviespagesfragment.MoviesPagesViewFragment
+import com.app.socialapp.mvp.ui.host.fragment.HostFragment
 import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding4.view.clicks
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_search.*
 
-class SearchViewFragment : BaseFragment(), SearchContract.View {
+class SearchFragment : BaseFragment(), SearchContract.View {
 
     var presenter: SearchContract.Presenter? = null
 
@@ -127,7 +127,7 @@ class SearchViewFragment : BaseFragment(), SearchContract.View {
         val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(
                 R.id.fcvFragment,
-                MoviesPagesViewFragment()
+                HostFragment()
         )
                 .commit()
     }

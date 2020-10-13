@@ -8,16 +8,15 @@ import com.app.socialapp.di.modules.ApplicationModule
 import com.app.socialapp.di.modules.ContextModule
 import com.app.socialapp.di.modules.RetrofitModule
 import com.app.socialapp.di.modules.RoomModule
-import com.app.socialapp.mvp.ui.moviefragment.MoviePresenter
-import com.app.socialapp.mvp.ui.moviefragment.MovieViewFragment
-import com.app.socialapp.mvp.ui.moviespagesfragment.MoviesPagesPresenter
-import com.app.socialapp.mvp.ui.moviespagesfragment.MoviesPagesViewFragment
-import com.app.socialapp.mvp.ui.mycategoriesfragment.MyCategoriesPresenter
-import com.app.socialapp.mvp.ui.mycategoriesfragment.MyCategoriesViewFragment
-import com.app.socialapp.mvp.ui.searchfragment.SearchPresenter
-import com.app.socialapp.mvp.ui.searchfragment.SearchViewFragment
-import com.app.socialapp.mvp.ui.socialactivity.SocialPresenter
-import com.app.socialapp.mvp.ui.socialactivity.SocialViewActivity
+import com.app.socialapp.mvp.ui.fragment.movie.MovieFragment
+import com.app.socialapp.mvp.ui.fragment.movie.MoviePresenter
+import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesFragment
+import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesPresenter
+import com.app.socialapp.mvp.ui.fragment.search.SearchFragment
+import com.app.socialapp.mvp.ui.fragment.search.SearchPresenter
+import com.app.socialapp.mvp.ui.host.activity.HostActivity
+import com.app.socialapp.mvp.ui.host.activity.HostPresenter
+import com.app.socialapp.mvp.ui.host.fragment.HostFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -37,24 +36,24 @@ interface AppComponent {
 
     fun inject(mainApp: MainApplication)
 
-    fun inject(movieViewFragment: MovieViewFragment)
+    fun inject(movieFragment: MovieFragment)
 
     fun inject(moviePresenter: MoviePresenter)
 
-    fun inject(searchViewFragment: SearchViewFragment)
+    fun inject(searchFragment: SearchFragment)
 
     fun inject(searchPresenter: SearchPresenter)
 
-    fun inject(socialViewActivity: SocialViewActivity)
+    fun inject(hostActivity: HostActivity)
 
-    fun inject(socialPresenter: SocialPresenter)
+    fun inject(hostPresenter: HostPresenter)
 
-    fun inject(moviesPagesPresenter: MoviesPagesPresenter)
+    fun inject(hostPresenter: com.app.socialapp.mvp.ui.host.fragment.HostPresenter)
 
-    fun inject(moviesPagesViewFragment: MoviesPagesViewFragment)
+    fun inject(hostFragment: HostFragment)
 
     fun inject(myCategoriesPresenter: MyCategoriesPresenter)
 
-    fun inject(myCategoriesViewFragment: MyCategoriesViewFragment)
+    fun inject(myCategoriesFragment: MyCategoriesFragment)
 
 }
