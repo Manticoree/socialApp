@@ -8,7 +8,7 @@ import com.app.socialapp.mvp.ui.moviefragment.MovieViewFragment
 
 class AdapterSocial(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
     companion object {
-        const val PAGE_COUNT = 1;
+        const val PAGE_COUNT = 1
         val tabTitles: Array<String> = arrayOf("Фильмы")
     }
 
