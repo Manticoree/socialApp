@@ -5,6 +5,8 @@
     <string name="search">Поиск</string>
     <string name="adding">Добавить</string>
     <string name="add">Добавить в подборку</string>
+    <string name="add_category">Добавить категорию</string>
+    <string name="text_category">Вы еще не добавили ни одной категории, нажмите на кнопку добавить</string>
     <string name="delete">Удалить</string>
     <string name="share">Поделиться</string>
     <string name="back">Назад</string>

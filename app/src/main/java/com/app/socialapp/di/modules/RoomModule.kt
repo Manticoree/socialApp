@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.app.socialapp.di.ApplicationContext
 import com.app.socialapp.di.DatabaseInfo
+import com.app.socialapp.room.CategoryDao
 import com.app.socialapp.room.MoviesDao
 import com.app.socialapp.room.MoviesDatabase
 import dagger.Module
@@ -42,6 +43,12 @@ class RoomModule(@ApplicationContext
     @Provides
     fun providesMoviesDao(db: MoviesDatabase): MoviesDao {
         return db.moviesDao()
+    }
+
+    @Singleton
+    @Provides
+    fun providesCategoryDao(db: MoviesDatabase): CategoryDao {
+        return db.categoryDao()
     }
 
 
