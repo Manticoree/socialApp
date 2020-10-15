@@ -1,21 +1,25 @@
 package com.app.socialapp.mvp.fragmentadapter
 
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.app.socialapp.mvp.ui.fragment.movie.MovieFragment
+import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesFragment
 
 class AdapterHost(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
     companion object {
-        const val PAGE_COUNT = 1
-        val tabTitles: Array<String> = arrayOf("Фильмы")
+        const val PAGE_COUNT = 2
+        val tabTitles: Array<String> = arrayOf("Фильмы", "Мои категории")
+
     }
 
 
     override fun getItem(position: Int): Fragment {
-        Log.i("LifecycleFragmentShowM", "loadInstance")
-        return MovieFragment.newInstance(position)
+        return if (position == 0) {
+            MovieFragment.newInstance(position)
+        } else {
+            MyCategoriesFragment.newInstance(position)
+        }
     }
 
     override fun getCount(): Int {

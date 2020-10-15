@@ -8,6 +8,7 @@ import com.app.socialapp.di.modules.ApplicationModule
 import com.app.socialapp.di.modules.ContextModule
 import com.app.socialapp.di.modules.RetrofitModule
 import com.app.socialapp.di.modules.RoomModule
+import com.app.socialapp.mvp.ui.fragment.dialog.bottom.addcategory.AddCategoryPresenter
 import com.app.socialapp.mvp.ui.fragment.movie.MovieFragment
 import com.app.socialapp.mvp.ui.fragment.movie.MoviePresenter
 import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesFragment
@@ -55,5 +56,7 @@ interface AppComponent {
     fun inject(myCategoriesPresenter: MyCategoriesPresenter)
 
     fun inject(myCategoriesFragment: MyCategoriesFragment)
+
+    fun inject(addCategoryPresenter: AddCategoryPresenter)
 
 }

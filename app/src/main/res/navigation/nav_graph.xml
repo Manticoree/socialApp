@@ -25,4 +25,11 @@
         android:label="search"
         tools:layout="@layout/fragment_search" />
 
+    <dialog
+        android:id="@+id/bottom_category"
+        android:name="com.app.socialapp.mvp.ui.fragment.dialog.bottom.addcategory.AddCategoryFragment"
+        android:label="add_category"
+        tools:layout="@layout/bottom_fragment_category" />
+
+
 </navigation>

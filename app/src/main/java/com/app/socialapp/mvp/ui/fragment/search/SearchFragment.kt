@@ -7,11 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.FragmentTransaction
 import com.app.socialapp.R
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.fragment.BaseFragment
-import com.app.socialapp.mvp.ui.host.fragment.HostFragment
 import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding4.view.clicks
 import io.reactivex.rxjava3.disposables.Disposable
@@ -56,7 +54,6 @@ class SearchFragment : BaseFragment(), SearchContract.View {
         if (presenter == null)
             presenter = SearchPresenter(this)
         presenter?.onClickSearch()
-        presenter?.onClickBack()
         Log.i("LifecycleFragmentSearch", "onStart")
     }
 
@@ -115,21 +112,6 @@ class SearchFragment : BaseFragment(), SearchContract.View {
                 Toast.makeText(activity, "Введите название фильма: ", Toast.LENGTH_SHORT).show()
             }
         })
-    }
-
-    override fun clickBack() {
-        disList.add(mbtnBack.clicks().subscribe {
-            presenter?.onBackToTheMoviesFragment()
-        })
-    }
-
-    override fun backToTheMoviesFragment() {
-        val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(
-                R.id.fcvFragment,
-                HostFragment()
-        )
-                .commit()
     }
 
     override fun getDisposableList(): MutableList<Disposable> {

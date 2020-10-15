@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.adapter.SocialNetworkAdapter
-import com.app.socialapp.application.MainApplication
+import com.app.socialapp.adapter.MoviesAdapter
 import com.app.socialapp.fragment.BaseFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import kotlinx.android.synthetic.main.fragment_movies.*
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_movies.*
 class MovieFragment : BaseFragment(), MovieContract.View {
 
     private var presenter: MovieContract.Presenter? = null
-    private var adapter: FlexibleAdapter<SocialNetworkAdapter>? = null
+    private var adapter: FlexibleAdapter<MoviesAdapter>? = null
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -28,12 +27,6 @@ class MovieFragment : BaseFragment(), MovieContract.View {
             fragment.arguments = args
             return fragment
         }
-    }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        MainApplication.applicationComponent.inject(this)
     }
 
     override fun onCreateView(
@@ -74,11 +67,7 @@ class MovieFragment : BaseFragment(), MovieContract.View {
         super.onStop()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun showRecyclerView(initList: List<SocialNetworkAdapter>) {
+    override fun showRecyclerView(initList: List<MoviesAdapter>) {
         Log.i("initList: ", initList.toString())
         rvListSource.setHasFixedSize(true)
         val manager: RecyclerView.LayoutManager = LinearLayoutManager(

@@ -2,7 +2,7 @@ package com.app.socialapp.mvp.ui.fragment.movie
 
 
 import android.util.Log
-import com.app.socialapp.adapter.SocialNetworkAdapter
+import com.app.socialapp.adapter.MoviesAdapter
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.room.MoviesDao
 import javax.inject.Inject
@@ -12,7 +12,7 @@ class MoviePresenter(var view: MovieContract.View) : MovieContract.Presenter {
     var moviesDao: MoviesDao? = null
         @Inject set
 
-    var initList: MutableList<SocialNetworkAdapter> = mutableListOf()
+    var initList: MutableList<MoviesAdapter> = mutableListOf()
 
     init {
         MainApplication.applicationComponent.inject(this)
@@ -27,7 +27,7 @@ class MoviePresenter(var view: MovieContract.View) : MovieContract.Presenter {
         if (moviesDao?.getAll() != null) {
             for (i in moviesDao?.getAll()!!) {
 
-                initList.add(SocialNetworkAdapter(i))
+                initList.add(MoviesAdapter(i))
             }
             Log.i("movies in list: ", initList.toString())
             initList?.let { view.showRecyclerView(it) }

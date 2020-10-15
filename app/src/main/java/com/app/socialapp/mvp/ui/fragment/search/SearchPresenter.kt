@@ -56,15 +56,6 @@ class SearchPresenter(
         Log.i("valueSearch ", "sub" + "serviceApi " + serviceApi.toString())
     }
 
-    override fun onClickBack() {
-        view.clickBack()
-    }
-
-    override fun onBackToTheMoviesFragment() {
-        view.backToTheMoviesFragment()
-    }
-
-
 }
 
 

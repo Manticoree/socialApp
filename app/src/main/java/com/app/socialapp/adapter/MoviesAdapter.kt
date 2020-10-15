@@ -12,7 +12,7 @@ import eu.davidea.flexibleadapter.items.IFlexible
 import eu.davidea.viewholders.FlexibleViewHolder
 import kotlinx.android.synthetic.main.item_movies.view.*
 
-class SocialNetworkAdapter(private val itemNews: ItemNews?) : AbstractFlexibleItem<SocialNetworkAdapter.MyViewHolder>() {
+class MoviesAdapter(private val itemNews: ItemNews?) : AbstractFlexibleItem<MoviesAdapter.MyViewHolder>() {
 
     override fun bindViewHolder(
             adapter: FlexibleAdapter<IFlexible<RecyclerView.ViewHolder>>?,
