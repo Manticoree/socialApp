@@ -9,7 +9,7 @@ import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesFragment
 class AdapterHost(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
     companion object {
         const val PAGE_COUNT = 2
-        val tabTitles: Array<String> = arrayOf("Фильмы", "Мои категории")
+        val tabTitles: Array<String> = arrayOf("Фильмы", "Мои подборки")
 
     }
 

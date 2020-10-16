@@ -17,6 +17,11 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_host_to_addcategory"
+            app:destination="@id/bottom_category"
+
+            />
     </fragment>
 
     <fragment

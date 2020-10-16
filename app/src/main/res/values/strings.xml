@@ -11,6 +11,8 @@
     <string name="delete">Удалить</string>
     <string name="share">Поделиться</string>
     <string name="back">Назад</string>
+    <string name="movies">Фильмы</string>
+    <string name="serials">Сериалы</string>
     <string name="description">Description:</string>
     <string name="year">Year:</string>
     <string name="rated">Rated:</string>

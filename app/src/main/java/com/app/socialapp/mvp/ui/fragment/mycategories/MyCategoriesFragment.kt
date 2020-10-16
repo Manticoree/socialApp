@@ -1,16 +1,26 @@
 package com.app.socialapp.mvp.ui.fragment.mycategories
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
+import com.app.socialapp.adapter.CategoryAdapter
 import com.app.socialapp.fragment.BaseFragment
+import com.jakewharton.rxbinding4.view.clicks
+import eu.davidea.flexibleadapter.FlexibleAdapter
 import kotlinx.android.synthetic.main.fragment_category.*
 
 class MyCategoriesFragment : BaseFragment(), MyCategoriesContract.View {
 
     lateinit var presenter: MyCategoriesContract.Presenter
+    private lateinit var navController: NavController
+    private var adapter: FlexibleAdapter<CategoryAdapter>? = null
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -27,7 +37,10 @@ class MyCategoriesFragment : BaseFragment(), MyCategoriesContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         presenter = MyCategoriesPresenter(this)
+        presenter.getCategories()
+        presenter.onClickAddCategory()
     }
 
     override fun visibilityCategory(text: Int, button: Int, recView: Int) {
@@ -45,10 +58,26 @@ class MyCategoriesFragment : BaseFragment(), MyCategoriesContract.View {
     }
 
     override fun addCategory() {
-
+        navController.navigate(R.id.action_host_to_addcategory)
     }
 
     override fun clickAddCategory() {
+        mBtnAddCategory.clicks()
+                .subscribe {
+                    presenter.onAddCategory()
+                }
+    }
 
+    override fun showRecyclerView(initList: List<CategoryAdapter>) {
+        Log.i("initList: ", initList.toString())
+        rvCategory.setHasFixedSize(true)
+        val manager: RecyclerView.LayoutManager = LinearLayoutManager(
+                activity,
+                LinearLayoutManager.VERTICAL,
+                false
+        )
+        rvCategory.layoutManager = manager
+        adapter = FlexibleAdapter(initList)
+        rvCategory.adapter = adapter
     }
 }

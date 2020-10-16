@@ -28,16 +28,17 @@ class HostFragment : BaseFragment(), HostContract.View {
         Log.i("LifecycleFragmentInit: ", "onCreate")
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_host, container, false)
-        retainInstance = true
-        Log.i("LifecycleFragmentInit: ", "onCreateView")
-        return view
-    }
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_host, container, false)
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
+        bottom_navigation.inflateMenu(R.menu.bottom_navigation_menu)
         Log.i("LifecycleFragmentInit: ", "onViewCreated")
     }
 

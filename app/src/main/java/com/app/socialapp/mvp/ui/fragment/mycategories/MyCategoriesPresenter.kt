@@ -25,6 +25,16 @@ class MyCategoriesPresenter(val view: MyCategoriesContract.View) : MyCategoriesC
             for (item in categoryDao.getAll())
                 categoryList.add(CategoryAdapter(item))
         }
+        view.showRecyclerView(categoryList)
     }
+
+    override fun onAddCategory() {
+        view.addCategory()
+    }
+
+    override fun onClickAddCategory() {
+        view.clickAddCategory()
+    }
+
 
 }
