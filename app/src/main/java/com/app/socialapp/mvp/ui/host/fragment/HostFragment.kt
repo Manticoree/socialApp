@@ -13,7 +13,7 @@ import com.app.socialapp.fragment.BaseFragment
 import com.app.socialapp.mvp.fragmentadapter.AdapterHost
 import com.jakewharton.rxbinding4.view.clicks
 import io.reactivex.rxjava3.disposables.Disposable
-import kotlinx.android.synthetic.main.fragment_host.*
+import kotlinx.android.synthetic.main.fragment_movies_host.*
 
 class HostFragment : BaseFragment(), HostContract.View {
 
@@ -32,7 +32,7 @@ class HostFragment : BaseFragment(), HostContract.View {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_host, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_movies_host, container, false)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -9,7 +9,7 @@
         android:id="@+id/fragment_host"
         android:name="com.app.socialapp.mvp.ui.host.fragment.HostFragment"
         android:label="host"
-        tools:layout="@layout/fragment_host">
+        tools:layout="@layout/fragment_movies_host">
         <action
             android:id="@+id/action_host_to_search"
             app:destination="@+id/fragment_search"
