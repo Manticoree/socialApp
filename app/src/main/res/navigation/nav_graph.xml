@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_host">
+    app:startDestination="@id/fragment_movies_host">
+
 
     <fragment
-        android:id="@+id/fragment_host"
-        android:name="com.app.socialapp.mvp.ui.host.fragment.HostFragment"
-        android:label="host"
+        android:id="@+id/fragment_movies_host"
+        android:name="com.app.socialapp.mvp.ui.host.fragment.movies.HostMoviesFragment"
+        android:label="host_movies"
         tools:layout="@layout/fragment_movies_host">
+        <action
+            android:id="@+id/action_bottom_movies_to_serials"
+            app:destination="@+id/fragment_serials_host" />
         <action
             android:id="@+id/action_host_to_search"
             app:destination="@+id/fragment_search"
@@ -19,9 +23,15 @@
             app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_host_to_addcategory"
-            app:destination="@id/bottom_category"
+            app:destination="@id/bottom_category" />
+    </fragment>
 
-            />
+    <fragment
+        android:id="@+id/fragment_serials_host"
+        android:name="com.app.socialapp.mvp.ui.host.fragment.serials.HostSerialsFragment"
+        android:label="host_serials"
+        tools:layout="@layout/fragment_serials_host">
+
     </fragment>
 
     <fragment

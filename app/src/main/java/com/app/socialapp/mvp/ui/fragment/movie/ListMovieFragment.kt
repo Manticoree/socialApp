@@ -13,17 +13,17 @@ import com.app.socialapp.fragment.BaseFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import kotlinx.android.synthetic.main.fragment_movies.*
 
-class MovieFragment : BaseFragment(), MovieContract.View {
+class ListMovieFragment : BaseFragment(), ListMovieContract.View {
 
-    private var presenter: MovieContract.Presenter? = null
+    private var presenter: ListMovieContract.Presenter? = null
     private var adapter: FlexibleAdapter<MoviesAdapter>? = null
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
-        fun newInstance(page: Int): MovieFragment {
+        fun newInstance(page: Int): ListMovieFragment {
             val args = Bundle()
             args.putInt(ARG_PAGE, page)
-            val fragment = MovieFragment()
+            val fragment = ListMovieFragment()
             fragment.arguments = args
             return fragment
         }
@@ -44,7 +44,7 @@ class MovieFragment : BaseFragment(), MovieContract.View {
         super.onStart()
         Log.i("LifecycleFragmentMovie", "onStart")
         if (presenter == null)
-            presenter = MoviePresenter(this)
+            presenter = ListMoviePresenter(this)
         presenter?.onShowRecyclerView()
     }
 

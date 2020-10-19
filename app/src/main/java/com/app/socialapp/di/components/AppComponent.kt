@@ -9,15 +9,14 @@ import com.app.socialapp.di.modules.ContextModule
 import com.app.socialapp.di.modules.RetrofitModule
 import com.app.socialapp.di.modules.RoomModule
 import com.app.socialapp.mvp.ui.fragment.dialog.bottom.addcategory.AddCategoryPresenter
-import com.app.socialapp.mvp.ui.fragment.movie.MovieFragment
-import com.app.socialapp.mvp.ui.fragment.movie.MoviePresenter
+import com.app.socialapp.mvp.ui.fragment.movie.ListMovieFragment
+import com.app.socialapp.mvp.ui.fragment.movie.ListMoviePresenter
 import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesFragment
 import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesPresenter
 import com.app.socialapp.mvp.ui.fragment.search.SearchFragment
 import com.app.socialapp.mvp.ui.fragment.search.SearchPresenter
 import com.app.socialapp.mvp.ui.host.activity.HostActivity
-import com.app.socialapp.mvp.ui.host.activity.HostPresenter
-import com.app.socialapp.mvp.ui.host.fragment.HostFragment
+import com.app.socialapp.mvp.ui.host.fragment.movies.HostMoviesFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -37,9 +36,9 @@ interface AppComponent {
 
     fun inject(mainApp: MainApplication)
 
-    fun inject(movieFragment: MovieFragment)
+    fun inject(listMovieFragment: ListMovieFragment)
 
-    fun inject(moviePresenter: MoviePresenter)
+    fun inject(listMoviePresenter: ListMoviePresenter)
 
     fun inject(searchFragment: SearchFragment)
 
@@ -47,11 +46,9 @@ interface AppComponent {
 
     fun inject(hostActivity: HostActivity)
 
-    fun inject(hostPresenter: HostPresenter)
+    fun inject(hostMoviesPresenter: com.app.socialapp.mvp.ui.host.fragment.movies.HostMoviesPresenter)
 
-    fun inject(hostPresenter: com.app.socialapp.mvp.ui.host.fragment.HostPresenter)
-
-    fun inject(hostFragment: HostFragment)
+    fun inject(hostMoviesFragment: HostMoviesFragment)
 
     fun inject(myCategoriesPresenter: MyCategoriesPresenter)
 

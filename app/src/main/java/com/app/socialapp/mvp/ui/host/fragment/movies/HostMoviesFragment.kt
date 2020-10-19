@@ -1,4 +1,4 @@
-package com.app.socialapp.mvp.ui.host.fragment
+package com.app.socialapp.mvp.ui.host.fragment.movies
 
 import android.os.Bundle
 import android.util.Log
@@ -6,25 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import com.app.socialapp.R
-import com.app.socialapp.application.MainApplication
 import com.app.socialapp.fragment.BaseFragment
 import com.app.socialapp.mvp.fragmentadapter.AdapterHost
-import com.jakewharton.rxbinding4.view.clicks
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_movies_host.*
 
-class HostFragment : BaseFragment(), HostContract.View {
+class HostMoviesFragment : BaseFragment(), HostMoviesContract.View {
 
-    var presenter: HostContract.Presenter? = null
+    var presenter: HostMoviesContract.Presenter? = null
     var adapter: AdapterHost? = null
     var disList: MutableList<Disposable> = mutableListOf()
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MainApplication.applicationComponent.inject(this)
         Log.i("LifecycleFragmentInit: ", "onCreate")
     }
 
@@ -37,8 +33,7 @@ class HostFragment : BaseFragment(), HostContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
-        bottom_navigation.inflateMenu(R.menu.bottom_navigation_menu)
+
         Log.i("LifecycleFragmentInit: ", "onViewCreated")
     }
 
@@ -50,9 +45,8 @@ class HostFragment : BaseFragment(), HostContract.View {
     override fun onStart() {
         super.onStart()
         if (presenter == null)
-            presenter = HostPresenter(this)
+            presenter = HostMoviesPresenter(this)
         presenter?.onShowMoviesFragment()
-        presenter?.onGoToTheSearchView()
         Log.i("LifecycleFragmentInit: ", "onStart")
     }
 
@@ -101,13 +95,4 @@ class HostFragment : BaseFragment(), HostContract.View {
         tabDiffSocial.setupWithViewPager(vpSocial)
     }
 
-    override fun goToTheSearchView() {
-        disList.add(fabAddMovies.clicks().subscribe {
-            presenter?.onShowSearchFragment()
-        })
-    }
-
-    override fun showSearchFragment() {
-        navController.navigate(R.id.action_host_to_search)
-    }
 }

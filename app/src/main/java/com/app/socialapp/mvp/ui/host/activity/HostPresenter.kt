@@ -1,3 +1,13 @@
 package com.app.socialapp.mvp.ui.host.activity
 
-class HostPresenter(private val viewActivity: HostActivity) : HostContract.Presenter
+class HostPresenter(val view: HostContract.View) : HostContract.Presenter {
+
+    override fun onGoToTheSearchView() {
+        view.goToTheSearchView()
+    }
+
+    override fun onShowSearchFragment() {
+        view.showSearchFragment()
+    }
+
+}

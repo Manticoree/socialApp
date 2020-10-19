@@ -7,7 +7,7 @@ import com.app.socialapp.application.MainApplication
 import com.app.socialapp.room.MoviesDao
 import javax.inject.Inject
 
-class MoviePresenter(var view: MovieContract.View) : MovieContract.Presenter {
+class ListMoviePresenter(var view: ListMovieContract.View) : ListMovieContract.Presenter {
 
     var moviesDao: MoviesDao? = null
         @Inject set

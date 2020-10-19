@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/movies"
+        android:id="@+id/fragment_movies_host"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_movie_24"
         android:title="@string/movies" />
     <item
-        android:id="@+id/serials"
+        android:id="@+id/fragment_serials_host"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_serials_24"
         android:title="@string/serials" />

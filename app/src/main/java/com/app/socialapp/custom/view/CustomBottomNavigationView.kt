@@ -43,7 +43,7 @@ class CustomBottomNavigationView : BottomNavigationView {
         path = Path()
         paint = Paint()
         paint.style = Paint.Style.FILL_AND_STROKE
-        paint.color = ContextCompat.getColor(context, R.color.lb_tv_white)
+        paint.color = ContextCompat.getColor(context, R.color.deep_purple_200)
         setBackgroundColor(Color.TRANSPARENT)
     }
 
@@ -67,30 +67,24 @@ class CustomBottomNavigationView : BottomNavigationView {
         // same thing for the second curve
         secondCurveStartPoint = firstCurveEndPoint
         secondCurveEndPoint.set(navigationBarWidth / 2 + CURVE_CIRCLE_RADIUS * 2 + CURVE_CIRCLE_RADIUS / 3, 0)
-
         // the coordinates (x,y)  of the 1st control point on a cubic curve
-
         // the coordinates (x,y)  of the 1st control point on a cubic curve
         firstCurveControlPoint1.set(firstCurveStartPoint.x + CURVE_CIRCLE_RADIUS + CURVE_CIRCLE_RADIUS / 4, firstCurveStartPoint.y)
         // the coordinates (x,y)  of the 2nd control point on a cubic curve
         // the coordinates (x,y)  of the 2nd control point on a cubic curve
         firstCurveControlPoint2.set(firstCurveEndPoint.x - CURVE_CIRCLE_RADIUS * 2 + CURVE_CIRCLE_RADIUS, firstCurveEndPoint.y)
-
         secondCurveControlPoint1.set(secondCurveStartPoint.x + CURVE_CIRCLE_RADIUS * 2 - CURVE_CIRCLE_RADIUS, secondCurveStartPoint.y)
         secondCurveControlPoint2.set(secondCurveEndPoint.x - (CURVE_CIRCLE_RADIUS + CURVE_CIRCLE_RADIUS / 4), secondCurveEndPoint.y)
 
         path.reset()
         path.moveTo(0F, 0F)
         path.lineTo(firstCurveStartPoint.x.toFloat(), firstCurveStartPoint.y.toFloat())
-
         path.cubicTo(firstCurveControlPoint1.x.toFloat(), firstCurveControlPoint1.y.toFloat(),
                 firstCurveControlPoint2.x.toFloat(), firstCurveControlPoint2.y.toFloat(),
                 firstCurveEndPoint.x.toFloat(), firstCurveEndPoint.y.toFloat())
-
         path.cubicTo(secondCurveControlPoint1.x.toFloat(), secondCurveControlPoint1.y.toFloat(),
                 secondCurveControlPoint2.x.toFloat(), secondCurveControlPoint2.y.toFloat(),
                 secondCurveEndPoint.x.toFloat(), secondCurveEndPoint.y.toFloat())
-
         path.lineTo(navigationBarWidth.toFloat(), 0F)
         path.lineTo(navigationBarWidth.toFloat(), navigationBarHeight.toFloat())
         path.lineTo(0F, navigationBarHeight.toFloat())
