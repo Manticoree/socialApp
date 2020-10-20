@@ -1,7 +1,7 @@
 package com.app.socialapp.mvp.ui.fragment.dialog.bottom.addcategory
 
 import com.app.socialapp.application.MainApplication
-import com.app.socialapp.entities.ItemCategory
+import com.app.socialapp.entities.db.ItemCategory
 import com.app.socialapp.room.CategoryDao
 import javax.inject.Inject
 

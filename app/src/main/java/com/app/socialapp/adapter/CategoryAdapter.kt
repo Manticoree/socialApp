@@ -3,7 +3,7 @@ package com.app.socialapp.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.entities.ItemCategory
+import com.app.socialapp.entities.db.ItemCategory
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem
 import eu.davidea.flexibleadapter.items.IFlexible

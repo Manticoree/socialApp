@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.adapter.MoviesAdapter
+import com.app.socialapp.adapter.MoviesImdbAdapter
 import com.app.socialapp.fragment.BaseFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
-import kotlinx.android.synthetic.main.fragment_movies.*
+import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListMovieFragment : BaseFragment(), ListMovieContract.View {
 
     private var presenter: ListMovieContract.Presenter? = null
-    private var adapter: FlexibleAdapter<MoviesAdapter>? = null
+    private var imdbAdapter: FlexibleAdapter<MoviesImdbAdapter>? = null
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -34,7 +34,7 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_movies, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_list, container, false)
         retainInstance = true
         Log.i("LifecycleFragmentMovie", "onCreateView")
         return view
@@ -63,11 +63,11 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
         Log.i("LifecycleFragmentMovie", "onStop")
         presenter?.cleanMemory()
         presenter = null
-        adapter = null
+        imdbAdapter = null
         super.onStop()
     }
 
-    override fun showRecyclerView(initList: List<MoviesAdapter>) {
+    override fun showRecyclerView(initList: List<MoviesImdbAdapter>) {
         Log.i("initList: ", initList.toString())
         rvListSource.setHasFixedSize(true)
         val manager: RecyclerView.LayoutManager = LinearLayoutManager(
@@ -76,8 +76,8 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
                 false
         )
         rvListSource.layoutManager = manager
-        adapter = FlexibleAdapter(initList)
-        rvListSource.adapter = adapter
+        imdbAdapter = FlexibleAdapter(initList)
+        rvListSource.adapter = imdbAdapter
     }
 
 }

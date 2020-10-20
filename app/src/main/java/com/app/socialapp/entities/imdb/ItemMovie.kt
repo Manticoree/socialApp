@@ -1,4 +1,4 @@
-package com.app.socialapp.entities
+package com.app.socialapp.entities.imdb
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 @Entity(tableName = "item_news")
-data class ItemNews(
+data class ItemMovie(
         @field:PrimaryKey(autoGenerate = true) @ColumnInfo(name = "idItem") val idItem: Long,
         @field:SerializedName("Title") @ColumnInfo(name = "title") val title: String?,
         @field:SerializedName("Year") @ColumnInfo(name = "year") val year: Int,

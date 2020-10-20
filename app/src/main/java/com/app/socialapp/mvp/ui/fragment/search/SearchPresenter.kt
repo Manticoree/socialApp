@@ -2,8 +2,8 @@ package com.app.socialapp.mvp.ui.fragment.search
 
 import android.util.Log
 import com.app.socialapp.application.MainApplication
-import com.app.socialapp.entities.ItemNews
-import com.app.socialapp.retrofit.ServiceApi
+import com.app.socialapp.entities.imdb.ItemMovie
+import com.app.socialapp.retrofit.ServiceImdb
 import com.app.socialapp.room.MoviesDao
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
@@ -15,12 +15,11 @@ import javax.inject.Inject
 class SearchPresenter(
         val view: SearchContract.View
 ) : SearchContract.Presenter {
+    @Inject
+    lateinit var serviceImdb: ServiceImdb
 
-    var serviceApi: ServiceApi? = null
-        @Inject set
-
-    var moviesDao: MoviesDao? = null
-        @Inject set
+    @Inject
+    lateinit var moviesDao: MoviesDao
 
     companion object {
         const val IMBD_TOKEN: String = "9531f308"
@@ -32,20 +31,20 @@ class SearchPresenter(
 
     override fun searchMovie(name: String) {
         MainApplication.applicationComponent.inject(this)
-        Log.i("valueSearch ", "sub" + "serviceApi " + serviceApi.toString())
-        serviceApi?.getMovies(name, IMBD_TOKEN)
-                ?.subscribeOn(Schedulers.io())
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribe(object : SingleObserver<ItemNews> {
+        Log.i("valueSearch ", "subserviceApi $serviceImdb")
+        serviceImdb.getMovies(name, IMBD_TOKEN)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : SingleObserver<ItemMovie> {
                     override fun onSubscribe(d: @NonNull Disposable) {
                         view.getDisposableList().add(d)
                     }
 
-                    override fun onSuccess(itemNews: ItemNews) {
-                        Log.i("valueSearch", itemNews.toString())
-                        if (itemNews.title != null) {
-                            moviesDao?.insert(itemNews)
-                            view.showMovie(itemNews.poster, itemNews.title, itemNews.plot)
+                    override fun onSuccess(itemMovie: ItemMovie) {
+                        Log.i("valueSearch", itemMovie.toString())
+                        if (itemMovie.title != null) {
+                            moviesDao.insert(itemMovie)
+                            view.showMovie(itemMovie.poster, itemMovie.title, itemMovie.plot)
                         }
                     }
 
@@ -53,7 +52,7 @@ class SearchPresenter(
                         Log.e("valueSearchE", e.localizedMessage)
                     }
                 })
-        Log.i("valueSearch ", "sub" + "serviceApi " + serviceApi.toString())
+        Log.i("valueSearch ", "subserviceApi $serviceImdb")
     }
 
 }

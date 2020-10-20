@@ -1,4 +1,4 @@
-package com.app.socialapp.entities
+package com.app.socialapp.entities.imdb
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

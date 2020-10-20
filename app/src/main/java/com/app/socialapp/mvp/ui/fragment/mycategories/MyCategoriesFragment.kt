@@ -33,7 +33,11 @@ class MyCategoriesFragment : BaseFragment(), MyCategoriesContract.View {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_category, container, false)
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_category, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -80,4 +84,5 @@ class MyCategoriesFragment : BaseFragment(), MyCategoriesContract.View {
         adapter = FlexibleAdapter(initList)
         rvCategory.adapter = adapter
     }
+
 }

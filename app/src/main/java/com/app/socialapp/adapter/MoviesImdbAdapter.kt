@@ -3,16 +3,16 @@ package com.app.socialapp.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.entities.ItemNews
+import com.app.socialapp.entities.imdb.ItemMovie
 import com.bumptech.glide.Glide
 import com.google.android.material.shape.CornerFamily
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem
 import eu.davidea.flexibleadapter.items.IFlexible
 import eu.davidea.viewholders.FlexibleViewHolder
-import kotlinx.android.synthetic.main.item_movies.view.*
+import kotlinx.android.synthetic.main.item_movies_imdb.view.*
 
-class MoviesAdapter(private val itemNews: ItemNews?) : AbstractFlexibleItem<MoviesAdapter.MyViewHolder>() {
+class MoviesImdbAdapter(private val itemMovie: ItemMovie?) : AbstractFlexibleItem<MoviesImdbAdapter.MyViewHolder>() {
 
     override fun bindViewHolder(
             adapter: FlexibleAdapter<IFlexible<RecyclerView.ViewHolder>>?,
@@ -20,12 +20,12 @@ class MoviesAdapter(private val itemNews: ItemNews?) : AbstractFlexibleItem<Movi
             position: Int,
             payloads: MutableList<Any>?
     ) {
-        holder?.bind(itemNews)
+        holder?.bind(itemMovie)
     }
 
     override fun equals(other: Any?): Boolean {
-        return if (other is ItemNews) {
-            other == itemNews
+        return if (other is ItemMovie) {
+            other == itemMovie
         } else {
             false
         }
@@ -36,16 +36,16 @@ class MoviesAdapter(private val itemNews: ItemNews?) : AbstractFlexibleItem<Movi
             adapter: FlexibleAdapter<IFlexible<RecyclerView.ViewHolder>>?
     ): MyViewHolder = MyViewHolder(view, adapter)
 
-    override fun getLayoutRes(): Int = R.layout.item_movies
+    override fun getLayoutRes(): Int = R.layout.item_movies_imdb
 
     override fun hashCode(): Int {
-        return itemNews?.hashCode() ?: 0
+        return itemMovie?.hashCode() ?: 0
     }
 
     inner class MyViewHolder(private val view: View, adapter: FlexibleAdapter<out IFlexible<*>>?) :
             FlexibleViewHolder(view, adapter) {
 
-        fun bind(item: ItemNews?) {
+        fun bind(item: ItemMovie?) {
             itemView.mtvTitleMovies.text = item?.title
             itemView.mtvYearMovies.text = item?.year.toString()
             itemView.mtvRuntimeMovies.text = item?.runtime

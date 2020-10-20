@@ -1,4 +1,4 @@
-package com.app.socialapp.entities
+package com.app.socialapp.entities.db
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

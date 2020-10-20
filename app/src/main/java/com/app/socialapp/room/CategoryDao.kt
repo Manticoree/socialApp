@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.app.socialapp.entities.ItemCategory
+import com.app.socialapp.entities.db.ItemCategory
 
 @Dao
 interface CategoryDao {
