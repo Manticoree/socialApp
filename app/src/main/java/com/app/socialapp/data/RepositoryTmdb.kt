@@ -15,7 +15,7 @@ class RepositoryTmdb {
     @Inject
     lateinit var serviceTmdb: ServiceTmdb
 
-    lateinit var data: MutableList<TopMoviesTmdbAdapter>
+    var data: MutableList<TopMoviesTmdbAdapter> = mutableListOf()
 
     init {
         MainApplication.applicationComponent.inject(this)
@@ -43,11 +43,11 @@ class RepositoryTmdb {
                     }
 
                     override fun onSubscribe(d: Disposable?) {
-                        TODO("Not yet implemented")
+
                     }
 
                     override fun onError(e: Throwable?) {
-                        TODO("Not yet implemented")
+
                     }
 
                 })
