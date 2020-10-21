@@ -7,10 +7,11 @@ import com.app.socialapp.data.RepositoryTmdb
 
 
 class TopMoviesViewModel : ViewModel() {
-    private val repositoryTmdb: RepositoryTmdb = RepositoryTmdb()
+    private val repositoryTmdb: RepositoryTmdb
     var moviesLiveData: MutableLiveData<List<TopMoviesTmdbAdapter>> = MutableLiveData()
 
     init {
+        repositoryTmdb = RepositoryTmdb()
         moviesLiveData.value = repositoryTmdb.getMovies()
     }
 

@@ -2,7 +2,7 @@ package com.app.socialapp.data
 
 import com.app.socialapp.adapter.TopMoviesTmdbAdapter
 import com.app.socialapp.application.MainApplication
-import com.app.socialapp.data.entities.tmdb.ItemMovie
+import com.app.socialapp.data.entities.tmdb.TopMovies
 import com.app.socialapp.data.remote.retrofit.ServiceTmdb
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
@@ -35,9 +35,9 @@ class RepositoryTmdb {
                 apiKey
         ).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(object : SingleObserver<List<ItemMovie>> {
-                    override fun onSuccess(t: List<ItemMovie>) {
-                        for (item in t) {
+                .subscribe(object : SingleObserver<TopMovies> {
+                    override fun onSuccess(t: TopMovies) {
+                        for (item in t.results) {
                             data.add(TopMoviesTmdbAdapter(item))
                         }
                     }
