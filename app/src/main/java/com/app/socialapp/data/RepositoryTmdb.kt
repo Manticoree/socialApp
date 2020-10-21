@@ -5,6 +5,7 @@ import com.app.socialapp.application.MainApplication
 import com.app.socialapp.data.entities.tmdb.TopMovies
 import com.app.socialapp.data.remote.retrofit.ServiceTmdb
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -21,11 +22,14 @@ class RepositoryTmdb {
         MainApplication.applicationComponent.inject(this)
     }
 
-    fun getMovies(): List<TopMoviesTmdbAdapter> {
+    fun getMovies(): Single<List<TopMoviesTmdbAdapter>> {
+        /*
         refreshData("2000",
                 "vote_average.desc",
                 "93ab2fe14a1dc7357659e0c56f2b93c4")
         return data
+         */
+        return
     }
 
     private fun refreshData(primaryRelease: String, sortBy: String, apiKey: String) {
@@ -33,8 +37,12 @@ class RepositoryTmdb {
                 primaryRelease,
                 sortBy,
                 apiKey
-        ).observeOn(AndroidSchedulers.mainThread())
+        )
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
+                .doOnSubscribe({
+
+                })
                 .subscribe(object : SingleObserver<TopMovies> {
                     override fun onSuccess(t: TopMovies) {
                         for (item in t.results) {
