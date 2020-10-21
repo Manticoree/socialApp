@@ -4,7 +4,7 @@ package com.app.socialapp.mvp.ui.fragment.movie
 import android.util.Log
 import com.app.socialapp.adapter.MoviesImdbAdapter
 import com.app.socialapp.application.MainApplication
-import com.app.socialapp.room.MoviesDao
+import com.app.socialapp.data.local.room.MoviesDao
 import javax.inject.Inject
 
 class ListMoviePresenter(var view: ListMovieContract.View) : ListMovieContract.Presenter {

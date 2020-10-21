@@ -1,6 +1,6 @@
-package com.app.socialapp.retrofit
+package com.app.socialapp.data.remote.retrofit
 
-import com.app.socialapp.entities.imdb.ItemMovie
+import com.app.socialapp.data.entities.imdb.ItemMovie
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

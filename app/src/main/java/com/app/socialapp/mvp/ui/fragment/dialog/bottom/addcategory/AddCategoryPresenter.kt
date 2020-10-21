@@ -1,8 +1,8 @@
 package com.app.socialapp.mvp.ui.fragment.dialog.bottom.addcategory
 
 import com.app.socialapp.application.MainApplication
-import com.app.socialapp.entities.db.ItemCategory
-import com.app.socialapp.room.CategoryDao
+import com.app.socialapp.data.entities.db.ItemCategory
+import com.app.socialapp.data.local.room.CategoryDao
 import javax.inject.Inject
 
 class AddCategoryPresenter(val view: AddCategoryContract.View) : AddCategoryContract.Presenter {

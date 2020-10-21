@@ -2,9 +2,9 @@ package com.app.socialapp.mvp.ui.fragment.search
 
 import android.util.Log
 import com.app.socialapp.application.MainApplication
-import com.app.socialapp.entities.imdb.ItemMovie
-import com.app.socialapp.retrofit.ServiceImdb
-import com.app.socialapp.room.MoviesDao
+import com.app.socialapp.data.entities.imdb.ItemMovie
+import com.app.socialapp.data.local.room.MoviesDao
+import com.app.socialapp.data.remote.retrofit.ServiceImdb
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.core.SingleObserver

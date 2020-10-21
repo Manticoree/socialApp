@@ -1,4 +1,4 @@
-package com.app.socialapp.entities.imdb
+package com.app.socialapp.data.entities.imdb
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

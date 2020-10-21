@@ -1,7 +1,7 @@
 package com.app.socialapp.di.modules
 
-import com.app.socialapp.retrofit.ServiceImdb
-import com.app.socialapp.retrofit.ServiceTmdb
+import com.app.socialapp.data.remote.retrofit.ServiceImdb
+import com.app.socialapp.data.remote.retrofit.ServiceTmdb
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides

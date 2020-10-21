@@ -3,6 +3,7 @@ package com.app.socialapp.di.components
 import android.app.Application
 import android.content.Context
 import com.app.socialapp.application.MainApplication
+import com.app.socialapp.data.RepositoryTmdb
 import com.app.socialapp.di.ApplicationContext
 import com.app.socialapp.di.modules.ApplicationModule
 import com.app.socialapp.di.modules.ContextModule
@@ -55,5 +56,7 @@ interface AppComponent {
     fun inject(myCategoriesFragment: MyCategoriesFragment)
 
     fun inject(addCategoryPresenter: AddCategoryPresenter)
+
+    fun inject(repositoryTmdb: RepositoryTmdb)
 
 }

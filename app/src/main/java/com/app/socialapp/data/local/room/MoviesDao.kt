@@ -1,10 +1,10 @@
-package com.app.socialapp.room
+package com.app.socialapp.data.local.room
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.app.socialapp.entities.imdb.ItemMovie
+import com.app.socialapp.data.entities.imdb.ItemMovie
 
 
 @Dao

@@ -5,20 +5,27 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.app.socialapp.mvp.ui.fragment.movie.ListMovieFragment
 import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesFragment
+import com.app.socialapp.mvvm.TopMoviesFragment
 
 class AdapterHost(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
+
     companion object {
-        const val PAGE_COUNT = 2
-        val tabTitles: Array<String> = arrayOf("Фильмы", "Мои подборки")
+        const val PAGE_COUNT = 3
+        val tabTitles: Array<String> = arrayOf("Фильмы", "Мои подборки", "Топ фильмов")
 
     }
 
-
     override fun getItem(position: Int): Fragment {
-        return if (position == 0) {
-            ListMovieFragment.newInstance(position)
-        } else {
-            MyCategoriesFragment.newInstance(position)
+        return when (position) {
+            0 -> {
+                ListMovieFragment.newInstance(position)
+            }
+            1 -> {
+                MyCategoriesFragment.newInstance(position)
+            }
+            else -> {
+                TopMoviesFragment.newInstance(position)
+            }
         }
     }
 

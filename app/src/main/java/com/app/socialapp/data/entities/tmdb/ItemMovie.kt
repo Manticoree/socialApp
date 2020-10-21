@@ -1,4 +1,4 @@
-package com.app.socialapp.entities.tmdb
+package com.app.socialapp.data.entities.tmdb
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
