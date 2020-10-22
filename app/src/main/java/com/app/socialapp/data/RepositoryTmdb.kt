@@ -22,14 +22,17 @@ class RepositoryTmdb {
         MainApplication.applicationComponent.inject(this)
     }
 
-    fun getMovies(): Single<List<TopMoviesTmdbAdapter>> {
+    fun getMovies(): Single<TopMovies> {
         /*
         refreshData("2000",
                 "vote_average.desc",
                 "93ab2fe14a1dc7357659e0c56f2b93c4")
         return data
          */
-        return
+        return serviceTmdb.getTopMoviesInYears(
+                "2000",
+                "vote_average.desc",
+                "93ab2fe14a1dc7357659e0c56f2b93c4")
     }
 
     private fun refreshData(primaryRelease: String, sortBy: String, apiKey: String) {
@@ -40,9 +43,6 @@ class RepositoryTmdb {
         )
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .doOnSubscribe({
-
-                })
                 .subscribe(object : SingleObserver<TopMovies> {
                     override fun onSuccess(t: TopMovies) {
                         for (item in t.results) {
