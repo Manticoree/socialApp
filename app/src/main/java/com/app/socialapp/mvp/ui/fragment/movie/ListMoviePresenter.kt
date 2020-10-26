@@ -8,9 +8,8 @@ import com.app.socialapp.data.local.room.MoviesDao
 import javax.inject.Inject
 
 class ListMoviePresenter(var view: ListMovieContract.View) : ListMovieContract.Presenter {
-
-    var moviesDao: MoviesDao? = null
-        @Inject set
+    @Inject
+    lateinit var moviesDao: MoviesDao
 
     var initList: MutableList<MoviesImdbAdapter> = mutableListOf()
 
@@ -24,14 +23,12 @@ class ListMoviePresenter(var view: ListMovieContract.View) : ListMovieContract.P
 
     override fun initDataFromDB() {
         Log.i("movies in database: ", moviesDao?.getAll().toString())
-        if (moviesDao?.getAll() != null) {
-            for (i in moviesDao?.getAll()!!) {
-
-                initList.add(MoviesImdbAdapter(i))
-            }
-            Log.i("movies in list: ", initList.toString())
-            initList?.let { view.showRecyclerView(it) }
+        for (i in moviesDao.getAll()) {
+            initList.add(MoviesImdbAdapter(i))
         }
+        Log.i("movies in list: ", initList.toString())
+        initList.let { view.showRecyclerView(it) }
+
 /*
         moviesDao?.getAll()
                 ?.subscribeOn(Schedulers.io())

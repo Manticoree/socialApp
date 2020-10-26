@@ -15,6 +15,7 @@ import javax.inject.Inject
 class SearchPresenter(
         val view: SearchContract.View
 ) : SearchContract.Presenter {
+
     @Inject
     lateinit var serviceImdb: ServiceImdb
 
@@ -36,6 +37,7 @@ class SearchPresenter(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<ItemMovie> {
+
                     override fun onSubscribe(d: @NonNull Disposable) {
                         view.getDisposableList().add(d)
                     }
@@ -51,6 +53,7 @@ class SearchPresenter(
                     override fun onError(e: @NonNull Throwable) {
                         Log.e("valueSearchE", e.localizedMessage)
                     }
+
                 })
         Log.i("valueSearch ", "subserviceApi $serviceImdb")
     }

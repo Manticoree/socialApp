@@ -24,7 +24,6 @@ class TopMoviesTmdbAdapter(private val itemMovie: ItemMovie) :
             position: Int,
             payloads: MutableList<Any>?
     ) {
-
         holder.bind(itemMovie)
     }
 
@@ -43,9 +42,8 @@ class TopMoviesTmdbAdapter(private val itemMovie: ItemMovie) :
 
     override fun getLayoutRes(): Int = R.layout.item_movies_tmdb
 
-    override fun hashCode(): Int {
-        return itemMovie.hashCode()
-    }
+    override fun hashCode(): Int = itemMovie.hashCode()
+
 
     inner class MoviesHolder(
             private val view: View,
@@ -56,6 +54,7 @@ class TopMoviesTmdbAdapter(private val itemMovie: ItemMovie) :
         fun bind(item: ItemMovie) {
             Glide.with(view)
                     .load(tmdbImageUrl + item.poster_path)
+                    .circleCrop()
                     .into(itemView.sivMoviePoster)
             itemView.mtvTitleMovies.text = item.title
             itemView.mtvYear.text = item.release_date

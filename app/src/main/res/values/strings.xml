@@ -2,7 +2,8 @@
     <string name="app_name">SocialApp</string>
     <string name="input_movies">Введите название фильма</string>
     <string name="input_category">Введите название категории</string>
-    <string name="input_movies_hint">название фильма английском языке</string>
+    <string name="input_movies_hint">Название фильма английском языке</string>
+    <string name="input_movies_year">Введите год выпуска</string>
     <string name="search">Поиск</string>
     <string name="adding">Добавить</string>
     <string name="add">Добавить в подборку</string>

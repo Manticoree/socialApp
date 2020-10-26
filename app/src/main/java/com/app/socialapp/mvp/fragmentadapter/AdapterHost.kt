@@ -11,7 +11,7 @@ class AdapterHost(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm,
 
     companion object {
         const val PAGE_COUNT = 3
-        val tabTitles: Array<String> = arrayOf("Фильмы", "Мои подборки", "Топ фильмов")
+        val tabTitles: Array<String> = arrayOf("Мои Фильмы", "Мои подборки", "Топ фильмов")
 
     }
 

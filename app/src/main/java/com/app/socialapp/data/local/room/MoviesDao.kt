@@ -22,5 +22,4 @@ interface MoviesDao {
     @Delete
     fun delete(itemMovie: ItemMovie)
 
-
 }

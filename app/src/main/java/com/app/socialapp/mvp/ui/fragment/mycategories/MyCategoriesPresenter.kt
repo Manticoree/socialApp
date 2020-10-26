@@ -16,7 +16,6 @@ class MyCategoriesPresenter(val view: MyCategoriesContract.View) : MyCategoriesC
         MainApplication.applicationComponent.inject(this)
     }
 
-
     override fun getCategories() {
         if (categoryDao.getAll().isEmpty()) {
             view.showAddCategory()
@@ -35,6 +34,5 @@ class MyCategoriesPresenter(val view: MyCategoriesContract.View) : MyCategoriesC
     override fun onClickAddCategory() {
         view.clickAddCategory()
     }
-
 
 }

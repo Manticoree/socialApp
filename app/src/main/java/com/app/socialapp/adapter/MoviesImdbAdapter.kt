@@ -38,9 +38,8 @@ class MoviesImdbAdapter(private val itemMovie: ItemMovie?) : AbstractFlexibleIte
 
     override fun getLayoutRes(): Int = R.layout.item_movies_imdb
 
-    override fun hashCode(): Int {
-        return itemMovie?.hashCode() ?: 0
-    }
+    override fun hashCode(): Int = itemMovie?.hashCode() ?: 0
+
 
     inner class MyViewHolder(private val view: View, adapter: FlexibleAdapter<out IFlexible<*>>?) :
             FlexibleViewHolder(view, adapter) {
@@ -72,6 +71,7 @@ class MoviesImdbAdapter(private val itemMovie: ItemMovie?) : AbstractFlexibleIte
                     .setTopRightCorner(CornerFamily.CUT, 200f)
                     .build()
         }
+
     }
 
 }

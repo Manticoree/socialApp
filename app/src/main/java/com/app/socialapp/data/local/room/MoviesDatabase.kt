@@ -8,6 +8,7 @@ import com.app.socialapp.data.entities.imdb.ItemMovie
 
 @Database(entities = [ItemMovie::class, ItemCategory::class], version = 2, exportSchema = false)
 abstract class MoviesDatabase : RoomDatabase() {
+
     abstract fun moviesDao(): MoviesDao
     abstract fun categoryDao(): CategoryDao
 

@@ -13,7 +13,11 @@ class AddCategoryFragment : BaseBottomFragment(), AddCategoryContract.View {
 
     lateinit var presenter: AddCategoryContract.Presenter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.bottom_fragment_category, container, false)
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.bottom_fragment_category, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

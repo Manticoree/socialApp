@@ -39,7 +39,6 @@ class CategoryAdapter(private val itemCategory: ItemCategory) :
 
     override fun hashCode(): Int = itemCategory.hashCode()
 
-
     inner class CategoryHolder(
             view: View,
             adapter: FlexibleAdapter<out IFlexible<*>>
@@ -48,6 +47,7 @@ class CategoryAdapter(private val itemCategory: ItemCategory) :
         fun bind(itemCategory: ItemCategory) {
             itemView.mtvCategoryName.text = itemCategory.name
         }
+
     }
 
 }

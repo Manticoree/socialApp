@@ -11,12 +11,12 @@ import com.app.socialapp.R
 import com.app.socialapp.adapter.MoviesImdbAdapter
 import com.app.socialapp.fragment.BaseFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
-import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.android.synthetic.main.fragment_list_my_movies.*
 
 class ListMovieFragment : BaseFragment(), ListMovieContract.View {
 
-    private var presenter: ListMovieContract.Presenter? = null
-    private var imdbAdapter: FlexibleAdapter<MoviesImdbAdapter>? = null
+    private lateinit var presenter: ListMovieContract.Presenter
+    private lateinit var imdbAdapter: FlexibleAdapter<MoviesImdbAdapter>
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -34,7 +34,7 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_list, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_list_my_movies, container, false)
         retainInstance = true
         Log.i("LifecycleFragmentMovie", "onCreateView")
         return view
@@ -43,9 +43,8 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
     override fun onStart() {
         super.onStart()
         Log.i("LifecycleFragmentMovie", "onStart")
-        if (presenter == null)
-            presenter = ListMoviePresenter(this)
-        presenter?.onShowRecyclerView()
+        presenter = ListMoviePresenter(this)
+        presenter.onShowRecyclerView()
     }
 
     override fun onResume() {
@@ -61,9 +60,7 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
 
     override fun onStop() {
         Log.i("LifecycleFragmentMovie", "onStop")
-        presenter?.cleanMemory()
-        presenter = null
-        imdbAdapter = null
+        presenter.cleanMemory()
         super.onStop()
     }
 

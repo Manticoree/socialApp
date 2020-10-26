@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_search.*
 
 class SearchFragment : BaseFragment(), SearchContract.View {
 
-    var presenter: SearchContract.Presenter? = null
+    lateinit var presenter: SearchContract.Presenter
 
     private var disList: MutableList<Disposable> = mutableListOf()
 
@@ -51,9 +51,8 @@ class SearchFragment : BaseFragment(), SearchContract.View {
 
     override fun onStart() {
         super.onStart()
-        if (presenter == null)
-            presenter = SearchPresenter(this)
-        presenter?.onClickSearch()
+        presenter = SearchPresenter(this)
+        presenter.onClickSearch()
         Log.i("LifecycleFragmentSearch", "onStart")
     }
 
@@ -68,9 +67,7 @@ class SearchFragment : BaseFragment(), SearchContract.View {
     }
 
     override fun onStop() {
-        presenter = null
-        for (i in disList)
-            i.dispose()
+        disList.forEach { it.dispose() }
         super.onStop()
         Log.i("LifecycleFragmentSearch", "onStop")
     }
@@ -90,7 +87,11 @@ class SearchFragment : BaseFragment(), SearchContract.View {
         Log.i("LifecycleFragmentSearch", "onDetach")
     }
 
-    override fun showMovie(moviePoster: String?, movieTitle: String?, movieDescription: String?) {
+    override fun showMovie(
+            moviePoster: String?,
+            movieTitle: String?,
+            movieDescription: String?
+    ) {
         sivMoviePoster.visibility = View.VISIBLE
         mtvMoviesTitle.visibility = View.VISIBLE
         mtvDescription.visibility = View.VISIBLE

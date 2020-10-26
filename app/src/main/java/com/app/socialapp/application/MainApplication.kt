@@ -12,8 +12,14 @@ import javax.inject.Inject
 
 class MainApplication : MultiDexApplication() {
 
-    var moviesDao: MoviesDao? = null
-        @Inject set
+    @Inject
+    lateinit var moviesDao: MoviesDao
+
+    companion object {
+        lateinit var applicationComponent: AppComponent
+        const val IMDB_API = "http://www.omdbapi.com"
+        const val TMDB_API = "http://api.themoviedb.org/3/"
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -22,14 +28,9 @@ class MainApplication : MultiDexApplication() {
                 .applicationModule(ApplicationModule(this))
                 .contextModule(ContextModule(this))
                 .roomModule(RoomModule(this))
-                .retrofitModule(RetrofitModule("http://www.omdbapi.com", "http://api.themoviedb.org/3/"))
+                .retrofitModule(RetrofitModule(IMDB_API, TMDB_API))
                 .build()
         applicationComponent.inject(this)
     }
 
-    companion object {
-
-        lateinit var applicationComponent: AppComponent
-
-    }
 }

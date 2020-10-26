@@ -14,5 +14,4 @@ interface ServiceTmdb {
             @Query("api_key") api_key: String
     ): Single<TopMovies>
 
-
 }
