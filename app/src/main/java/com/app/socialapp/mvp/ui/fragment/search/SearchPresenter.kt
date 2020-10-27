@@ -2,7 +2,7 @@ package com.app.socialapp.mvp.ui.fragment.search
 
 import android.util.Log
 import com.app.socialapp.application.MainApplication
-import com.app.socialapp.data.entities.imdb.ItemMovie
+import com.app.socialapp.data.entities.imdb.ItemMovieImdb
 import com.app.socialapp.data.local.room.MoviesDao
 import com.app.socialapp.data.remote.retrofit.ServiceImdb
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -36,17 +36,17 @@ class SearchPresenter(
         serviceImdb.getMovies(name, IMBD_TOKEN)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : SingleObserver<ItemMovie> {
+                .subscribe(object : SingleObserver<ItemMovieImdb> {
 
                     override fun onSubscribe(d: @NonNull Disposable) {
                         view.getDisposableList().add(d)
                     }
 
-                    override fun onSuccess(itemMovie: ItemMovie) {
-                        Log.i("valueSearch", itemMovie.toString())
-                        if (itemMovie.title != null) {
-                            moviesDao.insert(itemMovie)
-                            view.showMovie(itemMovie.poster, itemMovie.title, itemMovie.plot)
+                    override fun onSuccess(itemMovieImdb: ItemMovieImdb) {
+                        Log.i("valueSearch", itemMovieImdb.toString())
+                        if (itemMovieImdb.title != null) {
+                            moviesDao.insert(itemMovieImdb)
+                            view.showMovie(itemMovieImdb.poster, itemMovieImdb.title, itemMovieImdb.plot)
                         }
                     }
 

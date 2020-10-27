@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "item_news")
-data class ItemMovie(
+data class ItemMovieDb(
         @field:PrimaryKey(autoGenerate = true) @ColumnInfo(name = "idItem") val idItem: Long,
         @ColumnInfo(name = "title") val title: String?,
         @ColumnInfo(name = "year") val year: Int,
