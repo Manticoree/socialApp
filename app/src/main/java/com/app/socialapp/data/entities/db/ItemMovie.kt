@@ -1,4 +1,4 @@
-package com.app.socialapp.data.entities.imdb
+package com.app.socialapp.data.entities.db
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

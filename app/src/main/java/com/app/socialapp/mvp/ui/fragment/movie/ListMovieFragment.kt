@@ -33,35 +33,17 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_list_my_movies, container, false)
-        retainInstance = true
-        Log.i("LifecycleFragmentMovie", "onCreateView")
-        return view
-    }
+    ): View? = inflater.inflate(R.layout.fragment_list_my_movies, container, false)
 
-    override fun onStart() {
-        super.onStart()
-        Log.i("LifecycleFragmentMovie", "onStart")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         presenter = ListMoviePresenter(this)
         presenter.onShowRecyclerView()
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.i("LifecycleFragmentMovie", "onResume")
-
-    }
-
-    override fun onPause() {
-        Log.i("LifecycleFragmentMovie", "onPause")
-        super.onPause()
-    }
-
-    override fun onStop() {
-        Log.i("LifecycleFragmentMovie", "onStop")
+    override fun onDetach() {
         presenter.cleanMemory()
-        super.onStop()
+        super.onDetach()
     }
 
     override fun showRecyclerView(initList: List<MoviesImdbAdapter>) {

@@ -1,4 +1,4 @@
-package com.app.socialapp.data.repository
+package com.app.socialapp.data.repository.remote.tmdb
 
 import com.app.socialapp.adapter.TopMoviesTmdbAdapter
 import com.app.socialapp.application.MainApplication
@@ -7,7 +7,7 @@ import com.app.socialapp.data.remote.retrofit.ServiceTmdb
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
-class TmdbTopMovies {
+class TopMoviesRepository {
 
     @Inject
     lateinit var serviceTmdb: ServiceTmdb

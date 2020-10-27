@@ -37,7 +37,7 @@ class TopMoviesFragment : BaseFragment(), LifecycleOwner {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_list_my_movies, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_list_top_movies, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -61,4 +61,5 @@ class TopMoviesFragment : BaseFragment(), LifecycleOwner {
         tmdbAdapter = FlexibleAdapter(initList)
         rvListSource.adapter = tmdbAdapter
     }
+
 }

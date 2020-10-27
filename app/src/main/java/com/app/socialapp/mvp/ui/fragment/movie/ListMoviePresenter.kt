@@ -8,6 +8,7 @@ import com.app.socialapp.data.local.room.MoviesDao
 import javax.inject.Inject
 
 class ListMoviePresenter(var view: ListMovieContract.View) : ListMovieContract.Presenter {
+
     @Inject
     lateinit var moviesDao: MoviesDao
 
@@ -22,38 +23,13 @@ class ListMoviePresenter(var view: ListMovieContract.View) : ListMovieContract.P
     }
 
     override fun initDataFromDB() {
-        Log.i("movies in database: ", moviesDao?.getAll().toString())
+        Log.i("movies in database: ", moviesDao.getAll().toString())
         for (i in moviesDao.getAll()) {
             initList.add(MoviesImdbAdapter(i))
         }
         Log.i("movies in list: ", initList.toString())
         initList.let { view.showRecyclerView(it) }
 
-/*
-        moviesDao?.getAll()
-                ?.subscribeOn(Schedulers.io())
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribe(object : SingleObserver<List<ItemNews>> {
-                    override fun onSuccess(item: List<ItemNews>?) {
-                        if (item != null) {
-                            for (e in item) {
-                                initList = listOf(SocialNetworkAdapter(e))
-                            }
-                            view.showRecyclerView(initList)
-                        }
-                    }
-
-                    override fun onSubscribe(d: Disposable?) {
-                        TODO("Not yet implemented")
-                    }
-
-                    override fun onError(e: Throwable?) {
-                        TODO("Not yet implemented")
-                    }
-
-                })
-
-*/
     }
 
     override fun cleanMemory() {

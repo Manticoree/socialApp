@@ -1,4 +1,6 @@
-package com.app.socialapp.data.mapper
+package com.app.socialapp.data.mapper.list
+
+import com.app.socialapp.data.mapper.Mapper
 
 class ListMapperImpl<I, O>(
         private val mapper: Mapper<I, O>
