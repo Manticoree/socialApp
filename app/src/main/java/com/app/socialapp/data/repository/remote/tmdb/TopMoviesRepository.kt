@@ -19,7 +19,7 @@ class TopMoviesRepository {
     }
 
     companion object {
-        const val PRIMARY_RELEASE = "2000"
+        const val PRIMARY_RELEASE = "2020"
         const val SORT_BY = "vote_average.desc"
         const val API_KEY = "93ab2fe14a1dc7357659e0c56f2b93c4"
     }

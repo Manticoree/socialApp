@@ -21,8 +21,7 @@ class MyCategoriesPresenter(val view: MyCategoriesContract.View) : MyCategoriesC
             view.showAddCategory()
         } else {
             view.showCategoryList()
-            for (item in categoryDao.getAll())
-                categoryList.add(CategoryAdapter(item))
+            categoryDao.getAll().forEach { categoryList.add(CategoryAdapter(it)) }
         }
         view.showRecyclerView(categoryList)
     }

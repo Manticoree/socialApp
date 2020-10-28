@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "item_news")
 data class ItemMovieDb(
-        @field:PrimaryKey(autoGenerate = true) @ColumnInfo(name = "idItem") val idItem: Long,
+        @PrimaryKey @ColumnInfo(name = "idItem") val idItem: String,
         @ColumnInfo(name = "title") val title: String?,
         @ColumnInfo(name = "year") val year: Int,
         @ColumnInfo(name = "rated") val rated: String,
@@ -24,4 +24,6 @@ data class ItemMovieDb(
         @ColumnInfo(name = "country") val country: String,
         @ColumnInfo(name = "awards") val awards: String,
         /* @field:SerializedName("Ratings")  val rating: List<ItemRating>,*/
-        @ColumnInfo(name = "poster") val poster: String) : Parcelable
+        @ColumnInfo(name = "poster") val poster: String) : Parcelable {
+
+}

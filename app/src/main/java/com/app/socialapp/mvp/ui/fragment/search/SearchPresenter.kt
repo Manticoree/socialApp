@@ -5,6 +5,7 @@ import com.app.socialapp.application.MainApplication
 import com.app.socialapp.data.entities.imdb.ItemMovieImdb
 import com.app.socialapp.data.local.room.MoviesDao
 import com.app.socialapp.data.remote.retrofit.ServiceImdb
+import com.app.socialapp.data.repository.remote.imdb.SearchMoviesRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.core.SingleObserver
@@ -13,7 +14,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 class SearchPresenter(
-        val view: SearchContract.View
+        val view: SearchContract.View,
+        val searchMoviesRepository: SearchMoviesRepository = SearchMoviesRepository()
 ) : SearchContract.Presenter {
 
     @Inject
@@ -33,7 +35,7 @@ class SearchPresenter(
     override fun searchMovie(name: String) {
         MainApplication.applicationComponent.inject(this)
         Log.i("valueSearch ", "subserviceApi $serviceImdb")
-        serviceImdb.getMovies(name, IMBD_TOKEN)
+        searchMoviesRepository.getMovie(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<ItemMovieImdb> {
@@ -45,7 +47,7 @@ class SearchPresenter(
                     override fun onSuccess(itemMovieImdb: ItemMovieImdb) {
                         Log.i("valueSearch", itemMovieImdb.toString())
                         if (itemMovieImdb.title != null) {
-                            moviesDao.insert(itemMovieImdb)
+                            //  moviesDao.insert(ItemMapperImpl.convert(itemMovieImdb))
                             view.showMovie(itemMovieImdb.poster, itemMovieImdb.title, itemMovieImdb.plot)
                         }
                     }

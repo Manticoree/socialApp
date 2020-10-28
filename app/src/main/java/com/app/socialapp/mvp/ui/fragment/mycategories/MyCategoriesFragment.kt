@@ -20,7 +20,7 @@ class MyCategoriesFragment : BaseFragment(), MyCategoriesContract.View {
 
     lateinit var presenter: MyCategoriesContract.Presenter
     private lateinit var navController: NavController
-    private var adapter: FlexibleAdapter<CategoryAdapter>? = null
+    private lateinit var adapter: FlexibleAdapter<CategoryAdapter>
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"

@@ -25,6 +25,7 @@ class TopMoviesViewModel : ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<TopMovies> {
+
                     override fun onSuccess(t: TopMovies) {
                         for (item in t.results) {
                             moviesData.add(TopMoviesTmdbAdapter(item))
@@ -42,7 +43,6 @@ class TopMoviesViewModel : ViewModel() {
 
                 }
                 )
-
     }
 
 }
