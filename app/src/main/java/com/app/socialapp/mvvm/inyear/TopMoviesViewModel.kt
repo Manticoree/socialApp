@@ -24,12 +24,15 @@ class TopMoviesViewModel : ViewModel() {
                 .getMovies()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : SingleObserver<TopMovies> {
+                .subscribe(object : SingleObserver<List<TopMovies>> {
 
-                    override fun onSuccess(t: TopMovies) {
-                        for (item in t.results) {
-                            moviesData.add(TopMoviesTmdbAdapter(item))
+                    override fun onSuccess(t: List<TopMovies>) {
+                        t.forEach {
+                            it.results.forEach { itemMovie ->
+                                moviesData.add(TopMoviesTmdbAdapter(itemMovie))
+                            }
                         }
+
                         moviesLiveData.value = moviesData
                     }
 

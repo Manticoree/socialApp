@@ -14,64 +14,6 @@ class TopMoviesRepository {
     @Inject
     lateinit var serviceTmdb: ServiceTmdb
 
-    val movies2020: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
-            PRIMARY_RELEASE_2020,
-            SORT_BY,
-            API_KEY
-    )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-
-    val movies2019: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
-            PRIMARY_RELEASE_2019,
-            SORT_BY,
-            API_KEY
-    )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    val movies2018: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
-            PRIMARY_RELEASE_2018,
-            SORT_BY,
-            API_KEY
-    )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    val movies2017: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
-            PRIMARY_RELEASE_2017,
-            SORT_BY,
-            API_KEY
-    )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    val movies2016: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
-            PRIMARY_RELEASE_2016,
-            SORT_BY,
-            API_KEY
-    )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    val movies2015: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
-            PRIMARY_RELEASE_2015,
-            SORT_BY,
-            API_KEY
-    )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    val movies2014: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
-            PRIMARY_RELEASE_2014,
-            SORT_BY,
-            API_KEY
-    )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    val movies2013: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
-            PRIMARY_RELEASE_2013,
-            SORT_BY,
-            API_KEY
-    )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-
     init {
         MainApplication.applicationComponent.inject(this)
     }
@@ -89,8 +31,65 @@ class TopMoviesRepository {
         const val API_KEY = "93ab2fe14a1dc7357659e0c56f2b93c4"
     }
 
-    fun getMovies(): Single<TopMovies> {
-        val moviesAllYear: Single<List<TopMovies>> = Single.zip(
+    fun getMovies(): Single<List<TopMovies>> {
+        val movies2020: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2020,
+                SORT_BY,
+                API_KEY
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+
+        val movies2019: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2019,
+                SORT_BY,
+                API_KEY
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        val movies2018: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2018,
+                SORT_BY,
+                API_KEY
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        val movies2017: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2017,
+                SORT_BY,
+                API_KEY
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        val movies2016: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2016,
+                SORT_BY,
+                API_KEY
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        val movies2015: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2015,
+                SORT_BY,
+                API_KEY
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        val movies2014: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2014,
+                SORT_BY,
+                API_KEY
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        val movies2013: Single<TopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2013,
+                SORT_BY,
+                API_KEY
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        return Single.zip(
                 movies2020,
                 movies2019,
                 movies2018,
@@ -109,21 +108,27 @@ class TopMoviesRepository {
                         TopMovies,
                         TopMovies,
                         List<TopMovies>
-                        > { movies2020,
-                            movies2019,
-                            movies2018,
-                            movies2017,
-                            movies2016,
-                            movies2015,
-                            movies2014,
-                            movies2013 ->
-
+                        > { topMovies2020,
+                            topMovies2019,
+                            topMovies2018,
+                            topMovies2017,
+                            topMovies2016,
+                            topMovies2015,
+                            topMovies2014,
+                            topMovies2013 ->
+                    val listTopMovies = mutableListOf(
+                            topMovies2013,
+                            topMovies2014,
+                            topMovies2015,
+                            topMovies2016,
+                            topMovies2017,
+                            topMovies2018,
+                            topMovies2019,
+                            topMovies2020
+                    )
+                    listTopMovies
                 }
         )
-        return serviceTmdb.getTopMoviesInYears(
-                PRIMARY_RELEASE_2020,
-                SORT_BY,
-                API_KEY)
     }
 
 }

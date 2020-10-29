@@ -41,11 +41,6 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
         presenter.onShowRecyclerView()
     }
 
-    override fun onDetach() {
-        presenter.cleanMemory()
-        super.onDetach()
-    }
-
     override fun showRecyclerView(initList: List<MoviesImdbAdapter>) {
         Log.i("initList: ", initList.toString())
         rvListSource.setHasFixedSize(true)
