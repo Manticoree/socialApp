@@ -1,4 +1,4 @@
-package com.app.socialapp.mvvm
+package com.app.socialapp.mvvm.inyear
 
 
 import android.os.Bundle
@@ -15,7 +15,7 @@ import com.app.socialapp.R
 import com.app.socialapp.adapter.TopMoviesTmdbAdapter
 import com.app.socialapp.fragment.BaseFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
-import kotlinx.android.synthetic.main.fragment_list_top_movies.*
+import kotlinx.android.synthetic.main.fragment_list_movies_tmdb.*
 
 class TopMoviesFragment : BaseFragment(), LifecycleOwner {
 
@@ -37,7 +37,7 @@ class TopMoviesFragment : BaseFragment(), LifecycleOwner {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_list_top_movies, container, false)
+    ): View? = inflater.inflate(R.layout.item_list_top_movie_in_year, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,7 +45,7 @@ class TopMoviesFragment : BaseFragment(), LifecycleOwner {
         viewModel.moviesLiveData.observe(viewLifecycleOwner, moviesList)
     }
 
-    var moviesList: Observer<List<TopMoviesTmdbAdapter>> = Observer {
+    private var moviesList: Observer<List<TopMoviesTmdbAdapter>> = Observer {
         showRecyclerView(it)
     }
 

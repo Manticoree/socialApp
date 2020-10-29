@@ -1,4 +1,4 @@
-package com.app.socialapp.mvvm
+package com.app.socialapp.mvvm.inyear
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
