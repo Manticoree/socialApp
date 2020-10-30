@@ -54,7 +54,7 @@ class MyCategoriesFragment : BaseFragment(), MyCategoriesContract.View {
     }
 
     override fun showCategoryList() {
-        visibilityCategory(View.GONE, View.GONE, View.VISIBLE)
+        visibilityCategory(View.GONE, View.VISIBLE, View.VISIBLE)
     }
 
     override fun showAddCategory() {

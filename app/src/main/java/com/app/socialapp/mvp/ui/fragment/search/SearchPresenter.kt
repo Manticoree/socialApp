@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class SearchPresenter(
         val view: SearchContract.View,
-        val searchMoviesRepository: SearchMoviesRepository = SearchMoviesRepository()
+        private val searchMoviesRepository: SearchMoviesRepository = SearchMoviesRepository()
 ) : SearchContract.Presenter {
 
     @Inject

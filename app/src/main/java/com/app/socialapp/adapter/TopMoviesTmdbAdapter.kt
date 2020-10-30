@@ -3,6 +3,7 @@ package com.app.socialapp.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
+import com.app.socialapp.data.entities.db.ItemTopMoviesDb
 import com.app.socialapp.data.entities.tmdb.ItemMovie
 import com.bumptech.glide.Glide
 import eu.davidea.flexibleadapter.FlexibleAdapter
@@ -11,7 +12,7 @@ import eu.davidea.flexibleadapter.items.IFlexible
 import eu.davidea.viewholders.FlexibleViewHolder
 import kotlinx.android.synthetic.main.item_movies_tmdb.view.*
 
-class TopMoviesTmdbAdapter(private val itemMovie: ItemMovie) :
+class TopMoviesTmdbAdapter(private val itemMovie: ItemTopMoviesDb) :
         AbstractFlexibleItem<TopMoviesTmdbAdapter.MoviesHolder>() {
 
     companion object {
@@ -51,7 +52,7 @@ class TopMoviesTmdbAdapter(private val itemMovie: ItemMovie) :
     ) :
             FlexibleViewHolder(view, adapter) {
 
-        fun bind(item: ItemMovie) {
+        fun bind(item: ItemTopMoviesDb) {
             Glide.with(view)
                     .load(tmdbImageUrl + item.poster_path)
                     .circleCrop()

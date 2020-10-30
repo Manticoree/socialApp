@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.adapter.TopMoviesTmdbAdapter
+import com.app.socialapp.adapter.RecyclerTopMoviesTmdbAdapter
 import com.app.socialapp.fragment.BaseFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import kotlinx.android.synthetic.main.fragment_list_movies_tmdb.*
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_list_movies_tmdb.*
 class TopMoviesFragment : BaseFragment(), LifecycleOwner {
 
     private lateinit var viewModel: TopMoviesViewModel
-    private var tmdbAdapter: FlexibleAdapter<TopMoviesTmdbAdapter>? = null
+    private var tmdbAdapter: FlexibleAdapter<RecyclerTopMoviesTmdbAdapter>? = null
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -37,7 +37,7 @@ class TopMoviesFragment : BaseFragment(), LifecycleOwner {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.item_list_top_movie_in_year, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_list_movies_tmdb, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,11 +45,12 @@ class TopMoviesFragment : BaseFragment(), LifecycleOwner {
         viewModel.moviesLiveData.observe(viewLifecycleOwner, moviesList)
     }
 
-    private var moviesList: Observer<List<TopMoviesTmdbAdapter>> = Observer {
+    private var moviesList: Observer<List<RecyclerTopMoviesTmdbAdapter>> = Observer {
+        Log.i("observerCollect: ", it.toString())
         showRecyclerView(it)
     }
 
-    private fun showRecyclerView(initList: List<TopMoviesTmdbAdapter>) {
+    private fun showRecyclerView(initList: List<RecyclerTopMoviesTmdbAdapter>) {
         Log.i("initList: ", initList.toString())
         rvListSource.setHasFixedSize(true)
         val manager: RecyclerView.LayoutManager = LinearLayoutManager(

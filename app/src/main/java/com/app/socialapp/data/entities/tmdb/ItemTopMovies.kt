@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-data class TopMovies(
+data class ItemTopMovies(
         val page: Int,
         val total_results: Int,
         val total_pages: Int,

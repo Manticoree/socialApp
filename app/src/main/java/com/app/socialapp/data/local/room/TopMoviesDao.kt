@@ -4,21 +4,21 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.app.socialapp.data.entities.db.TopMoviesDb
+import com.app.socialapp.data.entities.db.ItemTopMoviesDb
 
 @Dao
 interface TopMoviesDao {
 
     @Query("SELECT* from top_movies")
-    fun getAll(): List<TopMoviesDb>
+    fun getAll(): List<ItemTopMoviesDb>
 
     @Query("SELECT* from top_movies WHERE year = :year")
-    fun getByYear(year: Int): TopMoviesDb
+    fun getByYear(year: Int): List<ItemTopMoviesDb>
 
     @Insert
-    fun insert(topMoviesDb: TopMoviesDb)
+    fun insert(itemTopMoviesDb: ItemTopMoviesDb)
 
     @Delete
-    fun delete(topMoviesDb: TopMoviesDb)
+    fun delete(itemTopMoviesDb: ItemTopMoviesDb)
 
 }
