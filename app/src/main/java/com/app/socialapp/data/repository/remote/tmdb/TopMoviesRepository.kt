@@ -132,15 +132,14 @@ class TopMoviesRepository {
                             topMovies2013 ->
 
                     putRequestInDb(topMovies2020.results, 2020)
-                    /*
-                    putRequestInDb(topMovies2019.results, 2019)
-                    putRequestInDb(topMovies2018.results, 2018)
-                    putRequestInDb(topMovies2017.results, 2017)
-                    putRequestInDb(topMovies2016.results, 2016)
-                    putRequestInDb(topMovies2015.results, 2015)
-                    putRequestInDb(topMovies2014.results, 2014)
-                    putRequestInDb(topMovies2013.results, 2013)
-*/
+                    //  putRequestInDb(topMovies2019.results, 2019)
+                    //putRequestInDb(topMovies2018.results, 2018)
+                    //putRequestInDb(topMovies2017.results, 2017)
+                    // putRequestInDb(topMovies2016.results, 2016)
+                    // putRequestInDb(topMovies2015.results, 2015)
+                    //  putRequestInDb(topMovies2014.results, 2014)
+                    //  putRequestInDb(topMovies2013.results, 2013)
+
                     val listTopMovies = mutableListOf(
                             topMovies2013,
                             topMovies2014,
