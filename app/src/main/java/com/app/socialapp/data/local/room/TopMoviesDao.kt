@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.app.socialapp.data.entities.db.ItemTopMoviesDb
+import io.reactivex.rxjava3.core.Completable
 
 @Dao
 interface TopMoviesDao {
@@ -16,7 +17,7 @@ interface TopMoviesDao {
     fun getByYear(year: Int): List<ItemTopMoviesDb>
 
     @Insert
-    fun insert(itemTopMoviesDb: ItemTopMoviesDb)
+    fun insert(itemTopMoviesDb: ItemTopMoviesDb): Completable
 
     @Delete
     fun delete(itemTopMoviesDb: ItemTopMoviesDb)

@@ -22,8 +22,9 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtvTitleMovies"
             style="@style/LittleTitleTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:maxLines="2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@id/sivMoviePoster"
             app:layout_constraintRight_toRightOf="parent" />
@@ -61,26 +62,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/mtvTitleYear"
             app:layout_constraintLeft_toRightOf="@+id/mtvTitleLanguageMovies" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvTitleDescription"
-            style="@style/LittleTitleTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/description"
-            app:layout_constraintTop_toBottomOf="@id/sivMoviePoster"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvDescription"
-            style="@style/CommonTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintWidth_percent="0.9"
-            app:layout_constraintTop_toBottomOf="@+id/mtvTitleDescription"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

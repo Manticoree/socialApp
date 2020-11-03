@@ -11,6 +11,7 @@ import com.app.socialapp.data.remote.retrofit.ServiceTmdb
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.functions.Function8
+import io.reactivex.rxjava3.observers.DisposableCompletableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -131,8 +132,8 @@ class TopMoviesRepository {
                             topMovies2014,
                             topMovies2013 ->
 
-                    putRequestInDb(topMovies2020.results, 2020)
-                    //  putRequestInDb(topMovies2019.results, 2019)
+                    // putRequestInDb(topMovies2020.results, 2020)
+                    // putRequestInDb(topMovies2019.results, 2019)
                     //putRequestInDb(topMovies2018.results, 2018)
                     //putRequestInDb(topMovies2017.results, 2017)
                     // putRequestInDb(topMovies2016.results, 2016)
@@ -156,9 +157,25 @@ class TopMoviesRepository {
     }
 
     fun putRequestInDb(list: List<ItemMovie>, year: Int) {
-        Log.i("putDataInDb: ", year.toString())
+        list.forEach {
+            Log.i("putDataInDb: ", "$year $it")
+        }
+
         list.forEach {
             dao.insert(ItemTopMapperImpl.convert(it, year))
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(object : DisposableCompletableObserver() {
+
+                        override fun onComplete() {
+                            Log.i("onComplete: ", "")
+                        }
+
+                        override fun onError(e: Throwable?) {
+                            e?.localizedMessage?.let { it1 -> Log.e("onError: ", it1) }
+                        }
+
+                    })
         }
 
     }

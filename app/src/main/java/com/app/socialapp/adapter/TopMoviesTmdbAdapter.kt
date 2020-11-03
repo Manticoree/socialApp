@@ -3,7 +3,6 @@ package com.app.socialapp.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.data.entities.db.ItemTopMoviesDb
 import com.app.socialapp.data.entities.tmdb.ItemMovie
 import com.bumptech.glide.Glide
 import eu.davidea.flexibleadapter.FlexibleAdapter
@@ -12,8 +11,8 @@ import eu.davidea.flexibleadapter.items.IFlexible
 import eu.davidea.viewholders.FlexibleViewHolder
 import kotlinx.android.synthetic.main.item_movies_tmdb.view.*
 
-class TopMoviesTmdbAdapter(private val itemMovie: ItemTopMoviesDb) :
-        AbstractFlexibleItem<TopMoviesTmdbAdapter.MoviesHolder>() {
+class TopMoviesTmdbAdapter(private val itemMovie: ItemMovie) :
+        AbstractFlexibleItem<TopMoviesTmdbAdapter.MoviesHolder>(), TopMoviesBase {
 
     companion object {
         const val tmdbImageUrl = "https://image.tmdb.org/t/p/w500"
@@ -52,7 +51,7 @@ class TopMoviesTmdbAdapter(private val itemMovie: ItemTopMoviesDb) :
     ) :
             FlexibleViewHolder(view, adapter) {
 
-        fun bind(item: ItemTopMoviesDb) {
+        fun bind(item: ItemMovie) {
             Glide.with(view)
                     .load(tmdbImageUrl + item.poster_path)
                     .circleCrop()
@@ -60,7 +59,6 @@ class TopMoviesTmdbAdapter(private val itemMovie: ItemTopMoviesDb) :
             itemView.mtvTitleMovies.text = item.title
             itemView.mtvYear.text = item.release_date
             itemView.mtvLanguageMovies.text = item.original_language
-            itemView.mtvDescription.text = item.overview
         }
 
     }

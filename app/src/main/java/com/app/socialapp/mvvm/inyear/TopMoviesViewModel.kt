@@ -1,10 +1,11 @@
 package com.app.socialapp.mvvm.inyear
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.socialapp.adapter.RecyclerTopMoviesTmdbAdapter
 import com.app.socialapp.adapter.TopMoviesTmdbAdapter
-import com.app.socialapp.data.entities.db.ItemTopMoviesDb
+import com.app.socialapp.data.entities.tmdb.ItemMovie
 import com.app.socialapp.data.entities.tmdb.ItemTopMovies
 import com.app.socialapp.data.repository.remote.tmdb.TopMoviesRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -16,8 +17,8 @@ class TopMoviesViewModel : ViewModel() {
     private val topMoviesRepository: TopMoviesRepository = TopMoviesRepository()
     var moviesData: MutableList<RecyclerTopMoviesTmdbAdapter> = mutableListOf()
     var moviesLiveData: MutableLiveData<List<RecyclerTopMoviesTmdbAdapter>> = MutableLiveData()
-    val listOfList: MutableList<List<ItemTopMoviesDb>> = mutableListOf()
-    var listMoviesInYear: MutableList<TopMoviesTmdbAdapter> = mutableListOf()
+    val listOfList: MutableList<List<ItemMovie>> = mutableListOf()
+
 
     init {
         loadDataInRecView()
@@ -32,34 +33,18 @@ class TopMoviesViewModel : ViewModel() {
 
                     override fun onSuccess(t: List<ItemTopMovies>) {
 
-                        listOfList.add(topMoviesRepository.getDbMovies(2020))
-                        listOfList.add(topMoviesRepository.getDbMovies(2019))
-                        // listOfList.add(topMoviesRepository.getDbMovies(2018))
-                        // listOfList.add(topMoviesRepository.getDbMovies(2017))
-                        // listOfList.add(topMoviesRepository.getDbMovies(2016))
+                        t.forEach {
+                            Log.i("Log: ", it.toString())
+                            listOfList.add(it.results)
+                        }
                         listOfList.forEach {
+                            var listMoviesInYear: MutableList<TopMoviesTmdbAdapter> = mutableListOf()
                             it.forEach {
                                 listMoviesInYear.add(TopMoviesTmdbAdapter(it))
-                                moviesData.add(RecyclerTopMoviesTmdbAdapter(listMoviesInYear))
                             }
+                            moviesData.add(RecyclerTopMoviesTmdbAdapter(listMoviesInYear))
                         }
-
                         moviesLiveData.value = moviesData
-                        /*
-                        topMoviesRepository.getDbMovies(2020).forEach {
-                            listMoviesInYear.add(TopMoviesTmdbAdapter(it))
-                        }
-
-                         */
-                        /*
-                        t.forEach {
-                            it.results.forEach { itemMovie ->
-                                moviesData.add(TopMoviesTmdbAdapter(itemMovie))
-                            }
-                        }
-
-                        moviesLiveData.value = moviesData
-                         */
                     }
 
                     override fun onSubscribe(d: Disposable) {
@@ -72,7 +57,6 @@ class TopMoviesViewModel : ViewModel() {
 
                 }
                 )
-
     }
 
 }

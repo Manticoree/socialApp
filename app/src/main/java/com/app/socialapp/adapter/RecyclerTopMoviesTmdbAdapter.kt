@@ -13,7 +13,7 @@ import eu.davidea.viewholders.FlexibleViewHolder
 import kotlinx.android.synthetic.main.item_list_top_movie_in_year.view.*
 
 class RecyclerTopMoviesTmdbAdapter(private val listItemDb: List<TopMoviesTmdbAdapter>) :
-        AbstractFlexibleItem<RecyclerTopMoviesTmdbAdapter.RecyclerTopMoviesHolder>() {
+        AbstractFlexibleItem<RecyclerTopMoviesTmdbAdapter.RecyclerTopMoviesHolder>(), TopMoviesBase {
 
     override fun bindViewHolder(
             adapter: FlexibleAdapter<IFlexible<RecyclerView.ViewHolder>>?,
