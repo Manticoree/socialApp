@@ -1,26 +1,23 @@
-package com.app.socialapp.mvvm.inyear
+package com.app.socialapp.mvvm.topmovies
 
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.adapter.RecyclerTopMoviesTmdbAdapter
+import com.app.socialapp.adapter.defaultadapter.MultiTopMoviesAdapter
+import com.app.socialapp.data.entities.ItemManyHolderTopMovies
 import com.app.socialapp.fragment.BaseFragment
-import eu.davidea.flexibleadapter.FlexibleAdapter
 import kotlinx.android.synthetic.main.fragment_list_movies_tmdb.*
 
-class TopMoviesFragment : BaseFragment(), LifecycleOwner {
+class TopMoviesFragment : BaseFragment(R.layout.fragment_list_movies_tmdb), LifecycleOwner {
 
     private lateinit var viewModel: TopMoviesViewModel
-    private var tmdbAdapter: FlexibleAdapter<RecyclerTopMoviesTmdbAdapter>? = null
+    private lateinit var tmdbAdapter: MultiTopMoviesAdapter
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -33,25 +30,17 @@ class TopMoviesFragment : BaseFragment(), LifecycleOwner {
         }
     }
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_list_movies_tmdb, container, false)
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TopMoviesViewModel::class.java)
         viewModel.moviesLiveData.observe(viewLifecycleOwner, moviesList)
     }
 
-    private var moviesList: Observer<List<RecyclerTopMoviesTmdbAdapter>> = Observer {
-        Log.i("observerCollect: ", it.toString())
+    private var moviesList: Observer<List<ItemManyHolderTopMovies>> = Observer {
         showRecyclerView(it)
     }
 
-    private fun showRecyclerView(initList: List<RecyclerTopMoviesTmdbAdapter>) {
-        Log.i("initList: ", initList.toString())
+    private fun showRecyclerView(initList: List<ItemManyHolderTopMovies>) {
         rvListSource.setHasFixedSize(true)
         val manager: RecyclerView.LayoutManager = LinearLayoutManager(
                 activity,
@@ -59,7 +48,7 @@ class TopMoviesFragment : BaseFragment(), LifecycleOwner {
                 false
         )
         rvListSource.layoutManager = manager
-        tmdbAdapter = FlexibleAdapter(initList)
+        tmdbAdapter = MultiTopMoviesAdapter(initList)
         rvListSource.adapter = tmdbAdapter
     }
 

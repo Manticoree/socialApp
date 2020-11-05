@@ -1,4 +1,4 @@
-package com.app.socialapp.adapter
+package com.app.socialapp.adapter.flexadapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

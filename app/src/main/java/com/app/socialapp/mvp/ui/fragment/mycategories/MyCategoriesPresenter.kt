@@ -1,6 +1,6 @@
 package com.app.socialapp.mvp.ui.fragment.mycategories
 
-import com.app.socialapp.adapter.CategoryAdapter
+import com.app.socialapp.adapter.flexadapter.CategoryAdapter
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.data.entities.db.ItemCategory
 import com.app.socialapp.data.local.room.CategoryDao

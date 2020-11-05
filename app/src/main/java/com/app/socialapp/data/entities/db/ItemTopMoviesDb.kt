@@ -4,7 +4,6 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.app.socialapp.data.entities.ItemManyHolderTopMovies
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -18,4 +17,4 @@ data class ItemTopMoviesDb(
         @ColumnInfo(name = "poster_path") val poster_path: String,
         @ColumnInfo(name = "year") val year: Int,
         @field:PrimaryKey(autoGenerate = true) @ColumnInfo(name = "idItem") val idItem: Long = 0
-) : Parcelable, ItemManyHolderTopMovies
+) : Parcelable

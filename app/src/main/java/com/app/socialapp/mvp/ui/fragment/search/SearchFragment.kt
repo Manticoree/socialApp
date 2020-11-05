@@ -3,9 +3,7 @@ package com.app.socialapp.mvp.ui.fragment.search
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import com.app.socialapp.R
 import com.app.socialapp.application.MainApplication
@@ -15,7 +13,7 @@ import com.jakewharton.rxbinding4.view.clicks
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_search.*
 
-class SearchFragment : BaseFragment(), SearchContract.View {
+class SearchFragment : BaseFragment(R.layout.fragment_search), SearchContract.View {
 
     lateinit var presenter: SearchContract.Presenter
 
@@ -30,13 +28,6 @@ class SearchFragment : BaseFragment(), SearchContract.View {
         super.onCreate(savedInstanceState)
         MainApplication.applicationComponent.inject(this)
         Log.i("LifecycleFragmentSearch", "create")
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_search, container, false)
-        retainInstance = true
-        Log.i("LifecycleFragmentSearch", "onCreateView")
-        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -108,7 +99,7 @@ class SearchFragment : BaseFragment(), SearchContract.View {
     override fun clickSearch() {
         disList.add(mbtnSearchMovie.clicks().subscribe {
             if (tietMovie.text.toString() != "") {
-                presenter?.searchMovie(tietMovie.text.toString())
+                presenter.searchMovie(tietMovie.text.toString())
             } else {
                 Toast.makeText(activity, "Введите название фильма: ", Toast.LENGTH_SHORT).show()
             }

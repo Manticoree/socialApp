@@ -1,6 +1,6 @@
 package com.app.socialapp.mvp.ui.fragment.movie
 
-import com.app.socialapp.adapter.MoviesImdbAdapter
+import com.app.socialapp.adapter.flexadapter.MoviesImdbAdapter
 
 interface ListMovieContract {
 

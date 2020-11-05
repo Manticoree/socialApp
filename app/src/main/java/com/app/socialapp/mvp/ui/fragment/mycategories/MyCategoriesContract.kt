@@ -1,6 +1,6 @@
 package com.app.socialapp.mvp.ui.fragment.mycategories
 
-import com.app.socialapp.adapter.CategoryAdapter
+import com.app.socialapp.adapter.flexadapter.CategoryAdapter
 
 interface MyCategoriesContract {
 

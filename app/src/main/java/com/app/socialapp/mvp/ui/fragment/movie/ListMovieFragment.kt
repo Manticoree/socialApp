@@ -2,18 +2,16 @@ package com.app.socialapp.mvp.ui.fragment.movie
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.adapter.MoviesImdbAdapter
+import com.app.socialapp.adapter.flexadapter.MoviesImdbAdapter
 import com.app.socialapp.fragment.BaseFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import kotlinx.android.synthetic.main.fragment_list_my_movies.*
 
-class ListMovieFragment : BaseFragment(), ListMovieContract.View {
+class ListMovieFragment : BaseFragment(R.layout.fragment_list_my_movies), ListMovieContract.View {
 
     private lateinit var presenter: ListMovieContract.Presenter
     private lateinit var imdbAdapter: FlexibleAdapter<MoviesImdbAdapter>
@@ -28,12 +26,6 @@ class ListMovieFragment : BaseFragment(), ListMovieContract.View {
             return fragment
         }
     }
-
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_list_my_movies, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

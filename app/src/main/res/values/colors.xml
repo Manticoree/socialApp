@@ -5,4 +5,6 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="black">#000000</color>
     <color name="deep_purple_200">#b39ddb</color>
+    <color name="deep_purple_300">#c7a4ff</color>
+    <color name="deep_purple_300_dark">#65499c</color>
 </resources>

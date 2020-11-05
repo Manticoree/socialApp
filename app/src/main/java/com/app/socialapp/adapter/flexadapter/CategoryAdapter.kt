@@ -1,30 +1,30 @@
-package com.app.socialapp.adapter
+package com.app.socialapp.adapter.flexadapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.data.entities.tmdb.ItemYear
+import com.app.socialapp.data.entities.db.ItemCategory
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem
 import eu.davidea.flexibleadapter.items.IFlexible
 import eu.davidea.viewholders.FlexibleViewHolder
-import kotlinx.android.synthetic.main.item_movies_tmdb_year_production.view.*
+import kotlinx.android.synthetic.main.item_category.view.*
 
-class ShowYearAdapter(private val item: ItemYear) :
-        AbstractFlexibleItem<ShowYearAdapter.YearsHolder>(), TopMoviesBase {
+class CategoryAdapter(private val itemCategory: ItemCategory) :
+        AbstractFlexibleItem<CategoryAdapter.CategoryHolder>() {
 
     override fun bindViewHolder(
             adapter: FlexibleAdapter<IFlexible<RecyclerView.ViewHolder>>?,
-            holder: YearsHolder,
+            holder: CategoryHolder?,
             position: Int,
             payloads: MutableList<Any>?
     ) {
-        holder.bind(item)
+        holder?.bind(itemCategory)
     }
 
     override fun equals(other: Any?): Boolean {
-        return if (other is ItemYear) {
-            other == item
+        return if (other is ItemCategory) {
+            other == itemCategory
         } else {
             false
         }
@@ -33,21 +33,19 @@ class ShowYearAdapter(private val item: ItemYear) :
     override fun createViewHolder(
             view: View,
             adapter: FlexibleAdapter<IFlexible<RecyclerView.ViewHolder>>
-    ): YearsHolder = YearsHolder(view, adapter)
+    ): CategoryHolder = CategoryHolder(view, adapter)
 
-    override fun getLayoutRes(): Int = R.layout.item_movies_tmdb_year_production
+    override fun getLayoutRes(): Int = R.layout.item_category
 
-    override fun hashCode(): Int = item.hashCode()
+    override fun hashCode(): Int = itemCategory.hashCode()
 
-
-    inner class YearsHolder(
+    inner class CategoryHolder(
             view: View,
             adapter: FlexibleAdapter<out IFlexible<*>>
-    ) :
-            FlexibleViewHolder(view, adapter) {
+    ) : FlexibleViewHolder(view, adapter) {
 
-        fun bind(item: ItemYear) {
-            itemView.mtvYearProduction.text = item.year.toString()
+        fun bind(itemCategory: ItemCategory) {
+            itemView.mtvCategoryName.text = itemCategory.name
         }
 
     }

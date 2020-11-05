@@ -2,16 +2,14 @@ package com.app.socialapp.mvp.ui.host.fragment.movies
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.app.socialapp.R
 import com.app.socialapp.fragment.BaseFragment
 import com.app.socialapp.mvp.fragmentadapter.AdapterHost
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_movies_host.*
 
-class HostMoviesFragment : BaseFragment(), HostMoviesContract.View {
+class HostMoviesFragment : BaseFragment(R.layout.fragment_movies_host), HostMoviesContract.View {
 
     lateinit var presenter: HostMoviesContract.Presenter
     lateinit var adapter: AdapterHost
@@ -21,13 +19,6 @@ class HostMoviesFragment : BaseFragment(), HostMoviesContract.View {
         super.onCreate(savedInstanceState)
         Log.i("LifecycleFragmentInit: ", "onCreate")
     }
-
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_movies_host, container, false)
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

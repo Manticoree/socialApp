@@ -1,12 +1,11 @@
-package com.app.socialapp.mvvm.inyear
+package com.app.socialapp.mvvm.topmovies
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.app.socialapp.adapter.RecyclerTopMoviesTmdbAdapter
-import com.app.socialapp.adapter.TopMoviesTmdbAdapter
-import com.app.socialapp.data.entities.tmdb.ItemMovie
+import com.app.socialapp.data.entities.ItemManyHolderTopMovies
 import com.app.socialapp.data.entities.tmdb.ItemTopMovies
+import com.app.socialapp.data.entities.tmdb.ItemYear
 import com.app.socialapp.data.repository.remote.tmdb.TopMoviesRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
@@ -15,10 +14,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class TopMoviesViewModel : ViewModel() {
     private val topMoviesRepository: TopMoviesRepository = TopMoviesRepository()
-    var moviesData: MutableList<RecyclerTopMoviesTmdbAdapter> = mutableListOf()
-    var moviesLiveData: MutableLiveData<List<RecyclerTopMoviesTmdbAdapter>> = MutableLiveData()
-    val listOfList: MutableList<List<ItemMovie>> = mutableListOf()
-
+    var moviesData: MutableList<ItemManyHolderTopMovies> = mutableListOf()
+    var moviesLiveData: MutableLiveData<List<ItemManyHolderTopMovies>> = MutableLiveData()
 
     init {
         loadDataInRecView()
@@ -35,14 +32,10 @@ class TopMoviesViewModel : ViewModel() {
 
                         t.forEach {
                             Log.i("Log: ", it.toString())
-                            listOfList.add(it.results)
-                        }
-                        listOfList.forEach {
-                            var listMoviesInYear: MutableList<TopMoviesTmdbAdapter> = mutableListOf()
-                            it.forEach {
-                                listMoviesInYear.add(TopMoviesTmdbAdapter(it))
-                            }
-                            moviesData.add(RecyclerTopMoviesTmdbAdapter(listMoviesInYear))
+                            val itemYear = ItemYear(it.results[0].release_date)
+                            moviesData.add(itemYear)
+                            moviesData.add(it)
+
                         }
                         moviesLiveData.value = moviesData
                     }
@@ -55,8 +48,7 @@ class TopMoviesViewModel : ViewModel() {
 
                     }
 
-                }
-                )
+                })
     }
 
 }

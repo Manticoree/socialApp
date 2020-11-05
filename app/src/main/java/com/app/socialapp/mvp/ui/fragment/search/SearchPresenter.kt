@@ -24,10 +24,6 @@ class SearchPresenter(
     @Inject
     lateinit var moviesDao: MoviesDao
 
-    companion object {
-        const val IMBD_TOKEN: String = "9531f308"
-    }
-
     override fun onClickSearch() {
         view.clickSearch()
     }
@@ -52,7 +48,7 @@ class SearchPresenter(
                         }
                     }
 
-                    override fun onError(e: @NonNull Throwable) {
+                    override fun onError(e: Throwable) {
                         Log.e("valueSearchE", e.localizedMessage)
                     }
 
