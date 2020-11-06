@@ -1,19 +1,13 @@
 package com.app.socialapp.adapter.defaultadapter.topmovies
 
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.adapter.flexadapter.TopMoviesTmdbAdapter
 import com.app.socialapp.data.entities.ItemManyHolderTopMovies
-import com.app.socialapp.data.entities.tmdb.ItemYear
-import eu.davidea.flexibleadapter.FlexibleAdapter
-import kotlinx.android.synthetic.main.item_list_top_movie_in_year.view.*
-import kotlinx.android.synthetic.main.item_movies_tmdb_year_production.view.*
+import com.app.socialapp.databinding.ItemListTopMovieInYearBinding
+import com.app.socialapp.databinding.ItemMoviesTmdbYearProductionBinding
 
 
 class TopMoviesHolderFactory {
@@ -22,37 +16,59 @@ class TopMoviesHolderFactory {
         fun create(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             when (viewType) {
                 ItemManyHolderTopMovies.ITEM_RECVIEW -> run {
+                    /*
                     val recView: View = LayoutInflater
                             .from(parent.context)
                             .inflate(R.layout.item_list_top_movie_in_year, parent, false)
                     return ItemMovieHolder(recView)
+                     */
+                    val inflater = LayoutInflater.from(parent.context)
+                    val binding =
+                            DataBindingUtil.inflate<ItemListTopMovieInYearBinding>(
+                                    inflater,
+                                    R.layout.item_list_top_movie_in_year,
+                                    parent,
+                                    false
+                            )
+                    return ItemMovieHolder(binding)
                 }
                 ItemManyHolderTopMovies.YEAR_TEXT -> run {
-                    val textView: View = LayoutInflater
-                            .from(parent.context)
-                            .inflate(R.layout.item_movies_tmdb_year_production, parent, false)
-                    return YearViewHolder(textView)
+                    val inflater = LayoutInflater.from(parent.context)
+                    val binding =
+                            DataBindingUtil.inflate<ItemMoviesTmdbYearProductionBinding>(
+                                    inflater,
+                                    R.layout.item_movies_tmdb_year_production,
+                                    parent,
+                                    false
+                            )
+                    return
                 }
                 else -> {
-                    val recView: View = LayoutInflater
-                            .from(parent.context)
-                            .inflate(R.layout.item_list_top_movie_in_year, parent, false)
-                    return ItemMovieHolder(recView)
+                    val inflater = LayoutInflater.from(parent.context)
+                    val binding =
+                            DataBindingUtil.inflate<ItemListTopMovieInYearBinding>(
+                                    inflater,
+                                    R.layout.item_list_top_movie_in_year,
+                                    parent,
+                                    false
+                            )
+                    return
                 }
 
             }
         }
     }
 
-    class YearViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class YearViewHolder(val binding: ItemMoviesTmdbYearProductionBinding) : RecyclerView.ViewHolder(binding.root)/* {
         fun bind(itemYear: ItemManyHolderTopMovies) {
             val item: ItemYear = itemYear as ItemYear
             itemView.mtvYearProduction.text = item.year.toString()
 
         }
     }
-
-    class ItemMovieHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+*/
+    class ItemMovieHolder(val binding: ItemListTopMovieInYearBinding) : RecyclerView.ViewHolder(binding.root)
+    /*{
         fun bind(listItemDb: List<TopMoviesTmdbAdapter>) {
             Log.i("topMoviesT: ", listItemDb.toString())
             showRecyclerView(
@@ -78,6 +94,6 @@ class TopMoviesHolderFactory {
             recView.adapter = adapter
         }
     }
-
+*/
 
 }

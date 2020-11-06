@@ -5,8 +5,12 @@
     <data>
 
         <variable
-            name="adapter"
+            name="adapterMovies"
             type="com.app.socialapp.adapter.flexadapter.TopMoviesTmdbAdapter" />
+
+        <variable
+            name="listMovie"
+            type="com.app.socialapp.data.entities.tmdb.ItemTopMovies" />
 
     </data>
 
@@ -21,6 +25,8 @@
             android:clipToPadding="false"
             android:fadeScrollbars="false"
             android:scrollbarStyle="outsideOverlay"
+            app:adapterTopMovies="@{adapterMovies}"
+            app:adapterTopMoviesList="@{listMovie.results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />

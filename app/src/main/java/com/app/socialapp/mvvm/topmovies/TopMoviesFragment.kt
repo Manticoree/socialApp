@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.app.socialapp.R
 import com.app.socialapp.adapter.defaultadapter.MultiTopMoviesAdapter
 import com.app.socialapp.binding.viewBinding
@@ -15,6 +17,7 @@ class TopMoviesFragment : BaseFragment(R.layout.fragment_list_movies_tmdb), Life
 
     private val binding by viewBinding(FragmentListMoviesTmdbBinding::bind)
     private lateinit var viewModel: TopMoviesViewModel
+    private lateinit var navController: NavController
 
     companion object {
         private const val ARG_PAGE: String = "ARG_PAGE"
@@ -30,10 +33,12 @@ class TopMoviesFragment : BaseFragment(R.layout.fragment_list_movies_tmdb), Life
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TopMoviesViewModel::class.java)
+        navController = Navigation.findNavController(view)
         binding.apply {
             lifecycleOwner = this@TopMoviesFragment
             adapterMultiTopMovies = MultiTopMoviesAdapter()
             vmListTopMovies = viewModel.apply { loadDataInRecView() }
+
         }
     }
 }
