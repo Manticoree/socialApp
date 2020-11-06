@@ -25,6 +25,7 @@ data class ItemTopMovies(
             listAdap.add(TopMoviesTmdbAdapter(it))
         }
         recItem.bind(listAdap)
+
     }
 
 }

@@ -15,6 +15,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_full_information_top_movie"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/deep_purple_300">

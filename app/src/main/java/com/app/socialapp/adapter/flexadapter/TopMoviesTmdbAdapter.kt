@@ -52,7 +52,9 @@ class TopMoviesTmdbAdapter(private val itemMovie: ItemMovie) :
     override fun createViewHolder(
             view: View,
             adapter: FlexibleAdapter<IFlexible<RecyclerView.ViewHolder>>
-    ): MoviesHolder = MoviesHolder(view, adapter)
+    ): MoviesHolder {
+        return MoviesHolder(view, adapter)
+    }
 
     override fun getLayoutRes(): Int = R.layout.item_movies_tmdb
 

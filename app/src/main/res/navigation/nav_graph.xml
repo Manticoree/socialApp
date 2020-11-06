@@ -24,6 +24,17 @@
         <action
             android:id="@+id/action_host_to_addcategory"
             app:destination="@id/bottom_category" />
+        <action
+            android:id="@+id/action_listmovie_to_movie"
+            app:destination="@+id/fragment_full_information_top_movie" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_full_information_top_movie"
+        android:name="com.app.socialapp.mvvm.topmoviefullinform.FullInformationFragment"
+        android:label="full_information"
+        tools:layout="@layout/fragment_full_information_top_movie">
+
     </fragment>
 
     <fragment

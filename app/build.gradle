@@ -17,6 +17,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+
     defaultConfig {
         applicationId "com.app.socialapp"
         minSdkVersion 21
@@ -40,6 +45,10 @@ android {
     dataBinding {
         enabled = true
     }
+
+    viewBinding {
+        enabled = true
+    }
 }
 
 
@@ -49,6 +58,7 @@ dependencies {
     def nav_version = "2.3.1"
     def rx_binding_version = "4.0.0"
     def retrofit2 = "2.9.0"
+    def lifecycle = "2.2.0"
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
@@ -142,6 +152,14 @@ dependencies {
 
     //for MVVM
     implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle"
+
+    //for non null
+    implementation "com.github.skydoves:whatif:1.0.7"
+    implementation "com.github.skydoves:whatif-android:1.0.7"
 
     implementation "org.jetbrains:annotations:16.0.2"
 

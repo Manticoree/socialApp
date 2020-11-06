@@ -5,7 +5,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.adapter.defaultadapter.topmovies.TopMoviesHolderFactory
 import com.app.socialapp.data.entities.ItemManyHolderTopMovies
 
-class MultiTopMoviesAdapter(val data: List<ItemManyHolderTopMovies>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MultiTopMoviesAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    val data: MutableList<ItemManyHolderTopMovies> = mutableListOf()
+
+    fun addMoviesList(moviesList: List<ItemManyHolderTopMovies>) {
+        data.addAll(moviesList)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
             : RecyclerView.ViewHolder = TopMoviesHolderFactory.create(parent, viewType)
