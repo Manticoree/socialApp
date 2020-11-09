@@ -1,7 +1,10 @@
 package com.app.socialapp.adapter.flexadapter
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.app.socialapp.R
 import com.app.socialapp.adapter.TopMoviesBase
 import com.app.socialapp.data.entities.tmdb.ItemMovie
 import com.app.socialapp.databinding.ItemMoviesTmdbBinding
@@ -21,15 +24,21 @@ class TopMoviesTmdbAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
-        TODO("Not yet implemented")
+        val inflater = LayoutInflater.from(parent.context)
+        val binding =
+                DataBindingUtil.inflate<ItemMoviesTmdbBinding>(inflater, R.layout.item_movies_tmdb, parent, false)
+        return MoviesHolder(binding)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item = data[position]
+        holder.binding.apply {
+            itemMovie = item
+            executePendingBindings()
+
+        }
     }
 
     inner class MoviesHolder(
