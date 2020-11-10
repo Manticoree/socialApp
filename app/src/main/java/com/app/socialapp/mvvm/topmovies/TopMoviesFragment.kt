@@ -12,6 +12,7 @@ import com.app.socialapp.adapter.defaultadapter.MultiTopMoviesAdapter
 import com.app.socialapp.binding.viewBinding
 import com.app.socialapp.databinding.FragmentListMoviesTmdbBinding
 import com.app.socialapp.fragment.BaseFragment
+import com.skydoves.whatif.whatIfNotNull
 
 class TopMoviesFragment : BaseFragment(R.layout.fragment_list_movies_tmdb), LifecycleOwner {
 
@@ -30,14 +31,21 @@ class TopMoviesFragment : BaseFragment(R.layout.fragment_list_movies_tmdb), Life
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TopMoviesViewModel::class.java)
         navController = Navigation.findNavController(view)
         binding.apply {
             lifecycleOwner = this@TopMoviesFragment
-            adapterMultiTopMovies = MultiTopMoviesAdapter()
             vmListTopMovies = viewModel.apply { loadDataInRecView() }
+            vmListTopMovies.whatIfNotNull {
+                adapterMultiTopMovies = MultiTopMoviesAdapter()
+            }
+
 
         }
     }

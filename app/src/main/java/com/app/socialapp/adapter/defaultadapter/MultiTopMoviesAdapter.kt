@@ -1,9 +1,12 @@
 package com.app.socialapp.adapter.defaultadapter
 
+import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.adapter.defaultadapter.topmovies.TopMoviesHolderFactory
 import com.app.socialapp.data.entities.ItemManyHolderTopMovies
+import com.app.socialapp.data.entities.tmdb.ItemTopMovies
+import com.app.socialapp.data.entities.tmdb.ItemYear
 
 class MultiTopMoviesAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -21,6 +24,30 @@ class MultiTopMoviesAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
 
     override fun getItemViewType(position: Int): Int = data[position].getItemViewType()
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) = data[position].onBindViewHolder(holder)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val item = data[position]
+        when (getItemViewType(position)) {
+            ItemManyHolderTopMovies.ITEM_RECVIEW -> run {
+                val recItem: TopMoviesHolderFactory.ItemMovieHolder = holder as TopMoviesHolderFactory.ItemMovieHolder
+                recItem.binding.apply {
+                    listMovie = item as ItemTopMovies?
+                    val itemMovie = item as ItemTopMovies?
+                    Log.i("listMovie: ", itemMovie?.results.toString())
+                    executePendingBindings()
+                }
+            }
+            ItemManyHolderTopMovies.YEAR_TEXT -> run {
+                val yearHolder: TopMoviesHolderFactory.YearViewHolder = holder as TopMoviesHolderFactory.YearViewHolder
+                yearHolder.binding.apply {
+                    year = item as ItemYear?
+                    executePendingBindings()
+                }
+            }
+            else -> {
+
+            }
+
+        }
+    }
 
 }

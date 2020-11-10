@@ -1,7 +1,5 @@
 package com.app.socialapp.data.entities
 
-import androidx.recyclerview.widget.RecyclerView
-
 interface ItemManyHolderTopMovies {
     companion object {
         const val YEAR_TEXT: Int = 0
@@ -9,6 +7,5 @@ interface ItemManyHolderTopMovies {
     }
 
     fun getItemViewType(): Int
-    fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder)
 
 }

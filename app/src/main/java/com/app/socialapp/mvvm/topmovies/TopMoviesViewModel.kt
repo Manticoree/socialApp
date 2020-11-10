@@ -17,6 +17,10 @@ class TopMoviesViewModel : ViewModel() {
     var moviesData: MutableList<ItemManyHolderTopMovies> = mutableListOf()
     var moviesLiveData: MutableLiveData<List<ItemManyHolderTopMovies>> = MutableLiveData()
 
+    init {
+        loadDataInRecView()
+    }
+
     fun loadDataInRecView() {
         topMoviesRepository
                 .getMovies()
@@ -46,5 +50,6 @@ class TopMoviesViewModel : ViewModel() {
 
                 })
     }
+
 
 }

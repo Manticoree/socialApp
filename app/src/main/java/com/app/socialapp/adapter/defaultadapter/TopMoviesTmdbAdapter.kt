@@ -1,4 +1,4 @@
-package com.app.socialapp.adapter.flexadapter
+package com.app.socialapp.adapter.defaultadapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,7 +14,7 @@ class TopMoviesTmdbAdapter :
 
     val data: MutableList<ItemMovie> = mutableListOf()
 
-    fun addListItem(item: MutableList<ItemMovie>) {
+    fun addListItem(item: List<ItemMovie>) {
         data.addAll(item)
         notifyDataSetChanged()
     }

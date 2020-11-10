@@ -16,12 +16,6 @@ class TopMoviesHolderFactory {
         fun create(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             when (viewType) {
                 ItemManyHolderTopMovies.ITEM_RECVIEW -> run {
-                    /*
-                    val recView: View = LayoutInflater
-                            .from(parent.context)
-                            .inflate(R.layout.item_list_top_movie_in_year, parent, false)
-                    return ItemMovieHolder(recView)
-                     */
                     val inflater = LayoutInflater.from(parent.context)
                     val binding =
                             DataBindingUtil.inflate<ItemListTopMovieInYearBinding>(
@@ -41,7 +35,7 @@ class TopMoviesHolderFactory {
                                     parent,
                                     false
                             )
-                    return
+                    return YearViewHolder(binding)
                 }
                 else -> {
                     val inflater = LayoutInflater.from(parent.context)
@@ -52,48 +46,16 @@ class TopMoviesHolderFactory {
                                     parent,
                                     false
                             )
-                    return
+                    return ItemMovieHolder(binding)
                 }
 
             }
         }
     }
 
-    class YearViewHolder(val binding: ItemMoviesTmdbYearProductionBinding) : RecyclerView.ViewHolder(binding.root)/* {
-        fun bind(itemYear: ItemManyHolderTopMovies) {
-            val item: ItemYear = itemYear as ItemYear
-            itemView.mtvYearProduction.text = item.year.toString()
+    class YearViewHolder(val binding: ItemMoviesTmdbYearProductionBinding) :
+            RecyclerView.ViewHolder(binding.root)
 
-        }
-    }
-*/
     class ItemMovieHolder(val binding: ItemListTopMovieInYearBinding) : RecyclerView.ViewHolder(binding.root)
-    /*{
-        fun bind(listItemDb: List<TopMoviesTmdbAdapter>) {
-            Log.i("topMoviesT: ", listItemDb.toString())
-            showRecyclerView(
-                    listItemDb,
-                    itemView.rvListSource,
-                    itemView.context
-            )
-        }
-
-        private fun showRecyclerView(
-                initList: List<TopMoviesTmdbAdapter>,
-                recView: RecyclerView,
-                context: Context
-        ) {
-            recView.setHasFixedSize(true)
-            val manager: RecyclerView.LayoutManager = LinearLayoutManager(
-                    context,
-                    LinearLayoutManager.HORIZONTAL,
-                    false
-            )
-            recView.layoutManager = manager
-            val adapter: FlexibleAdapter<TopMoviesTmdbAdapter> = FlexibleAdapter(initList)
-            recView.adapter = adapter
-        }
-    }
-*/
 
 }
