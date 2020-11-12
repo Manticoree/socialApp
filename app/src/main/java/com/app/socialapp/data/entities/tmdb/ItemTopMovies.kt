@@ -15,6 +15,4 @@ data class ItemTopMovies(
 
     override fun getItemViewType(): Int = ItemManyHolderTopMovies.ITEM_RECVIEW
 
-
-
 }

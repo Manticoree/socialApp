@@ -31,10 +31,6 @@ class TopMoviesFragment : BaseFragment(R.layout.fragment_list_movies_tmdb), Life
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.i("onViewCreated: ", "")
@@ -42,7 +38,9 @@ class TopMoviesFragment : BaseFragment(R.layout.fragment_list_movies_tmdb), Life
         navController = Navigation.findNavController(view)
         binding.apply {
             lifecycleOwner = this@TopMoviesFragment
-            vmListTopMovies = viewModel.apply { loadDataInRecView() }
+            if (viewModel.moviesLiveData.value.isNullOrEmpty()) {
+                vmListTopMovies = viewModel.apply { loadDataInRecView() }
+            }
             adapterMultiTopMovies = MultiTopMoviesAdapter()
         }
     }

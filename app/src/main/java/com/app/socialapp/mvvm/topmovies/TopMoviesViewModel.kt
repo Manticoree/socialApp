@@ -18,6 +18,7 @@ class TopMoviesViewModel : ViewModel() {
     var moviesLiveData: MutableLiveData<List<ItemManyHolderTopMovies>> = MutableLiveData()
 
     fun loadDataInRecView() {
+        Log.i("onViewCreated: ", "loadData")
         topMoviesRepository
                 .getMovies()
                 .subscribeOn(Schedulers.io())
@@ -33,7 +34,6 @@ class TopMoviesViewModel : ViewModel() {
                             val itemYear = ItemYear(it.results[0].release_date.substring(0, 4))
                             moviesData.add(itemYear)
                             moviesData.add(it)
-
                         }
 
                         if (moviesLiveData.value.isNullOrEmpty())
