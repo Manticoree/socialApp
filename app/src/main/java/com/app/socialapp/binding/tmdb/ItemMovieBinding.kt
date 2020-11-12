@@ -8,7 +8,7 @@ import com.google.android.material.imageview.ShapeableImageView
 const val tmdbImageUrl = "https://image.tmdb.org/t/p/w500"
 
 @BindingAdapter("loadImage")
-fun bindLoadImage(view: ShapeableImageView, url: String) {
+fun bindLoadImage(view: ShapeableImageView, url: String?) {
     Glide.with(view)
             .load(tmdbImageUrl + url)
             .error(view.context.getDrawable(R.drawable.ic_no_photography_24))

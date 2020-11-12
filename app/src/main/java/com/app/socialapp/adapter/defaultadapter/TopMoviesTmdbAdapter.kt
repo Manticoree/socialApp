@@ -1,5 +1,6 @@
 package com.app.socialapp.adapter.defaultadapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -15,9 +16,16 @@ class TopMoviesTmdbAdapter :
     val data: MutableList<ItemMovie> = mutableListOf()
 
     fun addListItem(item: List<ItemMovie>) {
-        data.addAll(item)
-        notifyDataSetChanged()
+        data.forEach {
+            Log.i("dataItem: ", it.toString())
+        }
+
+        if (data.isNullOrEmpty()) {
+            data.addAll(item)
+            notifyDataSetChanged()
+        }
     }
+
 
     companion object {
         const val tmdbImageUrl = "https://image.tmdb.org/t/p/w500"
@@ -33,32 +41,16 @@ class TopMoviesTmdbAdapter :
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
-        val item = data[position]
+        val item: ItemMovie = data[position]
+        Log.i("item ", item.title)
         holder.binding.apply {
             itemMovie = item
             executePendingBindings()
-
         }
     }
 
     inner class MoviesHolder(
             val binding: ItemMoviesTmdbBinding
     ) : RecyclerView.ViewHolder(binding.root)
-    /*
-             {
 
-        fun bind(item: ItemMovie) {
-
-            Glide.with(view)
-                    .load(tmdbImageUrl + item.poster_path)
-                    .error(view.context.getDrawable(R.drawable.ic_no_photography_24))
-                    .into(itemView.sivMoviePoster)
-
-            itemView.mtvTitleMovies.text = item.title
-            itemView.mtvYear.text = item.release_date
-            itemView.mtvLanguageMovies.text = item.original_language
-        }
-
-    }
-*/
 }

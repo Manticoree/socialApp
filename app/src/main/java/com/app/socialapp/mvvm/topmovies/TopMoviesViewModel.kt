@@ -17,10 +17,6 @@ class TopMoviesViewModel : ViewModel() {
     var moviesData: MutableList<ItemManyHolderTopMovies> = mutableListOf()
     var moviesLiveData: MutableLiveData<List<ItemManyHolderTopMovies>> = MutableLiveData()
 
-    init {
-        loadDataInRecView()
-    }
-
     fun loadDataInRecView() {
         topMoviesRepository
                 .getMovies()
@@ -29,15 +25,20 @@ class TopMoviesViewModel : ViewModel() {
                 .subscribe(object : SingleObserver<List<ItemTopMovies>> {
 
                     override fun onSuccess(t: List<ItemTopMovies>) {
-
                         t.forEach {
-                            Log.i("Log: ", it.toString())
+                            Log.i("item movie year ", it.toString())
+                            it.results.forEach {
+                                Log.i("item movie ", it.toString())
+                            }
                             val itemYear = ItemYear(it.results[0].release_date.substring(0, 4))
                             moviesData.add(itemYear)
                             moviesData.add(it)
 
                         }
-                        moviesLiveData.value = moviesData
+
+                        if (moviesLiveData.value.isNullOrEmpty())
+                            moviesLiveData.value = moviesData
+
                     }
 
                     override fun onSubscribe(d: Disposable) {
@@ -50,6 +51,5 @@ class TopMoviesViewModel : ViewModel() {
 
                 })
     }
-
 
 }

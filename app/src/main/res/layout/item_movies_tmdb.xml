@@ -42,6 +42,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/mtvTitleMovies"
                 style="@style/LittleTitleTextStyle"
