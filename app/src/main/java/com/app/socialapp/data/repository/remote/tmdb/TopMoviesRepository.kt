@@ -36,10 +36,16 @@ class TopMoviesRepository {
         const val PRIMARY_RELEASE_2015 = "2015"
         const val PRIMARY_RELEASE_2014 = "2014"
         const val PRIMARY_RELEASE_2013 = "2013"
+        const val PRIMARY_RELEASE_2012 = "2013"
+        const val PRIMARY_RELEASE_2011 = "2011"
+        const val PRIMARY_RELEASE_2010 = "2010"
+        const val PRIMARY_RELEASE_2009 = "2009"
+        const val PRIMARY_RELEASE_2008 = "2008"
+        const val PRIMARY_RELEASE_2007 = "2007"
+        const val PRIMARY_RELEASE_2006 = "2006"
         const val SORT_BY = "vote_average.desc"
         const val API_KEY = "93ab2fe14a1dc7357659e0c56f2b93c4"
     }
-
 
     fun getDbMovies(year: Int): List<ItemTopMoviesDb> {
         Log.i("getFrom: ", dao.getByYear(year).toString())
@@ -102,6 +108,42 @@ class TopMoviesRepository {
                 SORT_BY,
                 API_KEY
         )
+        val movies2012Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2012,
+                SORT_BY,
+                API_KEY
+        )
+        val movies2011Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2011,
+                SORT_BY,
+                API_KEY
+        )
+        val movies2010Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2010,
+                SORT_BY,
+                API_KEY
+        )
+        val movies2009Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2009,
+                SORT_BY,
+                API_KEY
+        )
+        val movies2008Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2008,
+                SORT_BY,
+                API_KEY
+        )
+        val movies2007Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2007,
+                SORT_BY,
+                API_KEY
+        )
+        val movies2006Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
+                PRIMARY_RELEASE_2006,
+                SORT_BY,
+                API_KEY
+        )
+
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         return Single.zip(

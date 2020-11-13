@@ -26,7 +26,33 @@
             app:destination="@id/bottom_category" />
         <action
             android:id="@+id/action_listmovie_to_movie"
-            app:destination="@+id/fragment_full_information_top_movie" />
+            app:destination="@+id/fragment_full_information_top_movie">
+            <argument
+                android:name="itemMovie"
+                app:argType="com.app.socialapp.data.entities.tmdb.ItemMovie" />
+            <!--
+            <argument
+                android:name="title"
+                android:defaultValue="null"
+                app:argType="string" />
+            <argument
+                android:name="posterpath"
+                android:defaultValue="null"
+                app:argType="string" />
+            <argument
+                android:name="year"
+                android:defaultValue="null"
+                app:argType="string" />
+            <argument
+                android:name="language"
+                android:defaultValue="null"
+                app:argType="string" />
+            <argument
+                android:name="description"
+                android:defaultValue="null"
+                app:argType="string" />
+                        -->
+        </action>
     </fragment>
 
     <fragment
@@ -34,7 +60,31 @@
         android:name="com.app.socialapp.mvvm.topmoviefullinform.FullInformationFragment"
         android:label="full_information"
         tools:layout="@layout/fragment_full_information_top_movie">
-
+        <argument
+            android:name="itemMovie"
+            app:argType="com.app.socialapp.data.entities.tmdb.ItemMovie" />
+        <!--
+        <argument
+            android:name="title"
+            android:defaultValue="null"
+            app:argType="string" />
+        <argument
+            android:name="posterpath"
+            android:defaultValue="null"
+            app:argType="string" />
+        <argument
+            android:name="year"
+            android:defaultValue="null"
+            app:argType="string" />
+        <argument
+            android:name="language"
+            android:defaultValue="null"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            android:defaultValue="null"
+            app:argType="string" />
+            -->
     </fragment>
 
     <fragment
@@ -56,6 +106,5 @@
         android:name="com.app.socialapp.mvp.ui.fragment.dialog.bottom.addcategory.AddCategoryFragment"
         android:label="add_category"
         tools:layout="@layout/bottom_fragment_category" />
-
 
 </navigation>

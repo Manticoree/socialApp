@@ -16,6 +16,7 @@ class TopMoviesViewModel : ViewModel() {
     private val topMoviesRepository: TopMoviesRepository = TopMoviesRepository()
     var moviesData: MutableList<ItemManyHolderTopMovies> = mutableListOf()
     var moviesLiveData: MutableLiveData<List<ItemManyHolderTopMovies>> = MutableLiveData()
+    lateinit var disTopMovies: Disposable
 
     fun loadDataInRecView() {
         Log.i("onViewCreated: ", "loadData")
@@ -42,7 +43,7 @@ class TopMoviesViewModel : ViewModel() {
                     }
 
                     override fun onSubscribe(d: Disposable) {
-
+                        disTopMovies = d;
                     }
 
                     override fun onError(e: Throwable) {
@@ -50,6 +51,10 @@ class TopMoviesViewModel : ViewModel() {
                     }
 
                 })
+    }
+
+    fun clearSession() {
+        disTopMovies.dispose()
     }
 
 }

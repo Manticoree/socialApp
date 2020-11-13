@@ -19,13 +19,16 @@ class MultiTopMoviesAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            : RecyclerView.ViewHolder = TopMoviesHolderFactory.create(parent, viewType)
+            : RecyclerView.ViewHolder {
+        return TopMoviesHolderFactory.create(parent, viewType)
+    }
 
     override fun getItemCount(): Int = data.size
 
     override fun getItemViewType(position: Int): Int = data[position].getItemViewType()
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
         val item = data[position]
         when (getItemViewType(position)) {
             ItemManyHolderTopMovies.ITEM_RECVIEW -> run {

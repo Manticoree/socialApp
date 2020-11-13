@@ -34,14 +34,27 @@ class TopMoviesFragment : BaseFragment(R.layout.fragment_list_movies_tmdb), Life
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.i("onViewCreated: ", "")
+
         viewModel = ViewModelProviders.of(this).get(TopMoviesViewModel::class.java)
         navController = Navigation.findNavController(view)
         binding.apply {
             lifecycleOwner = this@TopMoviesFragment
-            if (viewModel.moviesLiveData.value.isNullOrEmpty()) {
-                vmListTopMovies = viewModel.apply { loadDataInRecView() }
+            vmListTopMovies = if (viewModel.moviesLiveData.value.isNullOrEmpty()) {
+                viewModel.apply { viewModel.loadDataInRecView() }
+            } else {
+                viewModel.apply { viewModel.moviesLiveData.value }
             }
             adapterMultiTopMovies = MultiTopMoviesAdapter()
         }
+    }
+
+    override fun onStop() {
+        Log.i("lifeCycleOnStop: ", "")
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        Log.i("lifeCycleOnDestroy: ", "")
+        super.onDestroy()
     }
 }
