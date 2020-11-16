@@ -23,6 +23,16 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+    <style name="CollapseTitleTextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
     <style name="LittleTitleTextStyle" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginBottom">20dp</item>

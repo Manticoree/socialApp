@@ -14,11 +14,12 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/fragment_full_information_top_movie"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/deep_purple_300">
+        android:background="@color/deep_purple_300"
+        app:layoutDescription="@xml/fragment_full_information_top_movie_scene">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/sivHeader"
@@ -34,7 +35,7 @@
             android:id="@+id/sivPoster"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_margin="10dp"
+            android:padding="10dp"
             android:elevation="5dp"
             android:scaleType="centerCrop"
             app:layout_constraintHeight_percent="0.3"
@@ -55,6 +56,46 @@
             app:layout_constraintTop_toBottomOf="@+id/sivPoster" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleReleaseDate"
+            style="@style/LittleTitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/year"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitle" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvReleaseDate"
+            style="@style/LittleTitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@{itemFullInformation.release_date}"
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitleReleaseDate"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitle" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvTitleLanguage"
+            style="@style/LittleTitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/language"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleReleaseDate" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvLanguage"
+            style="@style/LittleTitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@{itemFullInformation.original_language}"
+            app:layout_constraintLeft_toRightOf="@+id/mtvTitleLanguage"
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleReleaseDate" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtvTitleDescription"
             style="@style/LittleTitleTextStyle"
             android:layout_width="wrap_content"
@@ -63,7 +104,7 @@
             android:text="@string/description"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mtvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/mtvTitleLanguage" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtvDescription"
@@ -71,7 +112,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{itemFullInformation.overview}"
-            android:layout_margin="5dp"
+            android:gravity="center"
+            android:layout_margin="10dp"
             app:layout_constraintTop_toBottomOf="@+id/mtvTitleDescription" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>
