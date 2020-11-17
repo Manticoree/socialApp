@@ -14,4 +14,18 @@ interface ServiceTmdb {
             @Query("api_key") api_key: String
     ): Single<ItemTopMovies>
 
+    @GET("discover/movie")
+    fun getHighestRatingMovies(
+            @Query("certification_country") primaryRelease: String,
+            @Query("certification") certification: String,
+            @Query("sort_by") sort_by: String,
+            @Query("api_key") api_key: String
+    ): Single<ItemTopMovies>
+
+    @GET("discover/movie")
+    fun getPopularMovies(
+            @Query("sort_by") sort_by: String,
+            @Query("api_key") api_key: String
+    ): Single<ItemTopMovies>
+
 }

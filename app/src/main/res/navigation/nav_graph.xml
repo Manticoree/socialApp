@@ -30,28 +30,6 @@
             <argument
                 android:name="itemMovie"
                 app:argType="com.app.socialapp.data.entities.tmdb.ItemMovie" />
-            <!--
-            <argument
-                android:name="title"
-                android:defaultValue="null"
-                app:argType="string" />
-            <argument
-                android:name="posterpath"
-                android:defaultValue="null"
-                app:argType="string" />
-            <argument
-                android:name="year"
-                android:defaultValue="null"
-                app:argType="string" />
-            <argument
-                android:name="language"
-                android:defaultValue="null"
-                app:argType="string" />
-            <argument
-                android:name="description"
-                android:defaultValue="null"
-                app:argType="string" />
-                        -->
         </action>
     </fragment>
 
@@ -63,28 +41,6 @@
         <argument
             android:name="itemMovie"
             app:argType="com.app.socialapp.data.entities.tmdb.ItemMovie" />
-        <!--
-        <argument
-            android:name="title"
-            android:defaultValue="null"
-            app:argType="string" />
-        <argument
-            android:name="posterpath"
-            android:defaultValue="null"
-            app:argType="string" />
-        <argument
-            android:name="year"
-            android:defaultValue="null"
-            app:argType="string" />
-        <argument
-            android:name="language"
-            android:defaultValue="null"
-            app:argType="string" />
-        <argument
-            android:name="description"
-            android:defaultValue="null"
-            app:argType="string" />
-            -->
     </fragment>
 
     <fragment
@@ -92,7 +48,6 @@
         android:name="com.app.socialapp.mvp.ui.host.fragment.serials.HostSerialsFragment"
         android:label="host_serials"
         tools:layout="@layout/fragment_serials_host">
-
     </fragment>
 
     <fragment

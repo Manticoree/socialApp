@@ -1,6 +1,7 @@
 package com.app.socialapp.mvvm.topmovies
 
 import android.util.Log
+import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.socialapp.data.entities.ItemManyHolderTopMovies
@@ -16,6 +17,9 @@ class TopMoviesViewModel : ViewModel() {
     private val topMoviesRepository: TopMoviesRepository = TopMoviesRepository()
     var moviesData: MutableList<ItemManyHolderTopMovies> = mutableListOf()
     var moviesLiveData: MutableLiveData<List<ItemManyHolderTopMovies>> = MutableLiveData()
+
+    val isLoadingProgressBar: ObservableBoolean = ObservableBoolean(false)
+
     lateinit var disTopMovies: Disposable
 
     fun loadDataInRecView() {
@@ -24,6 +28,9 @@ class TopMoviesViewModel : ViewModel() {
                 .getMovies()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { isLoadingProgressBar.set(true) }
+                .doOnSuccess { isLoadingProgressBar.set(false) }
+                .doOnError { isLoadingProgressBar.set(false) }
                 .subscribe(object : SingleObserver<List<ItemTopMovies>> {
 
                     override fun onSuccess(t: List<ItemTopMovies>) {
@@ -47,7 +54,7 @@ class TopMoviesViewModel : ViewModel() {
                     }
 
                     override fun onError(e: Throwable) {
-
+                        Log.e("onError load data: ", e.fillInStackTrace().toString())
                     }
 
                 })

@@ -1,9 +1,11 @@
 package com.app.socialapp.binding.tmdb
 
+import android.widget.ProgressBar
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.adapter.defaultadapter.MultiTopMoviesAdapter
 import com.app.socialapp.data.entities.ItemManyHolderTopMovies
+import com.app.socialapp.extensions.gone
 import com.app.socialapp.mvvm.topmovies.TopMoviesViewModel
 
 @BindingAdapter("adapter")
@@ -19,5 +21,11 @@ fun paginationMultiList(view: RecyclerView, viewModel: TopMoviesViewModel) {
 @BindingAdapter("adapterList")
 fun bindAdapterMultiList(view: RecyclerView, multiList: List<ItemManyHolderTopMovies>?) {
     multiList?.let { (view.adapter as? MultiTopMoviesAdapter)?.addMoviesList(it) }
+
+}
+
+@BindingAdapter("gone")
+fun bindGone(view: ProgressBar, shouldBeGone: Boolean) {
+    view.gone(shouldBeGone)
 
 }

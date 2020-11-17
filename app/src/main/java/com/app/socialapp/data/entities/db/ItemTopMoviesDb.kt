@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "top_movies")
 data class ItemTopMoviesDb(
-        @ColumnInfo(name = "vote_average") val vote_average: Int,
+        @ColumnInfo(name = "vote_average") val vote_average: Float,
         @ColumnInfo(name = "title") val title: String,
         @ColumnInfo(name = "release_date") val release_date: String,
         @ColumnInfo(name = "original_language") val original_language: String,

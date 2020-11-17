@@ -5,6 +5,7 @@ import android.content.Context
 import com.app.socialapp.application.MainApplication
 import com.app.socialapp.data.repository.db.ShowListMoviesRepository
 import com.app.socialapp.data.repository.remote.imdb.SearchMoviesRepository
+import com.app.socialapp.data.repository.remote.tmdb.PopularMoviesRepository
 import com.app.socialapp.data.repository.remote.tmdb.TopMoviesRepository
 import com.app.socialapp.di.ApplicationContext
 import com.app.socialapp.di.modules.ApplicationModule
@@ -63,6 +64,7 @@ interface AppComponent {
     fun inject(topMoviesRepository: TopMoviesRepository)
     fun inject(searchMoviesRepository: SearchMoviesRepository)
     fun inject(showListMoviesRepository: ShowListMoviesRepository)
+    fun inject(popularMoviesRepository: PopularMoviesRepository)
 
 
 }

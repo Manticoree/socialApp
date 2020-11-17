@@ -193,6 +193,9 @@ class TopMoviesRepository {
                             topMovies2019,
                             topMovies2020
                     )
+                    listTopMovies.forEach {
+                        Log.i("listTopMovies: ", it.results.toString())
+                    }
                     listTopMovies
                 }
         )
