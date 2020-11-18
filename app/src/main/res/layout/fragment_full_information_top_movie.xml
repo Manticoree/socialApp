@@ -14,16 +14,26 @@
 
     </data>
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/fragment_full_information_top_movie"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutDescription="@xml/fragment_full_information_top_movie_scene">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
 
-        <View
-            android:id="@+id/vLeftDivider"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/fragment_full_information_top_movie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutDescription="@xml/fragment_full_information_top_movie_scene">
+
+                <View
+                    android:id="@+id/vLeftDivider"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
             android:background="@color/black"
             android:layout_marginStart="2dp"
             android:layout_marginTop="30dp"
@@ -146,14 +156,16 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mtvTitleLanguage" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvDescription"
-            style="@style/CommonTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:gravity="center"
-            android:text="@{itemFullInformation.overview}"
-            app:layout_constraintTop_toBottomOf="@+id/mtvTitleDescription" />
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtvDescription"
+                    style="@style/CommonTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:text="@{itemFullInformation.overview}"
+                    app:layout_constraintTop_toBottomOf="@+id/mtvTitleDescription" />
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

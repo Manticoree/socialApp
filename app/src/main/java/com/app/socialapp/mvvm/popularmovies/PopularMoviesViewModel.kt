@@ -3,7 +3,6 @@ package com.app.socialapp.mvvm.popularmovies
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.app.socialapp.data.entities.ItemManyHolderTopMovies
 import com.app.socialapp.data.entities.tmdb.ItemTopMovies
 import com.app.socialapp.data.repository.remote.tmdb.PopularMoviesRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -14,8 +13,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class PopularMoviesViewModel : ViewModel() {
     private val popularMoviesRepository: PopularMoviesRepository = PopularMoviesRepository()
-    var popularMoviesData: MutableList<ItemManyHolderTopMovies> = mutableListOf()
-    var popularMoviesLiveData: MutableLiveData<List<ItemManyHolderTopMovies>> = MutableLiveData()
+    var popularMoviesData: MutableList<ItemTopMovies> = mutableListOf()
+    var popularMoviesLiveData: MutableLiveData<List<ItemTopMovies>> = MutableLiveData()
 
     lateinit var disPopularMovies: Disposable
 

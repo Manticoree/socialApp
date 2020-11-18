@@ -1,12 +1,11 @@
 package com.app.socialapp.mvvm.popularmovies
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import com.app.socialapp.R
+import com.app.socialapp.adapter.defaultadapter.PopularMoviesAdapter
 import com.app.socialapp.binding.viewBinding
 import com.app.socialapp.databinding.FragmentPopularMoviesBinding
 import com.app.socialapp.fragment.BaseFragment
@@ -28,13 +27,18 @@ class PopularMoviesFragment : BaseFragment(R.layout.fragment_popular_movies) {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(PopularMoviesViewModel::class.java)
-
+        binding.apply {
+            lifecycleOwner = this@PopularMoviesFragment
+            vmPopularMovies = if (viewModel.popularMoviesLiveData.value.isNullOrEmpty()) {
+                viewModel.apply { viewModel.loadPopularMovies() }
+            } else {
+                viewModel.apply { viewModel.popularMoviesLiveData.value }
+            }
+            adapterPopularMovies = PopularMoviesAdapter()
+        }
     }
+
 }
