@@ -39,7 +39,6 @@
             android:id="@+id/pbLoadingTopMovies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateDrawable="@drawable/progress"
             app:gone="@{!vmListTopMovies.isLoadingProgressBar()}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
