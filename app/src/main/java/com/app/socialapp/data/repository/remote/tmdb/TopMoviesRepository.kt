@@ -10,6 +10,7 @@ import com.app.socialapp.data.mapper.item.ItemTopMapperImpl
 import com.app.socialapp.data.remote.retrofit.ServiceTmdb
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.functions.Function7
 import io.reactivex.rxjava3.functions.Function8
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -146,6 +147,43 @@ class TopMoviesRepository {
 
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+        val lowMovies: Single<List<ItemTopMovies>> = Single.zip(
+                movies2012Item,
+                movies2011Item,
+                movies2010Item,
+                movies2009Item,
+                movies2008Item,
+                movies2007Item,
+                movies2006Item,
+                Function7<
+                        ItemTopMovies,
+                        ItemTopMovies,
+                        ItemTopMovies,
+                        ItemTopMovies,
+                        ItemTopMovies,
+                        ItemTopMovies,
+                        ItemTopMovies,
+                        List<ItemTopMovies>
+                        > { topMovies2012,
+                            topMovies2011,
+                            topMovies2010,
+                            topMovies2009,
+                            topMovies2008,
+                            topMovies2007,
+                            topMovies2006, ->
+                    val listTopMovies = mutableListOf(
+                            topMovies2006,
+                            topMovies2007,
+                            topMovies2008,
+                            topMovies2009,
+                            topMovies2010,
+                            topMovies2011,
+                            topMovies2012
+                    )
+                    listTopMovies
+                }
+        )
+
         return Single.zip(
                 movies2020Item,
                 movies2019Item,
@@ -173,16 +211,6 @@ class TopMoviesRepository {
                             topMovies2015,
                             topMovies2014,
                             topMovies2013 ->
-
-                    // putRequestInDb(topMovies2020.results, 2020)
-                    // putRequestInDb(topMovies2019.results, 2019)
-                    //putRequestInDb(topMovies2018.results, 2018)
-                    //putRequestInDb(topMovies2017.results, 2017)
-                    // putRequestInDb(topMovies2016.results, 2016)
-                    // putRequestInDb(topMovies2015.results, 2015)
-                    //  putRequestInDb(topMovies2014.results, 2014)
-                    //  putRequestInDb(topMovies2013.results, 2013)
-
                     val listTopMovies = mutableListOf(
                             topMovies2013,
                             topMovies2014,
