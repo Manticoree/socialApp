@@ -21,6 +21,11 @@ fun paginationMultiList(view: RecyclerView, viewModel: TopMoviesViewModel) {
 @BindingAdapter("adapterList")
 fun bindAdapterMultiList(view: RecyclerView, multiList: List<ItemManyHolderTopMovies>?) {
     multiList?.let { (view.adapter as? MultiTopMoviesAdapter)?.addMoviesList(it) }
+    view.apply {
+        setHasFixedSize(true)
+        setItemViewCacheSize(1)
+
+    }
 
 }
 
