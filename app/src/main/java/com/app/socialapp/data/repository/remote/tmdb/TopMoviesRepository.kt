@@ -28,6 +28,7 @@ class TopMoviesRepository {
     }
 
     companion object {
+        const val PAGE = 1
         const val PRIMARY_RELEASE_2020 = "2020"
         const val PRIMARY_RELEASE_2019 = "2019"
         const val PRIMARY_RELEASE_2018 = "2018"
@@ -43,7 +44,6 @@ class TopMoviesRepository {
         const val PRIMARY_RELEASE_2008 = "2008"
         const val PRIMARY_RELEASE_2007 = "2007"
         const val PRIMARY_RELEASE_2006 = "2006"
-        const val SORT_BY = "vote_average.desc"
         const val API_KEY = "93ab2fe14a1dc7357659e0c56f2b93c4"
     }
 
@@ -55,93 +55,93 @@ class TopMoviesRepository {
     fun getMovies(): Single<List<ItemTopMovies>> {
         val movies2020Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2020,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 
         val movies2019Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2019,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         val movies2018Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2018,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         val movies2017Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2017,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         val movies2016Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2016,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         val movies2015Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2015,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         val movies2014Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2014,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         val movies2013Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2013,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
         val movies2012Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2012,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
         val movies2011Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2011,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
         val movies2010Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2010,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
         val movies2009Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2009,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
         val movies2008Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2008,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
         val movies2007Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2007,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
         val movies2006Item: Single<ItemTopMovies> = serviceTmdb.getTopMoviesInYears(
                 PRIMARY_RELEASE_2006,
-                SORT_BY,
-                API_KEY
+                API_KEY,
+                PAGE
         )
 
                 .subscribeOn(Schedulers.io())

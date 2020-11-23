@@ -50,7 +50,7 @@ class TopMoviesViewModel : ViewModel() {
                     }
 
                     override fun onSubscribe(d: Disposable) {
-                        disTopMovies = d;
+                        disTopMovies = d
                     }
 
                     override fun onError(e: Throwable) {

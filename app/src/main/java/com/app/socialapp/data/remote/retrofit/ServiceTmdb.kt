@@ -10,22 +10,22 @@ interface ServiceTmdb {
     @GET("discover/movie")
     fun getTopMoviesInYears(
             @Query("primary_release_year") primaryRelease: String,
-            @Query("sort_by") sort_by: String,
-            @Query("api_key") api_key: String
+            @Query("api_key") api_key: String,
+            @Query("page") page: Int,
     ): Single<ItemTopMovies>
 
     @GET("discover/movie")
     fun getHighestRatingMovies(
             @Query("certification_country") primaryRelease: String,
             @Query("certification") certification: String,
-            @Query("sort_by") sort_by: String,
-            @Query("api_key") api_key: String
+            @Query("api_key") api_key: String,
+            @Query("page") page: Int,
     ): Single<ItemTopMovies>
 
     @GET("discover/movie")
     fun getPopularMovies(
-            @Query("sort_by") sort_by: String,
-            @Query("api_key") api_key: String
+            @Query("api_key") api_key: String,
+            @Query("page") page: Int,
     ): Single<ItemTopMovies>
 
 }

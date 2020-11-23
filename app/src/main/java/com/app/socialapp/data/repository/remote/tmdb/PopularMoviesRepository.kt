@@ -16,12 +16,18 @@ class PopularMoviesRepository {
     }
 
     companion object {
-        const val SORT_BY = "vote_average.desc"
+        const val PAGE = 1
+        const val PRIMARY_RELEASE = "US"
+        const val CERTIFICATION = "R"
         const val API_KEY = "93ab2fe14a1dc7357659e0c56f2b93c4"
     }
 
     fun getPopularMovies(): Single<ItemTopMovies> {
-        return serviceTmdb.getPopularMovies(SORT_BY, API_KEY)
+        return serviceTmdb.getPopularMovies(API_KEY, PAGE)
+    }
+
+    fun getHighestMovies(): Single<ItemTopMovies> {
+        return serviceTmdb.getHighestRatingMovies(PRIMARY_RELEASE, CERTIFICATION, API_KEY, PAGE)
     }
 
 }

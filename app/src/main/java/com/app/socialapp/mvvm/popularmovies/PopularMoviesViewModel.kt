@@ -13,10 +13,11 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class PopularMoviesViewModel : ViewModel() {
     private val popularMoviesRepository: PopularMoviesRepository = PopularMoviesRepository()
-    var popularMoviesData: MutableList<ItemTopMovies> = mutableListOf()
     var popularMoviesLiveData: MutableLiveData<List<ItemTopMovies>> = MutableLiveData()
+    var highestMoviesLiveData: MutableLiveData<List<ItemTopMovies>> = MutableLiveData()
 
     lateinit var disPopularMovies: Disposable
+    lateinit var disHighestMovies: Disposable
 
     fun loadPopularMovies() {
         popularMoviesRepository
@@ -26,13 +27,33 @@ class PopularMoviesViewModel : ViewModel() {
                 .subscribe(object : SingleObserver<ItemTopMovies> {
 
                     override fun onSuccess(t: ItemTopMovies) {
-                        popularMoviesData = mutableListOf(t)
-                        if (popularMoviesLiveData.value.isNullOrEmpty())
-                            popularMoviesLiveData.value = popularMoviesData
+                        popularMoviesLiveData.value = mutableListOf(t)
                     }
 
                     override fun onSubscribe(d: Disposable) {
                         disPopularMovies = d
+                    }
+
+                    override fun onError(e: Throwable) {
+                        Log.e("onError popMov: ", e.fillInStackTrace().toString())
+                    }
+
+                })
+    }
+
+    fun loadHighestMovies() {
+        popularMoviesRepository
+                .getHighestMovies()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : SingleObserver<ItemTopMovies> {
+
+                    override fun onSuccess(t: ItemTopMovies) {
+                        highestMoviesLiveData.value = mutableListOf(t)
+                    }
+
+                    override fun onSubscribe(d: Disposable) {
+                        disHighestMovies = d
                     }
 
                     override fun onError(e: Throwable) {

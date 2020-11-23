@@ -37,7 +37,15 @@ class PopularMoviesFragment : BaseFragment(R.layout.fragment_popular_movies) {
             } else {
                 viewModel.apply { viewModel.popularMoviesLiveData.value }
             }
+
+            vmHighestMovies = if (viewModel.highestMoviesLiveData.value.isNullOrEmpty()) {
+                viewModel.apply { viewModel.loadHighestMovies() }
+            } else {
+                viewModel.apply { viewModel.highestMoviesLiveData.value }
+            }
+
             adapterPopularMovies = PopularMoviesAdapter()
+            adapterHighestMovies = PopularMoviesAdapter()
         }
     }
 

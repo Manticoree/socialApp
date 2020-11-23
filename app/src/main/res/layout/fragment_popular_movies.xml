@@ -9,7 +9,15 @@
             type="com.app.socialapp.mvvm.popularmovies.PopularMoviesViewModel" />
 
         <variable
+            name="vmHighestMovies"
+            type="com.app.socialapp.mvvm.popularmovies.PopularMoviesViewModel" />
+
+        <variable
             name="adapterPopularMovies"
+            type="com.app.socialapp.adapter.defaultadapter.PopularMoviesAdapter" />
+
+        <variable
+            name="adapterHighestMovies"
             type="com.app.socialapp.adapter.defaultadapter.PopularMoviesAdapter" />
 
     </data>
@@ -93,6 +101,23 @@
                     app:layout_constraintHeight_percent="0.25"
                     app:layout_constraintTop_toBottomOf="@+id/mtvHighestMovies"
                     app:shapeAppearanceOverlay="@style/TLTRShapeAppearanceOverlay.CardView" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHighestMovies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:clipToPadding="false"
+                    android:elevation="5dp"
+                    android:fadeScrollbars="false"
+                    android:orientation="horizontal"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:adapterPopular="@{adapterHighestMovies}"
+                    app:adapterPopularList="@{vmHighestMovies.highestMoviesLiveData}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="@+id/sivHeaderHighestMov"
+                    app:layout_constraintTop_toTopOf="@+id/sivHeaderHighestMov"
+                    tools:listitem="@layout/item_popular_movies_tmdb" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/mcvMoviesTogetherActors"
