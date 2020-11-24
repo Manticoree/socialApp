@@ -10,6 +10,7 @@ import com.app.socialapp.data.mapper.item.ItemTopMapperImpl
 import com.app.socialapp.data.remote.retrofit.ServiceTmdb
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.functions.Function7
 import io.reactivex.rxjava3.functions.Function8
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver
@@ -38,7 +39,7 @@ class TopMoviesRepository {
         const val PRIMARY_RELEASE_2015 = "2015"
         const val PRIMARY_RELEASE_2014 = "2014"
         const val PRIMARY_RELEASE_2013 = "2013"
-        const val PRIMARY_RELEASE_2012 = "2013"
+        const val PRIMARY_RELEASE_2012 = "2012"
         const val PRIMARY_RELEASE_2011 = "2011"
         const val PRIMARY_RELEASE_2010 = "2010"
         const val PRIMARY_RELEASE_2009 = "2009"
@@ -184,7 +185,7 @@ class TopMoviesRepository {
                 }
         )
 
-        return Single.zip(
+        val highMovies: Single<List<ItemTopMovies>> = Single.zip(
                 movies2020Item,
                 movies2019Item,
                 movies2018Item,
@@ -227,6 +228,16 @@ class TopMoviesRepository {
                     listTopMovies
                 }
         )
+        return Single.zip(lowMovies, highMovies, BiFunction<List<ItemTopMovies>, List<ItemTopMovies>, MutableList<ItemTopMovies>>
+        { low,
+          high ->
+            val lowhigh: MutableList<ItemTopMovies> = mutableListOf()
+            lowhigh.apply {
+                plusAssign(low)
+                plusAssign(high)
+            }
+            lowhigh
+        })
     }
 
     fun putRequestInDb(list: List<ItemMovie>, year: Int) {

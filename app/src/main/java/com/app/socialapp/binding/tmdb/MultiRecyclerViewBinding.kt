@@ -23,14 +23,10 @@ fun bindAdapterMultiList(view: RecyclerView, multiList: List<ItemManyHolderTopMo
     multiList?.let { (view.adapter as? MultiTopMoviesAdapter)?.addMoviesList(it) }
     view.apply {
         setHasFixedSize(true)
-        setItemViewCacheSize(1)
-
     }
-
 }
 
 @BindingAdapter("gone")
 fun bindGone(view: ProgressBar, shouldBeGone: Boolean) {
     view.gone(shouldBeGone)
-
 }
