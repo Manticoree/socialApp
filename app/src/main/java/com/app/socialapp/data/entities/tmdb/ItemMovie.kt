@@ -6,6 +6,9 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class ItemMovie(
         val vote_average: Float,
+        val popularity: Float,
+        val vote_count: Int,
+        val adult: Boolean,
         val title: String,
         val release_date: String,
         val original_language: String,
