@@ -43,6 +43,38 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvVoteAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:elevation="3dp"
+                android:text="@{itemMovie.vote_average}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sivMoviePoster" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvPopularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:elevation="3dp"
+                android:text="@{itemMovie.popularity}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mtvVoteAverage" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvVoteCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:elevation="3dp"
+                android:text="@{itemMovie.vote_count}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mtvPopularity" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/mtvTitleMovies"
@@ -56,7 +88,7 @@
                 android:text="@{itemMovie.title}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sivMoviePoster" />
+                app:layout_constraintTop_toBottomOf="@+id/mtvVoteCount" />
 
 
             <com.google.android.material.textview.MaterialTextView
