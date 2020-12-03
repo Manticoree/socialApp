@@ -6,11 +6,15 @@ interface ListMovieContract {
 
     interface View {
         fun showRecyclerView(initList: List<MoviesImdbAdapter>)
+        fun goToTheSearchView()
+        fun showSearchFragment()
     }
 
     interface Presenter {
         fun onShowRecyclerView()
         fun initDataFromDB()
+        fun onGoToTheSearchView()
+        fun onShowSearchFragment()
         fun cleanMemory()
     }
 }

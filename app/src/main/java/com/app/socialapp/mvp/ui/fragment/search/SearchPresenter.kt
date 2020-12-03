@@ -43,7 +43,6 @@ class SearchPresenter(
                     override fun onSuccess(itemMovieImdb: ItemMovieImdb) {
                         Log.i("valueSearch", itemMovieImdb.toString())
                         if (itemMovieImdb.title != null) {
-                            //  moviesDao.insert(ItemMapperImpl.convert(itemMovieImdb))
                             view.showMovie(itemMovieImdb.poster, itemMovieImdb.title, itemMovieImdb.plot)
                         }
                     }
