@@ -2,8 +2,8 @@ package com.app.socialapp.mvp.ui.fragment.movie
 
 
 import com.app.socialapp.adapter.flexadapter.MoviesImdbAdapter
-import com.app.socialapp.data.entities.db.ItemMovieDb
-import com.app.socialapp.data.repository.db.ShowListMoviesRepository
+import com.app.socialapp.domain.entities.db.ItemMovieDb
+import com.app.socialapp.domain.repository.db.ShowListMoviesRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable

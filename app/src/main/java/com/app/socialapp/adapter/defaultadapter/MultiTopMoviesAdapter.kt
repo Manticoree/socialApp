@@ -3,9 +3,9 @@ package com.app.socialapp.adapter.defaultadapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.adapter.defaultadapter.topmovies.TopMoviesHolderFactory
-import com.app.socialapp.data.entities.ItemManyHolderTopMovies
-import com.app.socialapp.data.entities.tmdb.ItemTopMovies
-import com.app.socialapp.data.entities.tmdb.ItemYear
+import com.app.socialapp.domain.entities.ItemManyHolderTopMovies
+import com.app.socialapp.domain.entities.tmdb.ItemTopMovies
+import com.app.socialapp.domain.entities.tmdb.ItemYear
 
 class MultiTopMoviesAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

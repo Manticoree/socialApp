@@ -4,10 +4,10 @@ import android.util.Log
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.app.socialapp.data.entities.ItemManyHolderTopMovies
-import com.app.socialapp.data.entities.tmdb.ItemTopMovies
-import com.app.socialapp.data.entities.tmdb.ItemYear
-import com.app.socialapp.data.repository.remote.tmdb.TopMoviesRepository
+import com.app.socialapp.domain.entities.ItemManyHolderTopMovies
+import com.app.socialapp.domain.entities.tmdb.ItemTopMovies
+import com.app.socialapp.domain.entities.tmdb.ItemYear
+import com.app.socialapp.domain.repository.remote.tmdb.TopMoviesRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable

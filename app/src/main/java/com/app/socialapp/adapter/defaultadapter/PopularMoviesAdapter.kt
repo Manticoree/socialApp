@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.data.entities.tmdb.ItemMovie
 import com.app.socialapp.databinding.ItemPopularMoviesTmdbBinding
+import com.app.socialapp.domain.entities.tmdb.ItemMovie
 
 class PopularMoviesAdapter : RecyclerView.Adapter<PopularMoviesAdapter.PopularMoviesHolder>() {
 

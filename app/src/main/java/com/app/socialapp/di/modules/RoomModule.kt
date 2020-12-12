@@ -2,12 +2,12 @@ package com.app.socialapp.di.modules
 
 import android.content.Context
 import androidx.room.Room
-import com.app.socialapp.data.local.room.CategoryDao
-import com.app.socialapp.data.local.room.MoviesDao
-import com.app.socialapp.data.local.room.MoviesDatabase
-import com.app.socialapp.data.local.room.TopMoviesDao
 import com.app.socialapp.di.ApplicationContext
 import com.app.socialapp.di.DatabaseInfo
+import com.app.socialapp.domain.local.room.CategoryDao
+import com.app.socialapp.domain.local.room.MoviesDao
+import com.app.socialapp.domain.local.room.MoviesDatabase
+import com.app.socialapp.domain.local.room.TopMoviesDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

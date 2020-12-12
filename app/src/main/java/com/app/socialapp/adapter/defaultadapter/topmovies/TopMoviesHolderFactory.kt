@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.data.entities.ItemManyHolderTopMovies
 import com.app.socialapp.databinding.ItemListTopMovieInYearBinding
 import com.app.socialapp.databinding.ItemMoviesTmdbYearProductionBinding
+import com.app.socialapp.domain.entities.ItemManyHolderTopMovies
 
 
 class TopMoviesHolderFactory {

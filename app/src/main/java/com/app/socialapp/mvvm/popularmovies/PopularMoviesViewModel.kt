@@ -3,8 +3,8 @@ package com.app.socialapp.mvvm.popularmovies
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.app.socialapp.data.entities.tmdb.ItemTopMovies
-import com.app.socialapp.data.repository.remote.tmdb.PopularMoviesRepository
+import com.app.socialapp.domain.entities.tmdb.ItemTopMovies
+import com.app.socialapp.domain.repository.remote.tmdb.PopularMoviesRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable

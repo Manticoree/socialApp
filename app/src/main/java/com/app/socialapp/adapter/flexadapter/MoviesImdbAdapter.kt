@@ -3,7 +3,7 @@ package com.app.socialapp.adapter.flexadapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
-import com.app.socialapp.data.entities.db.ItemMovieDb
+import com.app.socialapp.domain.entities.db.ItemMovieDb
 import com.bumptech.glide.Glide
 import com.google.android.material.shape.CornerFamily
 import eu.davidea.flexibleadapter.FlexibleAdapter

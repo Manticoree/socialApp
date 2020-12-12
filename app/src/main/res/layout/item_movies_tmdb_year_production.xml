@@ -5,7 +5,7 @@
 
         <variable
             name="year"
-            type="com.app.socialapp.data.entities.tmdb.ItemYear" />
+            type="com.app.socialapp.domain.entities.tmdb.ItemYear" />
     </data>
 
     <LinearLayout

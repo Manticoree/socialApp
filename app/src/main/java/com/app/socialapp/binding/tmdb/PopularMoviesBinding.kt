@@ -3,7 +3,7 @@ package com.app.socialapp.binding.tmdb
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.adapter.defaultadapter.PopularMoviesAdapter
-import com.app.socialapp.data.entities.tmdb.ItemTopMovies
+import com.app.socialapp.domain.entities.tmdb.ItemTopMovies
 import com.app.socialapp.mvvm.popularmovies.PopularMoviesViewModel
 
 @BindingAdapter("adapterPopular")

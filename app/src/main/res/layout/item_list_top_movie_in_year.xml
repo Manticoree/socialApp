@@ -10,7 +10,7 @@
 
         <variable
             name="listMovie"
-            type="com.app.socialapp.data.entities.tmdb.ItemTopMovies" />
+            type="com.app.socialapp.domain.entities.tmdb.ItemTopMovies" />
 
     </data>
 

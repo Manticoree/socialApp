@@ -8,8 +8,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.R
 import com.app.socialapp.adapter.TopMoviesBase
-import com.app.socialapp.data.entities.tmdb.ItemMovie
 import com.app.socialapp.databinding.ItemMoviesTmdbBinding
+import com.app.socialapp.domain.entities.tmdb.ItemMovie
 import com.app.socialapp.mvp.ui.host.fragment.movies.HostMoviesFragmentDirections
 
 class TopMoviesTmdbAdapter :

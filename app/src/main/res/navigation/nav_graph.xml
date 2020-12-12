@@ -29,7 +29,7 @@
             app:destination="@+id/fragment_full_information_top_movie">
             <argument
                 android:name="itemMovie"
-                app:argType="com.app.socialapp.data.entities.tmdb.ItemMovie" />
+                app:argType="com.app.socialapp.domain.entities.tmdb.ItemMovie" />
         </action>
     </fragment>
 
@@ -40,7 +40,7 @@
         tools:layout="@layout/fragment_full_information_top_movie">
         <argument
             android:name="itemMovie"
-            app:argType="com.app.socialapp.data.entities.tmdb.ItemMovie" />
+            app:argType="com.app.socialapp.domain.entities.tmdb.ItemMovie" />
     </fragment>
 
     <fragment

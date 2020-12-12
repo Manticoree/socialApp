@@ -1,13 +1,13 @@
 package com.app.socialapp.application
 
 import androidx.multidex.MultiDexApplication
-import com.app.socialapp.data.local.room.MoviesDao
 import com.app.socialapp.di.components.AppComponent
 import com.app.socialapp.di.components.DaggerAppComponent
 import com.app.socialapp.di.modules.ApplicationModule
 import com.app.socialapp.di.modules.ContextModule
 import com.app.socialapp.di.modules.RetrofitModule
 import com.app.socialapp.di.modules.RoomModule
+import com.app.socialapp.domain.local.room.MoviesDao
 import javax.inject.Inject
 
 class MainApplication : MultiDexApplication() {

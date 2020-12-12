@@ -6,7 +6,7 @@
 
         <variable
             name="itemMovie"
-            type="com.app.socialapp.data.entities.tmdb.ItemMovie" />
+            type="com.app.socialapp.domain.entities.tmdb.ItemMovie" />
 
     </data>
 
