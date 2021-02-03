@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.app.socialapp.R
-import com.app.socialapp.application.MainApplication
+import com.app.socialapp.base.MainApplication
 import com.app.socialapp.fragment.BaseFragment
 import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding4.view.clicks

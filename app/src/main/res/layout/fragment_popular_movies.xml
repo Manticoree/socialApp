@@ -6,11 +6,11 @@
 
         <variable
             name="vmPopularMovies"
-            type="com.app.socialapp.mvvm.popularmovies.PopularMoviesViewModel" />
+            type="com.app.socialapp.mvvm.movies.popularmovies.PopularMoviesViewModel" />
 
         <variable
             name="vmHighestMovies"
-            type="com.app.socialapp.mvvm.popularmovies.PopularMoviesViewModel" />
+            type="com.app.socialapp.mvvm.movies.popularmovies.PopularMoviesViewModel" />
 
         <variable
             name="adapterPopularMovies"

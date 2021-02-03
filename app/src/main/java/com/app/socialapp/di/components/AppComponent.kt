@@ -2,7 +2,7 @@ package com.app.socialapp.di.components
 
 import android.app.Application
 import android.content.Context
-import com.app.socialapp.application.MainApplication
+import com.app.socialapp.base.MainApplication
 import com.app.socialapp.di.ApplicationContext
 import com.app.socialapp.di.modules.ApplicationModule
 import com.app.socialapp.di.modules.ContextModule
@@ -12,6 +12,7 @@ import com.app.socialapp.domain.repository.db.ShowListMoviesRepository
 import com.app.socialapp.domain.repository.remote.imdb.SearchMoviesRepository
 import com.app.socialapp.domain.repository.remote.tmdb.PopularMoviesRepository
 import com.app.socialapp.domain.repository.remote.tmdb.TopMoviesRepository
+import com.app.socialapp.domain.repository.remote.tmdb.TopSerialsRepository
 import com.app.socialapp.mvp.ui.fragment.dialog.bottom.addcategory.AddCategoryPresenter
 import com.app.socialapp.mvp.ui.fragment.movie.ListMovieFragment
 import com.app.socialapp.mvp.ui.fragment.movie.ListMoviePresenter
@@ -65,6 +66,7 @@ interface AppComponent {
     fun inject(searchMoviesRepository: SearchMoviesRepository)
     fun inject(showListMoviesRepository: ShowListMoviesRepository)
     fun inject(popularMoviesRepository: PopularMoviesRepository)
+    fun inject(topSerialsRepository: TopSerialsRepository)
 
 
 }

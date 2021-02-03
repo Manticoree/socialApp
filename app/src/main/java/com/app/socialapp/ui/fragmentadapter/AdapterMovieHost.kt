@@ -1,14 +1,14 @@
-package com.app.socialapp.mvp.fragmentadapter
+package com.app.socialapp.ui.fragmentadapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.app.socialapp.mvp.ui.fragment.movie.ListMovieFragment
 import com.app.socialapp.mvp.ui.fragment.mycategories.MyCategoriesFragment
-import com.app.socialapp.mvvm.popularmovies.PopularMoviesFragment
-import com.app.socialapp.mvvm.topmovies.TopMoviesFragment
+import com.app.socialapp.mvvm.movies.popularmovies.PopularMoviesFragment
+import com.app.socialapp.mvvm.movies.topmovies.TopMoviesFragment
 
-class AdapterHost(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
+class AdapterMovieHost(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
 
     companion object {
         const val PAGE_COUNT = 4

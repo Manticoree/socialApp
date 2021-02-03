@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/fragment_full_information_top_movie"
-        android:name="com.app.socialapp.mvvm.topmoviefullinform.FullInformationFragment"
+        android:name="com.app.socialapp.mvvm.movies.topmoviefullinform.FullInformationFragment"
         android:label="full_information"
         tools:layout="@layout/fragment_full_information_top_movie">
         <argument
@@ -45,7 +45,7 @@
 
     <fragment
         android:id="@+id/fragment_serials_host"
-        android:name="com.app.socialapp.mvp.ui.host.fragment.serials.HostSerialsFragment"
+        android:name="com.app.socialapp.mvvm.serials.host.HostSerialsFragment"
         android:label="host_serials"
         tools:layout="@layout/fragment_serials_host">
     </fragment>

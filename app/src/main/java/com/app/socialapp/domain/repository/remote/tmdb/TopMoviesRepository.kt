@@ -1,7 +1,7 @@
 package com.app.socialapp.domain.repository.remote.tmdb
 
 import android.util.Log
-import com.app.socialapp.application.MainApplication
+import com.app.socialapp.base.MainApplication
 import com.app.socialapp.domain.entities.db.ItemTopMoviesDb
 import com.app.socialapp.domain.entities.tmdb.ItemMovie
 import com.app.socialapp.domain.entities.tmdb.ItemTopMovies
@@ -11,8 +11,6 @@ import com.app.socialapp.domain.remote.retrofit.ServiceTmdb
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.functions.BiFunction
-import io.reactivex.rxjava3.functions.Function7
-import io.reactivex.rxjava3.functions.Function8
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
@@ -156,22 +154,15 @@ class TopMoviesRepository {
                 movies2008Item,
                 movies2007Item,
                 movies2006Item,
-                Function7<
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        List<ItemTopMovies>
-                        > { topMovies2012,
-                            topMovies2011,
-                            topMovies2010,
-                            topMovies2009,
-                            topMovies2008,
-                            topMovies2007,
-                            topMovies2006, ->
+                {
+                    topMovies2012,
+                    topMovies2011,
+                    topMovies2010,
+                    topMovies2009,
+                    topMovies2008,
+                    topMovies2007,
+                    topMovies2006,
+                    ->
                     val listTopMovies = mutableListOf(
                             topMovies2006,
                             topMovies2007,
@@ -194,24 +185,14 @@ class TopMoviesRepository {
                 movies2015Item,
                 movies2014Item,
                 movies2013Item,
-                Function8<
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        ItemTopMovies,
-                        List<ItemTopMovies>
-                        > { topMovies2020,
-                            topMovies2019,
-                            topMovies2018,
-                            topMovies2017,
-                            topMovies2016,
-                            topMovies2015,
-                            topMovies2014,
-                            topMovies2013 ->
+                { topMovies2020,
+                  topMovies2019,
+                  topMovies2018,
+                  topMovies2017,
+                  topMovies2016,
+                  topMovies2015,
+                  topMovies2014,
+                  topMovies2013 ->
                     val listTopMovies = mutableListOf(
                             topMovies2013,
                             topMovies2014,

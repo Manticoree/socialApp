@@ -1,4 +1,4 @@
-package com.app.socialapp.application
+package com.app.socialapp.base
 
 import androidx.multidex.MultiDexApplication
 import com.app.socialapp.di.components.AppComponent

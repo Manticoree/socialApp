@@ -1,4 +1,4 @@
-package com.app.socialapp.mvvm.topmoviefullinform
+package com.app.socialapp.mvvm.movies.topmoviefullinform
 
 import android.os.Bundle
 import android.view.View

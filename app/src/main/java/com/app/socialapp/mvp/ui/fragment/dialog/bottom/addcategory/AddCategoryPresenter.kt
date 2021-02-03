@@ -1,6 +1,6 @@
 package com.app.socialapp.mvp.ui.fragment.dialog.bottom.addcategory
 
-import com.app.socialapp.application.MainApplication
+import com.app.socialapp.base.MainApplication
 import com.app.socialapp.domain.entities.db.ItemCategory
 import com.app.socialapp.domain.local.room.CategoryDao
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

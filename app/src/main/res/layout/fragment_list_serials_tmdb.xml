@@ -6,17 +6,17 @@
     <data>
 
         <variable
-            name="vmListTopMovies"
-            type="com.app.socialapp.mvvm.movies.topmovies.TopMoviesViewModel" />
+            name="vmListTopSerials"
+            type="com.app.socialapp.mvvm.serials.fragment.topserial.TopSerialViewModel" />
 
         <variable
-            name="adapterMultiTopMovies"
+            name="adapterMultiTopSerials"
             type="com.app.socialapp.adapter.defaultadapter.MultiTopMoviesAdapter" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/allListMovies"
+        android:id="@+id/allListSerials"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -24,8 +24,8 @@
             android:id="@+id/rvListSource"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:adapter="@{adapterMultiTopMovies}"
-            app:adapterList="@{vmListTopMovies.moviesLiveData}"
+            app:adapter="@{adapterMultiTopSerials}"
+            app:adapterList="@{vmListTopSerials.serialsLiveData}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +35,7 @@
             android:id="@+id/pbLoadingTopMovies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:gone="@{!vmListTopMovies.isLoadingProgressBar()}"
+            app:gone="@{!vmListTopSerials.isLoadingProgressBar()}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -3,10 +3,9 @@ package com.app.socialapp.domain.repository.remote.tmdb
 import com.app.socialapp.base.MainApplication
 import com.app.socialapp.domain.entities.tmdb.ItemTopMovies
 import com.app.socialapp.domain.remote.retrofit.ServiceTmdb
-import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
-class PopularMoviesRepository {
+class TopSerialsRepository {
 
     @Inject
     lateinit var serviceTmdb: ServiceTmdb
@@ -22,12 +21,11 @@ class PopularMoviesRepository {
         const val API_KEY = "93ab2fe14a1dc7357659e0c56f2b93c4"
     }
 
-    fun getPopularMovies(): Single<ItemTopMovies> {
-        return serviceTmdb.getPopularMovies(API_KEY, PAGE)
-    }
-
-    fun getHighestMovies(): Single<ItemTopMovies> {
-        return serviceTmdb.getHighestRatingMovies(PRIMARY_RELEASE, CERTIFICATION, API_KEY, PAGE)
-    }
+    suspend fun getTopSerials(): ItemTopMovies = serviceTmdb.getHighestRatingSerials(
+            PRIMARY_RELEASE,
+            CERTIFICATION,
+            API_KEY,
+            PAGE
+    )
 
 }

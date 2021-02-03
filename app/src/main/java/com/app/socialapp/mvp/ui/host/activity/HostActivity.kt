@@ -5,7 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.app.socialapp.R
-import com.app.socialapp.application.BaseActivity
+import com.app.socialapp.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_host.*
 
 class HostActivity : BaseActivity() {

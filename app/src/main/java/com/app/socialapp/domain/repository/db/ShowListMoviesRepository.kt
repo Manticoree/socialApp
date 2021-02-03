@@ -1,6 +1,6 @@
 package com.app.socialapp.domain.repository.db
 
-import com.app.socialapp.application.MainApplication
+import com.app.socialapp.base.MainApplication
 import com.app.socialapp.domain.entities.db.ItemMovieDb
 import com.app.socialapp.domain.local.room.MoviesDao
 import io.reactivex.rxjava3.core.Single

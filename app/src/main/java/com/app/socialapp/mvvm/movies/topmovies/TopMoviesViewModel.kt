@@ -1,4 +1,4 @@
-package com.app.socialapp.mvvm.topmovies
+package com.app.socialapp.mvvm.movies.topmovies
 
 import android.util.Log
 import androidx.databinding.ObservableBoolean

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.socialapp.adapter.defaultadapter.MultiTopMoviesAdapter
 import com.app.socialapp.domain.entities.ItemManyHolderTopMovies
 import com.app.socialapp.extensions.gone
-import com.app.socialapp.mvvm.topmovies.TopMoviesViewModel
+import com.app.socialapp.mvvm.movies.topmovies.TopMoviesViewModel
 
 @BindingAdapter("adapter")
 fun bindAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>?) {

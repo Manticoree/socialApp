@@ -1,4 +1,4 @@
-package com.app.socialapp.mvvm.popularmovies
+package com.app.socialapp.mvvm.movies.popularmovies
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

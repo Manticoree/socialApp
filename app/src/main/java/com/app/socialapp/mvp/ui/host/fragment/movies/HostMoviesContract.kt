@@ -6,13 +6,11 @@ interface HostMoviesContract {
 
         fun showMoviesFragment()
 
-
     }
 
     interface Presenter {
 
         fun onShowMoviesFragment()
-
 
     }
 

@@ -5,14 +5,14 @@ import android.util.Log
 import android.view.View
 import com.app.socialapp.R
 import com.app.socialapp.fragment.BaseFragment
-import com.app.socialapp.mvp.fragmentadapter.AdapterHost
+import com.app.socialapp.ui.fragmentadapter.AdapterMovieHost
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_movies_host.*
 
 class HostMoviesFragment : BaseFragment(R.layout.fragment_movies_host), HostMoviesContract.View {
 
     lateinit var presenter: HostMoviesContract.Presenter
-    lateinit var adapter: AdapterHost
+    lateinit var adapterMovie: AdapterMovieHost
     var disList: MutableList<Disposable> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,8 +72,8 @@ class HostMoviesFragment : BaseFragment(R.layout.fragment_movies_host), HostMovi
 
     override fun showMoviesFragment() {
         Log.i("LifecycleFragmentInit: ", "showMovies")
-        adapter = AdapterHost(childFragmentManager, 1)
-        vpSocial.adapter = adapter
+        adapterMovie = AdapterMovieHost(childFragmentManager, 1)
+        vpSocial.adapter = adapterMovie
         tabDiffSocial.setupWithViewPager(vpSocial)
     }
 

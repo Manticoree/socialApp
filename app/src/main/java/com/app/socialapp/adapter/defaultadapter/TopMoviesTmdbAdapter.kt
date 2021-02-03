@@ -48,7 +48,9 @@ class TopMoviesTmdbAdapter :
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
         val item: ItemMovie = data[position]
-        Log.i("item ", item.title)
+        item.title?.let {
+            Log.i("item ", it)
+        }
         holder.binding.apply {
             itemMovie = item
             executePendingBindings()

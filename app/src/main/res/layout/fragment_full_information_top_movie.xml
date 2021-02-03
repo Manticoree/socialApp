@@ -10,7 +10,7 @@
 
         <variable
             name="VMfullInformation"
-            type="com.app.socialapp.mvvm.topmoviefullinform.FullInformationViewModel" />
+            type="com.app.socialapp.mvvm.movies.topmoviefullinform.FullInformationViewModel" />
 
     </data>
             <androidx.constraintlayout.motion.widget.MotionLayout

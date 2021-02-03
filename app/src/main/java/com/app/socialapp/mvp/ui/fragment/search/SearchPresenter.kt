@@ -1,7 +1,7 @@
 package com.app.socialapp.mvp.ui.fragment.search
 
 import android.util.Log
-import com.app.socialapp.application.MainApplication
+import com.app.socialapp.base.MainApplication
 import com.app.socialapp.domain.entities.imdb.ItemMovieImdb
 import com.app.socialapp.domain.local.room.MoviesDao
 import com.app.socialapp.domain.remote.retrofit.ServiceImdb
